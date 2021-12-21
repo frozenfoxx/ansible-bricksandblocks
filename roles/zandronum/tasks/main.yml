@@ -1,0 +1,9 @@
+---
+- name: ensure build dependencies
+  apt:
+    pkg:
+      - gnupg
+      - software-properties-common
+      - wget
+- name: ensure config directory exists
+  file: path=/root/.config/zandronum state=directory

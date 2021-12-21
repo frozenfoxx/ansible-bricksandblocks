@@ -1,0 +1,4 @@
+---
+- hosts: zandronum
+  roles:
+    - zandronum
