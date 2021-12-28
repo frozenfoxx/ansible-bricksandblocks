@@ -1,0 +1,27 @@
+---
+- name: ensure build dependencies
+  apt:
+    pkg:
+      - gnupg
+      - software-properties-common
+      - wget
+
+- name: Add the Apt signing key
+  ansible.builtin.apt_key:
+    url: http://debian.drdteam.org/drdteam.gpg
+    state: present
+
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb http://debian.drdteam.org/ stable multiverse
+    state: present
+
+- name: add the Zandronum package
+  apt:
+    pkg:
+      - zandronum-server
+
+- name: update the linker to look for the included libraries
+  ansible.builtin.shell: |
+    echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
+    ldconfig

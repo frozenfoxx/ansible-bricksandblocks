@@ -1,9 +1,15 @@
 ---
-- name: ensure build dependencies
-  apt:
-    pkg:
-      - gnupg
-      - software-properties-common
-      - wget
+- name: ensure wads directory exists
+  file: path=/wads state=directory
+
 - name: ensure config directory exists
   file: path=/root/.config/zandronum state=directory
+
+- name: copy default configuration
+  copy:
+    src:  ./
+    dest: /root/.config/zandronum/
+
+- name: handle installation for Debian
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
