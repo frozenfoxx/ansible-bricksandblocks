@@ -1,4 +1,5 @@
 ---
 - hosts: zandronum
   roles:
+    - livedns
     - zandronum
