@@ -28,13 +28,16 @@
 
 - name: create zandronum user
   ansible.builtin.user:
-    name: zandronum
+    name:  zandronum
+    shell: /bin/bash
 
 - name: ensure config directory exists
   file: path=/home/zandronum/.config/zandronum state=directory
 
 - name: copy default configuration
   copy:
-    src:  ./
-    dest: /home/zandronum/.config/zandronum/
-
+    src:   ./
+    dest:  /home/zandronum/.config/zandronum/
+    owner: zandronum
+    group: zandronum
+    mode:  0644
