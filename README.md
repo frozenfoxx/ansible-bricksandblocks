@@ -1,2 +1,3 @@
-# foxhole-playbooks
-Ansible playbooks for the foxhole
+# bricksandblocks-playbooks
+
+Ansible playbooks for BricksAndBlocks.
