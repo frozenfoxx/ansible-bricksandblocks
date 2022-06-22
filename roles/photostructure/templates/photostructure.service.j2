@@ -1,0 +1,19 @@
+[Unit]
+Description=PhotoStructure for Servers
+Documentation=https://photostructure.com/servers/
+Requires=network.target
+Wants=multi-user.target
+After=multi-user.target
+
+[Service]
+User=photostructure
+Group=photostructure
+ExecStart=/home/photostructure/photostructure-for-servers/start.sh --expose
+Type=simple
+Restart=on-failure
+TimeoutSec=2min
+# Remove this line if your version of systemd doesn't support PrivateTmp:
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

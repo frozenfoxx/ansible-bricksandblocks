@@ -1,0 +1,55 @@
+---
+- name: ensure build dependencies
+  ansible.builtin.apt:
+    pkg:
+      - build-essential
+      - curl
+      - ffmpeg
+      - git
+      - libjpeg-turbo-progs
+      - libheif-examples
+      - perl
+      - python3-dev
+
+- name: create photostructure user
+  ansible.builtin.user:
+    name:  photostructure
+    password: '*'
+    shell: /bin/bash
+
+- name: fetch Node.js installer
+  ansible.builtin.uri:
+    url: https://deb.nodesource.com/setup_16.x
+    return_content: yes
+  register: nodejs_installer
+
+- name: run Node.js installer
+  ansible.builtin.shell:
+    cmd: bash -
+    stdin: "{{ nodejs_installer.content }}"
+
+- name: install Node.js
+  apt:
+    pkg:
+      - nodejs
+
+- name: install Photostructure
+  ansible.builtin.git:
+    repo: https://github.com/photostructure/photostructure-for-servers.git
+    dest: /home/photostructure/photostructure-for-servers
+  become: yes
+  become_user: photostructure
+
+- name: install Photostructure service file
+  ansible.builtin.template:
+    src: photostructure.service.j2
+    dest: /lib/systemd/system/photostructure.service
+    mode: 644
+    notify:
+      - reload systemctl
+
+- name: start Photostructure
+  ansible.builtin.service:
+    name: photostructure.service
+    state: started
+    enabled: yes

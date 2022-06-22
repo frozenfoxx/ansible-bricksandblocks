@@ -1,4 +1,9 @@
 ---
+- hosts: photos
+  roles:
+    - livedns
+    - zandronum
+
 - hosts: zandronum
   roles:
     - livedns
