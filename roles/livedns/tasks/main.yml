@@ -6,7 +6,7 @@
     mode: 0750
 
 - name: Set the cron to run the update script
-  ansible.builtin.cron:
+  cron:
     name: "update livedns"
     minute: 0
     job: "API_KEY=\"{{ livedns_api_key }}\" DOMAIN=\"{{ livedns_domain }}\" SUBDOMAIN=\"{{ livedns_subdomain }}\" /root/livedns_ddns_update.sh"

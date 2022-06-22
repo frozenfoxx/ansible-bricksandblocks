@@ -7,12 +7,12 @@
       - wget
 
 - name: Add the Apt signing key
-  ansible.builtin.apt_key:
+  apt_key:
     url: http://debian.drdteam.org/drdteam.gpg
     state: present
 
 - name: Add specified repository into sources list
-  ansible.builtin.apt_repository:
+  apt_repository:
     repo: deb http://debian.drdteam.org/ stable multiverse
     state: present
 
@@ -22,12 +22,12 @@
       - zandronum-server
 
 - name: update the linker to look for the included libraries
-  ansible.builtin.shell: |
+  shell: |
     echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
     ldconfig
 
 - name: create zandronum user
-  ansible.builtin.user:
+  user:
     name:  zandronum
     shell: /bin/bash
 
