@@ -45,8 +45,8 @@
     src: photostructure.service.j2
     dest: /lib/systemd/system/photostructure.service
     mode: 644
-    notify:
-      - reload systemctl
+  notify:
+    - reload systemctl
 
 - name: start Photostructure
   service:
