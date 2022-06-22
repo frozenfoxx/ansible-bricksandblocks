@@ -1,3 +1,3 @@
-# bricksandblocks-playbooks
+# ansible-bricksandblocks
 
 Ansible playbooks for BricksAndBlocks.
