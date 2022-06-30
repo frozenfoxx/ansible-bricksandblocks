@@ -41,10 +41,12 @@
   become_user: photostructure
 
 - name: install Photostructure service file
-  template:
-    src:  photostructure.service.j2
-    dest: /lib/systemd/system/photostructure.service
-    mode: 644
+  copy:
+    src:   ./photostructure.service
+    dest:  /lib/systemd/system/photostructure.service
+    owner: zandronum
+    group: zandronum
+    mode:  0644
   notify:
     - reload systemctl
 
