@@ -4,11 +4,8 @@
     repo: deb http://archive.canonical.com/ubuntu jammy multiverse
     state: present
 
-- name: add 32-bit architecture
-  lineinfile:
-    dest:   /var/lib/dpkg/arch
-    line:   "i386"
-    create: yes
+- name: add 32bit architecture installation for Debian
+  import_tasks: debian-32bit.yml
 
 - name: ensure build dependencies
   apt:
@@ -18,22 +15,8 @@
       - steamcmd
       - wget
 
-- name: download .NET runtime dependencies
-  get_url:
-    url:  https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
-    dest: /tmp/packages-microsoft-prod.deb
-    mode: '0440'
-
-- name: install .NET runtime repos
-  apt:
-    deb:  /tmp/packages-microsoft-prod.deb
-    sudo: true    
-
-- name: install .NET runtime depdencies
-  apt:
-    pkg:
-      - dotnet-runtime-3.1
-    update_cache: yes
+- name: install .NET depedencies for Debian
+  import_tasks: debian-dotnet.yml
 
 - name: create steam user
   user:
