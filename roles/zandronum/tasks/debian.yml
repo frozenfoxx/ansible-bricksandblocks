@@ -41,3 +41,6 @@
     owner: zandronum
     group: zandronum
     mode:  0644
+
+- name: add server scripts
+  import_tasks: serverscripts.yml

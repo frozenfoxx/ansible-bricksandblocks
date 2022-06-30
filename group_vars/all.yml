@@ -1,4 +1,6 @@
 ---
-livedns_api_key:   "{{ lookup('env', 'LIVEDNS_API_KEY') }}"
-livedns_domain:    "{{ lookup('env', 'LIVEDNS_DOMAIN') }}"
-livedns_subdomain: "{{ lookup('env', 'LIVEDNS_SUBDOMAIN') }}"
+livedns_api_key:       "{{ lookup('env', 'LIVEDNS_API_KEY') }}"
+livedns_domain:        "{{ lookup('env', 'LIVEDNS_DOMAIN') }}"
+livedns_subdomain:     "{{ lookup('env', 'LIVEDNS_SUBDOMAIN') }}"
+zandronum_rcon_pass:   "{{ lookup('env', 'ZANDRONUM_RCON_PASS') }}"
+zandronum_server_pass: "{{ lookup('env', 'ZANDRONUM_SERVER_PASS') }}"
