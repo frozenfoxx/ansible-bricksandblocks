@@ -1,0 +1,10 @@
+---
+- name: ensure submarines directory exists
+  file: path=/submarines state=directory
+
+- name: ensure saves directory exists
+  file: path=/saves state=directory
+
+- name: handle installation for Debian
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
