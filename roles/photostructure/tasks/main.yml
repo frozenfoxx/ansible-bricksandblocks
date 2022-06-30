@@ -42,7 +42,7 @@
 
 - name: install Photostructure service file
   template:
-    src: photostructure.service.j2
+    src:  photostructure.service.j2
     dest: /lib/systemd/system/photostructure.service
     mode: 644
   notify:
