@@ -23,6 +23,32 @@
     name:  steam
     shell: /bin/bash
 
+- name: install Barotrauma
+  shell:
+    cmd: |
+      steamcmd \
+      @ShutdownOnFailedCommand \
+      @NoPromptForPassword \
+      +login anonymous \
+      +force_install_dir /home/steam/barotrauma-dedicated \
+      +app_update 1026340 validate \
+      +'quit'
+  become: true
+  become_user: steam
+
+- name: create steamclient.so symlink
+  shell:
+    cmd: |
+      mkdir -p /home/steam/.steam/sdk64 && \
+      chown -R steam:steam /home/steam/.steam && \
+      ln -s /home/steam/barotrauma-dedicated/steamclient.so /home/steam/.steam/sdk64/steamclient.so
+
+- name: ensure multiplayer save directory exists
+  shell:
+    cmd: |
+      mkdir -p /home/steam/.local/share/Daedalic\ Entertainment\ GmbH/Barotrauma/Multiplayer && \
+      chown -R steam:steam /home/steam/.local/share/Daedalic\ Entertainment\ GmbH
+
 - name: ensure config directory exists
   file: path=/home/steam/barotrauma-dedicated/Data state=directory
 
