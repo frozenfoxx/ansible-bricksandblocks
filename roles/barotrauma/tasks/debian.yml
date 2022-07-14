@@ -53,6 +53,12 @@
     name:  btserver
     shell: /bin/bash
 
+- name: create Ansible temp directory
+  shell:
+    cmd: mkdir -p /home/btserver/.ansible/tmp
+  become: true
+  become_user: btserver
+
 - name: retrieve LinuxGSM script
   get_url:
     url: https://linuxgsm.sh
@@ -69,7 +75,9 @@
 
 - name: install Barotrauma
   shell:
-    cmd: /home/btserver/btserver install
+    cmd: |
+      cd /home/btserver && \
+      /home/btserver/btserver install
   become: true
   become_user: btserver
 
