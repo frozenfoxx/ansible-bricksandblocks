@@ -69,7 +69,7 @@
 
 - name: install Barotrauma
   shell:
-    cmd: ./btserver install
+    cmd: /home/btserver/btserver install
   become: true
   become_user: btserver
 
