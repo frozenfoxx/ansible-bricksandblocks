@@ -58,6 +58,8 @@
     url: https://linuxgsm.sh
     dest: /home/btserver/linuxgsm.sh
     mode: '750'
+  become: true
+  become_user: btserver
 
 - name: install Barotrauma module
   shell:
