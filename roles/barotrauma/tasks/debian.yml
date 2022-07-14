@@ -31,6 +31,8 @@
       - util-linux
       - unzip
       - wget
+    environment:
+      DEBIAN_FRONTEND: noninteractive
 
 - name: create btserver user
   user:
