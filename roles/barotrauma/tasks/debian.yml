@@ -70,14 +70,14 @@
 - name: install Barotrauma module
   shell:
     cmd: ./linuxgsm.sh btserver
-  chdir: /home/btserver
+    chdir: /home/btserver
   become: true
   become_user: btserver
 
 - name: install Barotrauma
   shell:
     cmd: ./btserver install
-  chdir: /home/btserver
+    chdir: /home/btserver
   become: true
   become_user: btserver
 
