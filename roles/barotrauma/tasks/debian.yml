@@ -10,54 +10,48 @@
 - name: ensure build dependencies
   apt:
     pkg:
-      - apt-transport-https
+      - bc
+      - binutils
+      - bsdmainutils
+      - bzip2
+      - ca-certificates
+      - curl
+      - file
+      - gzip
+      - jq
       - lib32gcc-s1
+      - lib32stdc++6
+      - libicu-dev
+      - libsdl2-2.0-0:i386
+      - netcat
+      - python3
       - steamcmd
+      - tar
+      - tmux
+      - util-linux
+      - unzip
       - wget
 
-- name: install .NET depedencies for Debian
-  import_tasks: debian-dotnet.yml
-
-- name: create steam user
+- name: create btserver user
   user:
-    name:  steam
+    name:  btserver
     shell: /bin/bash
+
+- name: retrieve LinuxGSM script
+  get_url:
+    url: https://linuxgsm.sh
+    dest: /home/btserver/linuxgsm.sh
+    mode: '750'
+
+- name: install Barotrauma module
+  shell:
+    cmd: ./linuxgsm.sh btserver
+  become: true
+  become_user: btserver
 
 - name: install Barotrauma
   shell:
-    cmd: |
-      steamcmd \
-      @ShutdownOnFailedCommand \
-      @NoPromptForPassword \
-      +login anonymous \
-      +force_install_dir /home/steam/barotrauma-dedicated \
-      +app_update 1026340 validate \
-      +'quit'
+    cmd: ./btserver install
   become: true
-  become_user: steam
+  become_user: btserver
 
-- name: create steamclient.so symlink
-  shell:
-    cmd: |
-      mkdir -p /home/steam/.steam/sdk64 && \
-      chown -R steam:steam /home/steam/.steam && \
-      ln -s /home/steam/barotrauma-dedicated/steamclient.so /home/steam/.steam/sdk64/steamclient.so
-
-- name: ensure multiplayer save directory exists
-  shell:
-    cmd: |
-      mkdir -p /home/steam/.local/share/Daedalic\ Entertainment\ GmbH/Barotrauma/Multiplayer && \
-      chown -R steam:steam /home/steam/.local/share/Daedalic\ Entertainment\ GmbH
-
-- name: ensure config directory exists
-  file: path=/home/steam/barotrauma-dedicated/Data state=directory
-
-- name: copy default configuration
-  template:
-    src:   clientpermissions.xml.j2
-    dest:  /home/steam/barotrauma-dedicated/Data/clientpermissions.xml
-    owner: steam
-    group: steam
-    mode:  0644
-  notify:
-    - reload systemctl
