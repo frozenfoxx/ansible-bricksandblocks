@@ -76,7 +76,7 @@
 
 - name: install Barotrauma
   shell:
-    cmd: ./btserver install
+    cmd: ./btserver auto-install
     chdir: /home/btserver
   become: true
   become_user: btserver
