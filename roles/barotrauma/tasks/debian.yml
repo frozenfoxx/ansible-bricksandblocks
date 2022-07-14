@@ -7,12 +7,18 @@
 - name: add 32bit architecture installation for Debian
   import_tasks: debian-32bit.yml
 
-- name: Accept Steam license
+- name: accept Steam license (question)
+  debconf:
+    name: steam
+    question: steam/question
+    value: 'I AGREE'
+    vtype: select
+
+- name: accept Steam license (license)
   debconf:
     name: steam
     question: steam/license
-    value: 'true'
-    vtype: select
+    vtype: note
 
 - name: ensure build dependencies
   apt:
