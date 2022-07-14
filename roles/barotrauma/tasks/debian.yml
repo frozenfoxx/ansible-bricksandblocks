@@ -18,6 +18,7 @@
   debconf:
     name: steam
     question: steam/license
+    value: ''
     vtype: note
 
 - name: ensure build dependencies
