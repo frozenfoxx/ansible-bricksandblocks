@@ -92,12 +92,12 @@
 - name: register if a Multiplayer mount exists
   stat:
     path: /data/Multiplayer
-    register: multiplayer_mount
+  register: multiplayer_mount
 
 - name: register if a Data mount exists
   stat:
     path: /data/Data
-    register: data_mount
+  register: data_mount
 
 - name: link Multiplayer mount
   file:
