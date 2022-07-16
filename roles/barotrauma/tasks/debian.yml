@@ -52,6 +52,9 @@
   user:
     name:  btserver
     shell: /bin/bash
+    append: yes
+    groups:
+      - staff
 
 - name: create Ansible temp directory
   shell:
