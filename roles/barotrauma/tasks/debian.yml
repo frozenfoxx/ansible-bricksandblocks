@@ -88,3 +88,31 @@
     mode: 0755
     group: btserver
     owner: btserver
+
+- name: register if a Multiplayer mount exists
+  stat:
+    path: /data/Multiplayer
+    register: multiplayer_mount
+
+- name: register if a Data mount exists
+  stat:
+    path: /data/Data
+    register: data_mount
+
+- name: link Multiplayer mount
+  file:
+    src: /data/Multiplayer
+    path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma/Multiplayer"
+    state: link
+    group: btserver
+    owner: btserver
+  when: multiplayer_mount.stat.exists
+
+- name: link Data mount
+  file:
+    src: /data/Data
+    path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma/Data"
+    state: link
+    group: btserver
+    owner: btserver
+  when: data_mount.stat.exists
