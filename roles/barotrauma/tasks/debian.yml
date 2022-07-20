@@ -8,6 +8,9 @@
 - name: apply hotfixes for Debian
   import_tasks: debian-hotfixes.yml
 
+- name: install GameDig
+  import_tasks: debian-gamedig.yml
+
 - name: create btserver user
   user:
     name:  btserver
