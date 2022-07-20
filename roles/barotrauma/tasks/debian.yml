@@ -66,3 +66,6 @@
     path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma/Multiplayer"
     state: link
   when: multiplayer_mount.stat.exists
+
+- name: install serverscripts
+  import_tasks: serverscripts.yml
