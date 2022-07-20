@@ -1,52 +1,12 @@
 ---
-- name: add source repository into sources list
-  apt_repository:
-    repo: deb http://archive.canonical.com/ubuntu jammy multiverse
-    state: present
-
 - name: add 32bit architecture installation for Debian
   import_tasks: debian-32bit.yml
 
-- name: accept Steam license (question)
-  debconf:
-    name: steam
-    question: steam/question
-    value: 'I AGREE'
-    vtype: select
+- name: add packages for Debian
+  import_tasks: debian-packages.yml
 
-- name: accept Steam license (license)
-  debconf:
-    name: steam
-    question: steam/license
-    value: ''
-    vtype: note
-
-- name: ensure build dependencies
-  apt:
-    pkg:
-      - bc
-      - binutils
-      - bsdmainutils
-      - bzip2
-      - ca-certificates
-      - curl
-      - file
-      - gzip
-      - jq
-      - lib32gcc-s1
-      - lib32stdc++6
-      - libicu-dev
-      - libsdl2-2.0-0:i386
-      - netcat
-      - python3
-      - steamcmd
-      - tar
-      - tmux
-      - util-linux
-      - unzip
-      - wget
-  environment:
-    DEBIAN_FRONTEND: noninteractive
+- name: apply hotfixes for Debian
+  import_tasks: debian-hotfixes.yml
 
 - name: create btserver user
   user:
