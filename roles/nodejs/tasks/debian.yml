@@ -20,11 +20,10 @@
   shell:
     cmd: /tmp/setup_16.x
 
-- name: install NodeJS
+- name: install NodeJS and npm
   apt:
     pkg:
       - nodejs
-      - npm
   environment:
     DEBIAN_FRONTEND: noninteractive
 
