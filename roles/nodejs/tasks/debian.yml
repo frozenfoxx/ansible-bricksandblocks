@@ -1,0 +1,32 @@
+---
+- name: remove existing NodeJS
+  apt:
+    pkg:
+      - nodejs
+      - npm
+    autoremove: yes
+    state: absent
+    purge: yes
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
+- name: retrieve Node Source install script
+  get_url:
+    url: https://deb.nodesource.com/setup_16.x
+    dest: /tmp/setup_16.x
+    mode: '755'
+  become: true
+  become_user: btserver
+
+- name: install Node Source repository
+  shell:
+    cmd: /tmp/setup_16.x
+
+- name: install NodeJS
+  apt:
+    pkg:
+      - nodejs
+      - npm
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
