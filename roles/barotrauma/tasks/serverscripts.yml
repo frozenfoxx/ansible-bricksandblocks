@@ -6,3 +6,11 @@
     group: btserver
     mode:  0775
 
+- name: add clientpermissions.xml
+  template:
+    src:   clientpermissions.xml.j2
+    dest:  /home/btserver/serverfiles/Data/clientpermissions.xml
+    owner: btserver
+    group: btserver
+    mode:  0775
+
