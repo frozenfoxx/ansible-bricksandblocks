@@ -2,8 +2,9 @@
 <ClientPermissions>
 {% for client in barotrauma_clientperm.split() %}
   <Client
-    name={{ client.split(":")[0] }}
-    steamid={{ client.split(":")[1] }}
-    preset={{ client.split(":")[2] }} />
+    name="{{ client.split(":")[0] }}"
+    steamid="{{ client.split(":")[1] }}"
+    preset="{{ client.split(":")[2] }}" />
+  </Client>
 {% endfor %}
 </ClientPermissions>
