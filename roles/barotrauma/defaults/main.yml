@@ -1,0 +1,7 @@
+---
+barotrauma_clientperm:        ""
+barotrauma_server_maxplayers: "16"
+barotrauma_server_msg:        "Welcome, have a good day"
+barotrauma_server_name:       "Barotrauma"
+barotrauma_server_pass:       ""
+barotrauma_server_public:     "true"
