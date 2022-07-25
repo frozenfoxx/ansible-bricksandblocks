@@ -1,8 +1,14 @@
 ---
-- hosts: photos
+- hosts: barotrauma
   roles:
     - livedns
-    - zandronum
+    - nodejs
+    - barotrauma
+
+- hosts: photos
+  roles:
+    - nodejs
+    - photostructure
 
 - hosts: zandronum
   roles:
