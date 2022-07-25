@@ -1,0 +1,3 @@
+---
+zandronum_rcon_pass:                   "{{ lookup('env', 'ZANDRONUM_RCON_PASS') }}"
+zandronum_server_pass:                 "{{ lookup('env', 'ZANDRONUM_SERVER_PASS') }}"
