@@ -10,20 +10,20 @@
   environment:
     DEBIAN_FRONTEND: noninteractive
 
-- name: retrieve Node Source install script
-  get_url:
+- name: fetch Node.js installer
+  uri:
     url: https://deb.nodesource.com/setup_16.x
-    dest: /tmp/setup_16.x
-    mode: '755'
+    return_content: yes
+  register: nodejs_installer
 
-- name: install Node Source repository
+- name: run Node.js installer
   shell:
-    cmd: /tmp/setup_16.x
+    cmd: bash -
+    stdin: "{{ nodejs_installer.content }}"
 
-- name: install NodeJS and npm
+- name: install Node.js
   apt:
     pkg:
       - nodejs
   environment:
     DEBIAN_FRONTEND: noninteractive
-
