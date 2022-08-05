@@ -1,7 +1,10 @@
+- name: ensure scripts directory exists
+  file: path=/home/zandronum/scripts state=directory
+
 - name: add brutal-coop-doom2 serverscript
   template:
     src:   brutal-coop-doom2.sh.j2
-    dest:  /home/zandronum/brutal-coop-doom2.sh
+    dest:  /home/zandronum/scripts/brutal-coop-doom2.sh
     owner: zandronum
     group: zandronum
     mode:  0755
@@ -9,7 +12,7 @@
 - name: add coop serverscript
   template:
     src:   coop-doom2.sh.j2
-    dest:  /home/zandronum/coop-doom2.sh
+    dest:  /home/zandronum/scripts/coop-doom2.sh
     owner: zandronum
     group: zandronum
     mode:  0755
@@ -17,7 +20,7 @@
 - name: add doomware serverscript
   template:
     src:   doomware.sh.j2
-    dest:  /home/zandronum/doomware2.sh
+    dest:  /home/zandronum/scripts/doomware2.sh
     owner: zandronum
     group: zandronum
     mode:  0755
@@ -25,7 +28,7 @@
 - name: add samsara-reincarnation serverscript
   template:
     src:   samsara-reincarnation.sh.j2
-    dest:  /home/zandronum/samsara-reincarnation.sh
+    dest:  /home/zandronum/scripts/samsara-reincarnation.sh
     owner: zandronum
     group: zandronum
     mode:  0755
@@ -33,7 +36,7 @@
 - name: add strnghld serverscript
   template:
     src:   strnghld.sh.j2
-    dest:  /home/zandronum/strnghld.sh
+    dest:  /home/zandronum/scripts/strnghld.sh
     owner: zandronum
     group: zandronum
     mode:  0755

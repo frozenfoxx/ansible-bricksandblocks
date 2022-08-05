@@ -43,4 +43,4 @@
     mode:  0644
 
 - name: add server scripts
-  import_tasks: serverscripts.yml
+  import_tasks: scripts.yml
