@@ -1,0 +1,14 @@
+---
+- name: check if i386 is enabled
+  shell: dpkg --print-foreign-architectures | grep i386
+  register: result_i386_check
+  changed_when: result_i386_check.rc == 1
+  failed_when: result_i386_check.rc > 1
+
+- name: enable i386 architecture
+  command: dpkg --add-architecture i386
+  when: result_i386_check.rc == 1
+
+- name: ensure apt cache is up to date
+  apt: update_cache=yes
+  when: result_i386_check.rc == 1

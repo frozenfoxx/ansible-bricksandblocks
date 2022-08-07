@@ -1,0 +1,7 @@
+- name: add paper-world-defaults.yml
+  template:
+    src:   paper-world-defaults.yml.j2
+    dest:  /home/pmcserver/serverfiles/config/paper-world-defaults.yml
+    owner: pmcserver
+    group: pmcserver
+    mode:  0664

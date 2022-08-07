@@ -1,0 +1,68 @@
+---
+- name: add 32bit architecture installation for Debian
+  import_tasks: debian-32bit.yml
+
+- name: add packages for Debian
+  import_tasks: debian-packages.yml
+
+- name: install GameDig
+  import_tasks: debian-gamedig.yml
+
+- name: create pmcserver user
+  user:
+    name:  pmcserver
+    shell: /bin/bash
+    append: yes
+    groups:
+      - staff
+
+- name: create Ansible temp directory
+  shell:
+    cmd: mkdir -p /home/pmcserver/.ansible/tmp
+  become: true
+  become_user: pmcserver
+
+- name: retrieve LinuxGSM script
+  get_url:
+    url: https://linuxgsm.sh
+    dest: /home/pmcserver/linuxgsm.sh
+    mode: '755'
+  become: true
+  become_user: pmcserver
+
+- name: install PaperMC module
+  shell:
+    cmd: ./linuxgsm.sh pmcserver
+    chdir: /home/pmcserver
+  become: true
+  become_user: pmcserver
+
+- name: install PaperMC
+  shell:
+    cmd: ./pmcserver auto-install
+    chdir: /home/pmcserver
+  become: true
+  become_user: pmcserver
+
+- name: ensure local share directory exists
+  file:
+    path: "/home/pmcserver/.local/share"
+    state: directory
+    mode: 0755
+    group: pmcserver
+    owner: pmcserver
+
+- name: register if a world mount exists
+  stat:
+    path: /data
+  register: world_mount
+
+- name: link world mount
+  file:
+    src: /data
+    path: "/home/pmcserver/.local/share"
+    state: link
+  when: world_mount.stat.exists
+
+- name: install server scripts
+  import_tasks: scripts.yml

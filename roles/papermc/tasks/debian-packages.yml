@@ -1,0 +1,29 @@
+---
+- name: add source repository into sources list
+  apt_repository:
+    repo: deb http://archive.canonical.com/ubuntu jammy multiverse
+    state: present
+
+- name: ensure build dependencies
+  apt:
+    pkg:
+      - bc
+      - binutils
+      - bsdmainutils
+      - bzip2
+      - ca-certificates
+      - curl
+      - file
+      - jq
+      - gzip
+      - netcat
+      - openjdk-17-jre
+      - python3
+      - tar
+      - tmux
+      - unzip
+      - util-linux
+      - wget
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+
