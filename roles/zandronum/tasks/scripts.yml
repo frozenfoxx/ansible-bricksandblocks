@@ -9,6 +9,14 @@
     group: zandronum
     mode:  0755
 
+- name: add brutal-alien-vendetta-coop serverscript
+  template:
+    src:   brutal-alien-vendetta-coop.sh.j2
+    dest:  /home/zandronum/scripts/brutal-alien-vendetta-coop.sh
+    owner: zandronum
+    group: zandronum
+    mode:  0755
+
 - name: add coop serverscript
   template:
     src:   coop-doom2.sh.j2
