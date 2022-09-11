@@ -1,0 +1,30 @@
+---
+- name: ensure build dependencies
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
+      - software-properties-common
+      - wget
+
+- name: Add the Apt signing key
+  apt_key:
+    url: https://repo.jellyfin.org/jellyfin_team.gpg.key
+    state: present
+
+- name: Add specified repository into sources list
+  apt_repository:
+    repo: "deb https://repo.jellyfin.org/ubuntu {{ ansible_distribution_release }} main"
+    state: present
+
+- name: add the Jellyfin package
+  apt:
+    pkg:
+      - jellyfin
+
+- name: start Jellyfin
+  service:
+    name: jellyfin.service
+    state: started
+    enabled: yes

@@ -5,6 +5,11 @@
     - nodejs
     - barotrauma
 
+- hosts: jellyfin
+  roles:
+    - livedns
+    - jellyfin
+
 - hosts: photos
   roles:
     - nodejs
