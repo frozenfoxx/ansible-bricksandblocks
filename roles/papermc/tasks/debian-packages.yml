@@ -14,8 +14,8 @@
       - ca-certificates
       - curl
       - file
-      - jq
       - gzip
+      - jq
       - netcat
       - openjdk-17-jre
       - python3
