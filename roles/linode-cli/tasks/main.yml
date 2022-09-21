@@ -1,0 +1,9 @@
+---
+- name: Check for Python
+  import_tasks: python.yml
+
+- name: Install boto
+  import_tasks: boto.yml
+
+- name: Install linode-cli
+  import_tasks: linode-cli.yml

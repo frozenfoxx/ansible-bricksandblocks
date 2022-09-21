@@ -1,0 +1,28 @@
+---
+- name: Check for Python 3
+  raw: test -e /usr/bin/python3
+  changed_when: false
+  failed_when: false
+  register: check_python3
+
+- name: Install Python 3
+  raw: apt -y update && apt install -y python3-minimal
+  when: check_python.rc != 0
+
+- name: Check for PIP 3
+  raw: test -e /usr/bin/pip3
+  changed_when: false
+  failed_when: false
+  register: check_pip3
+
+- name: Install PIP 3
+  raw: apt -y update && apt install -y python3-pip
+  when: check_pip3.rc != 0
+
+- name: Ensure venv directory exists
+  ansible.builtin.file:
+    path: /root/.venv
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root

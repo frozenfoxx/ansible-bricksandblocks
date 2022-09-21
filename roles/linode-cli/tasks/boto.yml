@@ -1,0 +1,5 @@
+---
+- name: Install boto
+  ansible.builtin.pip:
+    name: boto
+    virtualenv: /root/.venv/linode-cli
