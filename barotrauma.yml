@@ -1,7 +1,6 @@
 ---
 - hosts: all
   roles:
-    - linode-cli
     - linodedns
     - nodejs
     - barotrauma
