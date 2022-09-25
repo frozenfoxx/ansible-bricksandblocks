@@ -1,0 +1,9 @@
+---
+- name: ensure dependencies
+  apt:
+    pkg:
+      - curl
+      - jq
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+

@@ -1,4 +1,8 @@
 ---
+- name: handle dependencies for Debian
+  import_tasks: debian-dependencies.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
 - name: Download linodedns_update script
   get_url:
     url: https://raw.githubusercontent.com/frozenfoxx/util/main/network/linodedns_update.sh
@@ -9,4 +13,4 @@
   cron:
     name: "Update Linode DNS"
     minute: 0
-    job: "API_KEY=\"{{ linodedns_api_key }}\" DOMAIN=\"{{ linodedns_domain }}\" SUBDOMAIN=\"{{ linodedns_subdomain }}\" /root/linodedns_update.sh"
+    job: "TOKEN=\"{{ linodedns_token }}\" DOMAIN=\"{{ linodedns_domain }}\" SUBDOMAIN=\"{{ linodedns_subdomain }}\" /root/linodedns_update.sh"

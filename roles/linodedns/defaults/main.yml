@@ -1,0 +1,4 @@
+---
+linodedns_domain:    "bricksandblocks.net"
+linodedns_subdomain: "*"
+linodedns_token:     ""
