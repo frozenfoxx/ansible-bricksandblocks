@@ -1,4 +1,8 @@
 ---
+- hosts: backup
+  roles:
+    - backup
+
 - hosts: barotrauma
   roles:
     - linodedns
