@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - linodedns
+    - letsencrypt
+    - nginx

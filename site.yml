@@ -18,6 +18,12 @@
     - nodejs
     - photostructure
 
+- hosts: revproxy
+  roles:
+    - linodedns
+    - letsencrypt
+    - nginx
+
 - hosts: zandronum
   roles:
     - linodedns
