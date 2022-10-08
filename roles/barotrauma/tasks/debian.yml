@@ -5,9 +5,6 @@
 - name: add packages for Debian
   import_tasks: debian-packages.yml
 
-- name: apply hotfixes for Debian
-  import_tasks: debian-hotfixes.yml
-
 - name: install GameDig
   import_tasks: debian-gamedig.yml
 
@@ -46,6 +43,9 @@
     chdir: /home/btserver
   become: true
   become_user: btserver
+
+- name: apply hotfixes for Debian
+  import_tasks: debian-hotfixes.yml
 
 - name: ensure local share directory exists
   file:
