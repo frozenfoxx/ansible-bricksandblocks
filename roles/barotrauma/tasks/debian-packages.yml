@@ -27,6 +27,7 @@
       - bzip2
       - ca-certificates
       - curl
+      - dos2unix
       - file
       - gzip
       - jq
