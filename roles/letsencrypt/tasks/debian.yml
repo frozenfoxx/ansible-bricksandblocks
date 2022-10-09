@@ -28,3 +28,12 @@
   tags:
     - nginx
     - certbot
+
+- name: Get certificate
+  command: '/usr/local/bin/certbot -n --nginx certonly -d {{ letsencrypt_domain }}'
+  args:
+    creates: '/etc/letsencrypt/live/{{ letsencrypt_domain }}'
+  ignore_errors: true
+  tags:
+    - nginx
+    - certbot
