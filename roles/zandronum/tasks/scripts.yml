@@ -1,50 +1,50 @@
-- name: ensure scripts directory exists
+- name: Ensure scripts directory exists
   file: path=/home/zandronum/scripts state=directory
 
-- name: add brutal-coop-doom2 serverscript
+- name: Add brutal-coop-doom2 serverscript
   template:
-    src:   brutal-coop-doom2.sh.j2
-    dest:  /home/zandronum/scripts/brutal-coop-doom2.sh
+    src: brutal-coop-doom2.sh.j2
+    dest: /home/zandronum/scripts/brutal-coop-doom2.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
 
-- name: add brutal-alien-vendetta-coop serverscript
+- name: Add brutal-alien-vendetta-coop serverscript
   template:
-    src:   brutal-alien-vendetta-coop.sh.j2
-    dest:  /home/zandronum/scripts/brutal-alien-vendetta-coop.sh
+    src: brutal-alien-vendetta-coop.sh.j2
+    dest: /home/zandronum/scripts/brutal-alien-vendetta-coop.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
 
-- name: add coop serverscript
+- name: Add coop serverscript
   template:
-    src:   coop-doom2.sh.j2
-    dest:  /home/zandronum/scripts/coop-doom2.sh
+    src: coop-doom2.sh.j2
+    dest: /home/zandronum/scripts/coop-doom2.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
 
-- name: add doomware serverscript
+- name: Add doomware serverscript
   template:
-    src:   doomware.sh.j2
-    dest:  /home/zandronum/scripts/doomware2.sh
+    src: doomware.sh.j2
+    dest: /home/zandronum/scripts/doomware2.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
 
-- name: add samsara-reincarnation serverscript
+- name: Add samsara-reincarnation serverscript
   template:
-    src:   samsara-reincarnation.sh.j2
-    dest:  /home/zandronum/scripts/samsara-reincarnation.sh
+    src: samsara-reincarnation.sh.j2
+    dest: /home/zandronum/scripts/samsara-reincarnation.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
 
-- name: add strnghld serverscript
+- name: Add strnghld serverscript
   template:
-    src:   strnghld.sh.j2
-    dest:  /home/zandronum/scripts/strnghld.sh
+    src: strnghld.sh.j2
+    dest: /home/zandronum/scripts/strnghld.sh
     owner: zandronum
     group: zandronum
-    mode:  0755
+    mode: 0755
