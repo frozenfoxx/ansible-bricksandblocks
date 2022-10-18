@@ -1,24 +1,24 @@
 ---
-- name: add source repository into sources list
+- name: Add source repository into sources list
   apt_repository:
     repo: deb http://archive.canonical.com/ubuntu jammy multiverse
     state: present
 
-- name: accept Steam license (question)
+- name: Accept Steam license (question)
   debconf:
     name: steam
     question: steam/question
     value: 'I AGREE'
     vtype: select
 
-- name: accept Steam license (license)
+- name: Accept Steam license (license)
   debconf:
     name: steam
     question: steam/license
     value: ''
     vtype: note
 
-- name: ensure build dependencies
+- name: Ensure build dependencies
   apt:
     pkg:
       - bc

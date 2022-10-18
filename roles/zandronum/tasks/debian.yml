@@ -1,5 +1,5 @@
 ---
-- name: ensure build dependencies
+- name: Ensure build dependencies
   apt:
     pkg:
       - gnupg
@@ -16,31 +16,31 @@
     repo: deb http://debian.drdteam.org/ stable multiverse
     state: present
 
-- name: add the Zandronum package
+- name: Add the Zandronum package
   apt:
     pkg:
       - zandronum-server
 
-- name: update the linker to look for the included libraries
+- name: Update the linker to look for the included libraries
   shell: |
     echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
     ldconfig
 
-- name: create zandronum user
+- name: Create zandronum user
   user:
-    name:  zandronum
+    name: zandronum
     shell: /bin/bash
 
-- name: ensure config directory exists
+- name: Ensure config directory exists
   file: path=/home/zandronum/.config/zandronum state=directory
 
-- name: copy default configuration
+- name: Copy default configuration
   copy:
-    src:   ./
-    dest:  /home/zandronum/.config/zandronum/
+    src: ./
+    dest: /home/zandronum/.config/zandronum/
     owner: zandronum
     group: zandronum
-    mode:  0644
+    mode: 0644
 
-- name: add server scripts
+- name: Add server scripts
   import_tasks: scripts.yml

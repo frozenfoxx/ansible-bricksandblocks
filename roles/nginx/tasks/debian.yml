@@ -1,0 +1,8 @@
+---
+- name: Install nginx
+  apt:
+    pkg:
+      - nginx
+  tags:
+    - nginx
+

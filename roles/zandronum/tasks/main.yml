@@ -1,7 +1,7 @@
 ---
-- name: ensure wads directory exists
+- name: Ensure wads directory exists
   file: path=/wads state=directory
 
-- name: handle installation for Debian
+- name: Handle installation for Debian
   import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'

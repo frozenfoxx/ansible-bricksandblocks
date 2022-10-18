@@ -1,4 +1,4 @@
-- name: add serversettings.xml
+- name: Add serversettings.xml
   template:
     src:   serversettings.xml.j2
     dest:  /home/btserver/serverfiles/serversettings.xml
@@ -6,7 +6,7 @@
     group: btserver
     mode:  0775
 
-- name: add clientpermissions.xml
+- name: Add clientpermissions.xml
   template:
     src:   clientpermissions.xml.j2
     dest:  /home/btserver/serverfiles/Data/clientpermissions.xml

@@ -1,28 +1,28 @@
 ---
-- name: add 32bit architecture installation for Debian
+- name: Add 32bit architecture installation for Debian
   import_tasks: debian-32bit.yml
 
-- name: add packages for Debian
+- name: Add packages for Debian
   import_tasks: debian-packages.yml
 
-- name: install GameDig
+- name: Install GameDig
   import_tasks: debian-gamedig.yml
 
-- name: create btserver user
+- name: Create btserver user
   user:
-    name:  btserver
+    name: btserver
     shell: /bin/bash
     append: yes
     groups:
       - staff
 
-- name: create Ansible temp directory
+- name: Create Ansible temp directory
   shell:
     cmd: mkdir -p /home/btserver/.ansible/tmp
   become: true
   become_user: btserver
 
-- name: retrieve LinuxGSM script
+- name: Retrieve LinuxGSM script
   get_url:
     url: https://linuxgsm.sh
     dest: /home/btserver/linuxgsm.sh
@@ -30,24 +30,24 @@
   become: true
   become_user: btserver
 
-- name: install Barotrauma module
+- name: Install Barotrauma module
   shell:
     cmd: ./linuxgsm.sh btserver
     chdir: /home/btserver
   become: true
   become_user: btserver
 
-- name: install Barotrauma
+- name: Install Barotrauma
   shell:
     cmd: ./btserver auto-install
     chdir: /home/btserver
   become: true
   become_user: btserver
 
-- name: apply hotfixes for Debian
+- name: Apply hotfixes for Debian
   import_tasks: debian-hotfixes.yml
 
-- name: ensure local share directory exists
+- name: Ensure local share directory exists
   file:
     path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma"
     state: directory
@@ -55,17 +55,17 @@
     group: btserver
     owner: btserver
 
-- name: register if a Multiplayer mount exists
+- name: Register if a Multiplayer mount exists
   stat:
     path: /data/Multiplayer
   register: multiplayer_mount
 
-- name: link Multiplayer mount
+- name: Link Multiplayer mount
   file:
     src: /data/Multiplayer
     path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma/Multiplayer"
     state: link
   when: multiplayer_mount.stat.exists
 
-- name: install serverscripts
+- name: Install serverscripts
   import_tasks: serverscripts.yml
