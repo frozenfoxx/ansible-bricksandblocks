@@ -1,5 +1,5 @@
 ---
-- name: remove existing NodeJS
+- name: Remove existing NodeJS
   apt:
     pkg:
       - nodejs
@@ -10,18 +10,18 @@
   environment:
     DEBIAN_FRONTEND: noninteractive
 
-- name: fetch Node.js installer
+- name: Fetch Node.js installer
   uri:
     url: https://deb.nodesource.com/setup_16.x
     return_content: yes
   register: nodejs_installer
 
-- name: run Node.js installer
+- name: Run Node.js installer
   shell:
     cmd: bash -
     stdin: "{{ nodejs_installer.content }}"
 
-- name: install Node.js
+- name: Install Node.js
   apt:
     pkg:
       - nodejs

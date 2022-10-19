@@ -1,5 +1,5 @@
 ---
-- name: ensure build dependencies
+- name: Ensure build dependencies
   apt:
     pkg:
       - apt-transport-https
@@ -18,12 +18,12 @@
     repo: "deb https://repo.jellyfin.org/ubuntu {{ ansible_distribution_release }} main"
     state: present
 
-- name: add the Jellyfin package
+- name: Add the Jellyfin package
   apt:
     pkg:
       - jellyfin
 
-- name: start Jellyfin
+- name: Start Jellyfin
   service:
     name: jellyfin.service
     state: started
