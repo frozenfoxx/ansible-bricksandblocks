@@ -1,0 +1,17 @@
+---
+- name: Ensure build dependencies
+  ansible.builtin.apt:
+    pkg:
+      - git
+
+- name: Fetch librephotos repository
+  ansible.builtin.git:
+    repo: https://github.com/LibrePhotos/librephotos-linux.git
+    dest: /root/librephotos-linux
+    clone: yes
+    update: yes
+
+- name: Install librephotos
+  ansible.builtin.shell:
+    cmd: /root/librephotos-linux/install-librephotos.sh
+  become: yes
