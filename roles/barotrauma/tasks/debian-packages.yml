@@ -1,25 +1,25 @@
 ---
 - name: Add source repository into sources list
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: deb http://archive.canonical.com/ubuntu jammy multiverse
     state: present
 
 - name: Accept Steam license (question)
-  debconf:
+  ansible.builtin.debconf:
     name: steam
     question: steam/question
     value: 'I AGREE'
     vtype: select
 
 - name: Accept Steam license (license)
-  debconf:
+  ansible.builtin.debconf:
     name: steam
     question: steam/license
     value: ''
     vtype: note
 
 - name: Ensure build dependencies
-  apt:
+  ansible.builtin.apt:
     pkg:
       - bc
       - binutils

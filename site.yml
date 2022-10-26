@@ -20,6 +20,7 @@
 
 - hosts: revproxy
   roles:
+    - python
     - linodedns
     - letsencrypt
     - nginx

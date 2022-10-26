@@ -1,16 +1,16 @@
 ---
 - name: Install certbot
-  pip:
+  ansible.builtin.pip:
     name:
       - certbot
       - certbot-nginx
-    executable: pip3
+    executable: /usr/bin/pip3
   tags:
     - nginx
     - certbot
 
 - name: Register certbot
-  shell: |
+  ansible.builtin.shell: |
     certbot -n register --agree-tos --email {{ letsencrypt_email }}
     touch /etc/letsencrypt/.registered
   args:
@@ -20,7 +20,7 @@
     - certbot
 
 - name: Setup cronjob for renewal
-  cron:
+  ansible.builtin.cron:
     name: certbot-renewal
     job: "/bin/bash -lc '/usr/local/bin/certbot -q renew'"
     minute: "0"
@@ -30,7 +30,8 @@
     - certbot
 
 - name: Get certificate
-  command: '/usr/local/bin/certbot -n --nginx certonly -d {{ letsencrypt_domain }}'
+  ansible.builtin.command:
+    cmd: /usr/local/bin/certbot -n --nginx certonly -d '{{ letsencrypt_domain }}'
   args:
     creates: '/etc/letsencrypt/live/{{ letsencrypt_domain }}'
   ignore_errors: true

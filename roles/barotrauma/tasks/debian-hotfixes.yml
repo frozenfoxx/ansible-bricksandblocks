@@ -1,6 +1,6 @@
 ---
 - name: Retrieve libssl 1.0 (32-bit)
-  get_url:
+  ansible.builtin.get_url:
     url: http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
     dest: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
 
@@ -9,7 +9,7 @@
     deb: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
 
 - name: Retrieve libssl 1.0 (64-bit)
-  get_url:
+  ansible.builtin.get_url:
     url: http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
     dest: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
 

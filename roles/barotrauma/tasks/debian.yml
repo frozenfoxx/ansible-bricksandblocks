@@ -9,7 +9,7 @@
   import_tasks: debian-gamedig.yml
 
 - name: Create btserver user
-  user:
+  ansible.builtin.user:
     name: btserver
     shell: /bin/bash
     append: yes
@@ -17,13 +17,13 @@
       - staff
 
 - name: Create Ansible temp directory
-  shell:
+  ansible.builtin.shell:
     cmd: mkdir -p /home/btserver/.ansible/tmp
   become: true
   become_user: btserver
 
 - name: Retrieve LinuxGSM script
-  get_url:
+  ansible.builtin.get_url:
     url: https://linuxgsm.sh
     dest: /home/btserver/linuxgsm.sh
     mode: '755'
@@ -31,14 +31,14 @@
   become_user: btserver
 
 - name: Install Barotrauma module
-  shell:
+  ansible.builtin.shell:
     cmd: ./linuxgsm.sh btserver
     chdir: /home/btserver
   become: true
   become_user: btserver
 
 - name: Install Barotrauma
-  shell:
+  ansible.builtin.shell:
     cmd: ./btserver auto-install
     chdir: /home/btserver
   become: true
@@ -48,7 +48,7 @@
   import_tasks: debian-hotfixes.yml
 
 - name: Ensure local share directory exists
-  file:
+  ansible.builtin.file:
     path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma"
     state: directory
     mode: 0755
@@ -56,12 +56,12 @@
     owner: btserver
 
 - name: Register if a Multiplayer mount exists
-  stat:
+  ansible.builtin.stat:
     path: /data/Multiplayer
   register: multiplayer_mount
 
 - name: Link Multiplayer mount
-  file:
+  ansible.builtin.file:
     src: /data/Multiplayer
     path: "/home/btserver/.local/share/Daedalic Entertainment GmbH/Barotrauma/Multiplayer"
     state: link

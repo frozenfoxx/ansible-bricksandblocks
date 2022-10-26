@@ -1,16 +1,16 @@
 - name: Add serversettings.xml
-  template:
-    src:   serversettings.xml.j2
-    dest:  /home/btserver/serverfiles/serversettings.xml
+  ansible.builtin.template:
+    src: serversettings.xml.j2
+    dest: /home/btserver/serverfiles/serversettings.xml
     owner: btserver
     group: btserver
-    mode:  0775
+    mode: 0775
 
 - name: Add clientpermissions.xml
-  template:
-    src:   clientpermissions.xml.j2
-    dest:  /home/btserver/serverfiles/Data/clientpermissions.xml
+  ansible.builtin.template:
+    src: clientpermissions.xml.j2
+    dest: /home/btserver/serverfiles/Data/clientpermissions.xml
     owner: btserver
     group: btserver
-    mode:  0775
+    mode: 0775
 

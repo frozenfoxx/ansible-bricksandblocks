@@ -1,14 +1,16 @@
 ---
 - name: Check if i386 is enabled
-  shell: dpkg --print-foreign-architectures | grep i386
+  ansible.builtin.shell:
+    cmd: dpkg --print-foreign-architectures | grep i386
   register: result_i386_check
   changed_when: result_i386_check.rc == 1
   failed_when: result_i386_check.rc > 1
 
 - name: Enable i386 architecture
-  command: dpkg --add-architecture i386
+  ansible.builtin.command:
+    cmd: dpkg --add-architecture i386
   when: result_i386_check.rc == 1
 
 - name: Ensure apt cache is up to date
-  apt: update_cache=yes
+  ansible.built.apt: update_cache=yes
   when: result_i386_check.rc == 1
