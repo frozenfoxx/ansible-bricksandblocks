@@ -1,0 +1,4 @@
+---
+certbot_admin_email: "{{ lookup('env', 'CERTBOT_ADMIN_EMAIL') }}"
+certbot_certs:
+  - domains: "{{ lookup('env', 'CERTBOT_DOMAINS') | split }}"
