@@ -1,0 +1,4 @@
+---
+acme_sh_domains: "{{ lookup('env', 'ACME_SH_DOMAINS') | split }}"
+acme_sh_email: "{{ lookup('env', 'ACME_SH_EMAIL') }}"
+acme_sh_token: "{{ lookup('env', 'ACME_SH_TOKEN') }}"
