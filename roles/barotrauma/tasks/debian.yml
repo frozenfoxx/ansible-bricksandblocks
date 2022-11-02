@@ -1,12 +1,12 @@
 ---
 - name: Add 32bit architecture installation for Debian
-  import_tasks: debian-32bit.yml
+  ansible.builtin.import_tasks: debian-32bit.yml
 
 - name: Add packages for Debian
-  import_tasks: debian-packages.yml
+  ansible.builtin.import_tasks: debian-packages.yml
 
 - name: Install GameDig
-  import_tasks: debian-gamedig.yml
+  ansible.builtin.import_tasks: debian-gamedig.yml
 
 - name: Create btserver user
   ansible.builtin.user:
@@ -45,7 +45,7 @@
   become_user: btserver
 
 - name: Apply hotfixes for Debian
-  import_tasks: debian-hotfixes.yml
+  ansible.builtin.import_tasks: debian-hotfixes.yml
 
 - name: Ensure local share directory exists
   ansible.builtin.file:
@@ -68,4 +68,4 @@
   when: multiplayer_mount.stat.exists
 
 - name: Install serverscripts
-  import_tasks: serverscripts.yml
+  ansible.builtin.import_tasks: serverscripts.yml
