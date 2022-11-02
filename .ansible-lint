@@ -1,0 +1,9 @@
+---
+exclude_paths:
+  - .ansible-lint
+  - .github
+  - requirements.yml
+skip_list:
+  - meta-no-info
+parseable: true
+verbosity: 2
