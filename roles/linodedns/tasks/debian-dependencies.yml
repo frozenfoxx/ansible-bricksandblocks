@@ -1,6 +1,6 @@
 ---
 - name: ensure dependencies
-  apt:
+  ansible.builtin.apt:
     pkg:
       - curl
       - jq
