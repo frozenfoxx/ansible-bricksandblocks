@@ -1,3 +1,3 @@
 ---
-nginx_domain: "bricksandblocks.net"
+nginx_domain: "*.bricksandblocks.net"
 ssl_path: "/var/lib/acme/.acme.sh"

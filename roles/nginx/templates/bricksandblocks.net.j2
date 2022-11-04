@@ -21,8 +21,8 @@ server {
         add_header Pragma "no-cache";
     }
 
-    ssl_certificate /etc/letsencrypt/live/bricksandblocks.net/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/bricksandblocks.net/privkey.pem;
+    ssl_certificate {{ ssl_path }}/{{ nginx_domain }}/fullchain.cert;
+    ssl_certificate_key {{ ssl_path }}/{{ nginx_domain }}/{{ nginx_domain }}.key;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }
@@ -42,8 +42,8 @@ server {
         add_header Pragma "no-cache";
     }
 
-    ssl_certificate /etc/letsencrypt/live/bricksandblocks.net/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/bricksandblocks.net/privkey.pem;
+    ssl_certificate {{ ssl_path }}/{{ nginx_domain }}/fullchain.cert;
+    ssl_certificate_key {{ ssl_path }}/{{ nginx_domain }}/{{ nginx_domain }}.key;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 }

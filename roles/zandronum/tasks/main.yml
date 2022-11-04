@@ -1,7 +1,11 @@
 ---
 - name: Ensure wads directory exists
-  file: path=/wads state=directory
+  ansible.builtin.file:
+    path: /wads
+    state: directory
 
 - name: Handle installation for Debian
-  import_tasks: debian.yml
+  ansible.builtin.import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'
+  tags:
+    - zandronum

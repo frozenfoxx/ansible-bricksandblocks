@@ -1,6 +1,6 @@
 ---
 - name: Remove existing NodeJS
-  apt:
+  ansible.builtin.apt:
     pkg:
       - nodejs
       - npm
@@ -9,21 +9,29 @@
     purge: yes
   environment:
     DEBIAN_FRONTEND: noninteractive
+  tags:
+    - nodejs
 
 - name: Fetch Node.js installer
-  uri:
+  ansible.builtin.uri:
     url: https://deb.nodesource.com/setup_16.x
     return_content: yes
   register: nodejs_installer
+  tags:
+    - nodejs
 
 - name: Run Node.js installer
-  shell:
+  ansible.builtin.shell:
     cmd: bash -
     stdin: "{{ nodejs_installer.content }}"
+  tags:
+    - nodejs
 
 - name: Install Node.js
-  apt:
+  ansible.builtin.apt:
     pkg:
       - nodejs
   environment:
     DEBIAN_FRONTEND: noninteractive
+  tags:
+    - nodejs
