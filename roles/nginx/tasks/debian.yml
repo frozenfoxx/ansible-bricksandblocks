@@ -8,15 +8,15 @@
 
 - name: Add domain template
   ansible.builtin.template:
-    src: {{ nginx_domain }}.j2
-    dest: /etc/nginx/sites-available/{{ nginx_domain }}
+    src: "{{ nginx_domain }}.j2"
+    dest: "/etc/nginx/sites-available/{{ nginx_domain }}"
   tags:
     - nginx
 
 - name: Enable the site
   ansible.builtin.file:
-    src: /etc/nginx/sites-available/{{ nginx_domain }}
-    dest: /etc/nginx/sites-enabled/{{ nginx_domain }}
+    src: "/etc/nginx/sites-available/{{ nginx_domain }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_domain }}"
     state: link
   tags:
     - nginx
