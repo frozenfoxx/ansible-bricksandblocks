@@ -1,5 +1,5 @@
 ---
-barotrauma_clientperm:                 "{{ lookup('env', 'BAROTRAUMA_CLIENTPERM') }}"
-barotrauma_server_msg:                 "{{ lookup('env', 'BAROTRAUMA_SERVER_MSG') }}"
-barotrauma_server_name:                "{{ lookup('env', 'BAROTRAUMA_SERVER_NAME') }}"
-barotrauma_server_pass:                "{{ lookup('env', 'BAROTRAUMA_SERVER_PASS') }}"
+barotrauma_clientperm: "{{ lookup('env', 'BAROTRAUMA_CLIENTPERM') }}"
+barotrauma_server_msg: "{{ lookup('env', 'BAROTRAUMA_SERVER_MSG') }}"
+barotrauma_server_name: "{{ lookup('env', 'BAROTRAUMA_SERVER_NAME') }}"
+barotrauma_server_pass: "{{ lookup('env', 'BAROTRAUMA_SERVER_PASS') }}"

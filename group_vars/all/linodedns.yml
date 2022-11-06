@@ -1,4 +1,4 @@
 ---
-linodedns_domain:    "{{ lookup('env', 'LINODEDNS_DOMAIN') }}"
+linodedns_domain: "{{ lookup('env', 'LINODEDNS_DOMAIN') }}"
 linodedns_subdomain: "{{ lookup('env', 'LINODEDNS_SUBDOMAIN') }}"
-linodedns_token:     "{{ lookup('env', 'LINODEDNS_TOKEN') }}"
+linodedns_token: "{{ lookup('env', 'LINODEDNS_TOKEN') }}"
