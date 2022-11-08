@@ -1,4 +1,4 @@
 ---
-- name: handle installation for Debian
-  import_tasks: debian.yml
+- name: Handle installation for Debian
+  ansible.builtin.import_tasks: debian.yml
   when: ansible_facts['os_family']|lower == 'debian'

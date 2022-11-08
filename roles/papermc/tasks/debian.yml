@@ -1,68 +1,68 @@
 ---
-- name: add 32bit architecture installation for Debian
-  import_tasks: debian-32bit.yml
+- name: Add 32bit architecture installation for Debian
+  ansible.builtin.import_tasks: debian-32bit.yml
 
-- name: add packages for Debian
-  import_tasks: debian-packages.yml
+- name: Add packages for Debian
+  ansible.builtin.import_tasks: debian-packages.yml
 
-- name: install GameDig
-  import_tasks: debian-gamedig.yml
+- name: Install GameDig
+  ansible.builtin.import_tasks: debian-gamedig.yml
 
-- name: create pmcserver user
-  user:
+- name: Create pmcserver user
+  ansible.builtin.user:
     name:  pmcserver
     shell: /bin/bash
     append: yes
     groups:
       - staff
 
-- name: create Ansible temp directory
-  shell:
+- name: Create Ansible temp directory
+  ansible.builtin.shell:
     cmd: mkdir -p /home/pmcserver/.ansible/tmp
-  become: true
+  become: True
   become_user: pmcserver
 
-- name: retrieve LinuxGSM script
-  get_url:
+- name: Retrieve LinuxGSM script
+  ansible.builtin.get_url:
     url: https://linuxgsm.sh
     dest: /home/pmcserver/linuxgsm.sh
     mode: '755'
-  become: true
+  become: True
   become_user: pmcserver
 
-- name: install PaperMC module
-  shell:
+- name: Install PaperMC module
+  ansible.builtin.shell:
     cmd: ./linuxgsm.sh pmcserver
     chdir: /home/pmcserver
-  become: true
+  become: True
   become_user: pmcserver
 
-- name: install PaperMC
-  shell:
+- name: Install PaperMC
+  ansible.builtin.shell:
     cmd: ./pmcserver auto-install
     chdir: /home/pmcserver
-  become: true
+  become: True
   become_user: pmcserver
 
-- name: ensure local share directory exists
-  file:
+- name: Ensure local share directory exists
+  ansible.builtin.file:
     path: "/home/pmcserver/.local/share"
     state: directory
     mode: 0755
     group: pmcserver
     owner: pmcserver
 
-- name: register if a world mount exists
-  stat:
+- name: Register if a world mount exists
+  ansible.builtin.stat:
     path: /data
   register: world_mount
 
-- name: link world mount
-  file:
+- name: Link world mount
+  ansible.builtin.file:
     src: /data
     path: "/home/pmcserver/.local/share"
     state: link
   when: world_mount.stat.exists
 
-- name: install server scripts
-  import_tasks: scripts.yml
+- name: Install server scripts
+  ansible.builtin.import_tasks: scripts.yml
