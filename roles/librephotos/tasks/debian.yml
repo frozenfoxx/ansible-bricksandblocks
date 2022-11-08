@@ -6,7 +6,7 @@
 
 - name: Fetch librephotos repository
   ansible.builtin.git:
-    repo: https://github.com/LibrePhotos/librephotos-linux.git
+    repo: "https://github.com/LibrePhotos/librephotos-linux.git"
     dest: /root/librephotos-linux
     clone: yes
     update: yes

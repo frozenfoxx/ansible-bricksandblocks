@@ -12,5 +12,6 @@
   when: result_i386_check.rc == 1
 
 - name: Ensure apt cache is up to date
-  ansible.built.apt: update_cache=yes
+  ansible.builtin.apt:
+    update_cache: yes
   when: result_i386_check.rc == 1

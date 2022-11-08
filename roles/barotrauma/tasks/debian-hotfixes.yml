@@ -18,7 +18,6 @@
     deb: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
 
 - name: Ensure DedicatedServer.exe is Linux-compatible
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: dos2unix DedicatedServer.exe
     chdir: /home/btserver/serverfiles
-

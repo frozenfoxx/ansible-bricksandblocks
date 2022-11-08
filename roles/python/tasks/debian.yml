@@ -5,4 +5,3 @@
       - python3-pip
   environment:
     DEBIAN_FRONTEND: noninteractive
-

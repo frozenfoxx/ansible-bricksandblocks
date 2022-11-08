@@ -1,5 +1,5 @@
 ---
 backup_privatesshkey: ""
-backup_targets:       ""
+backup_targets: ""
 backup_remote_target: ""
-backup_remote_token:  ""
+backup_remote_token: ""

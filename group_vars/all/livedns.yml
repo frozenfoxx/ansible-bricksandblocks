@@ -1,4 +1,4 @@
 ---
-livedns_api_key:   "{{ lookup('env', 'LIVEDNS_API_KEY') }}"
-livedns_domain:    "{{ lookup('env', 'LIVEDNS_DOMAIN') }}"
+livedns_api_key: "{{ lookup('env', 'LIVEDNS_API_KEY') }}"
+livedns_domain: "{{ lookup('env', 'LIVEDNS_DOMAIN') }}"
 livedns_subdomain: "{{ lookup('env', 'LIVEDNS_SUBDOMAIN') }}"

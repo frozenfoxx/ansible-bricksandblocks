@@ -1,6 +1,6 @@
 ---
 - name: Check if npm is available
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: which npm
   register: result_npm_check
 
