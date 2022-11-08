@@ -3,5 +3,5 @@
   roles:
     - python
     - linodedns
-    - acme_sh
     - nginx
+    - acme_sh

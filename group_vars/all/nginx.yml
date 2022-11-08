@@ -1,2 +1,3 @@
 ---
 nginx_domain: "bricksandblocks.net"
+nginx_restart: "{{ lookup('env', 'NGINX_RESTART') }}"
