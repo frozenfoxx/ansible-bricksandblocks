@@ -6,4 +6,5 @@
       - jq
   environment:
     DEBIAN_FRONTEND: noninteractive
-
+  tags:
+    - linodedns
