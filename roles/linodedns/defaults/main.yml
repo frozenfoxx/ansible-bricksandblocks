@@ -1,4 +1,4 @@
 ---
 linodedns_domain: "bricksandblocks.net"
-linodedns_subdomains: "*"
+linodedns_subdomains: "{{ '*' | split }}"
 linodedns_token: ""
