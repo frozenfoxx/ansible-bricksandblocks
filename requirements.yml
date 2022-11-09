@@ -1,4 +1,5 @@
 # Ansible Galaxy
+- src: stefangweichinger.ansible_rclone
 
 # GitHub
 - src: https://github.com/frozenfoxx/acme_sh
