@@ -1,5 +1,4 @@
----
-- name: handle dependencies for Debian
+- name: Handle dependencies for Debian
   ansible.builtin.import_tasks: debian-dependencies.yml
   when: ansible_facts['os_family']|lower == 'debian'
   tags:
@@ -18,6 +17,6 @@
     name: "Update Linode DNS"
     minute: 0
     job: "TOKEN=\"{{ linodedns_token }}\" DOMAIN=\"{{ linodedns_domain }}\" SUBDOMAIN=\"{{ item }}\" /root/linodedns_update.sh"
-  loop: linodedns_subdomains
+  loop: "{{ linodedns_subdomains }}"
   tags:
     - linodedns
