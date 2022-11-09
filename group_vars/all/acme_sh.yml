@@ -1,7 +1,7 @@
 ---
 acme_sh_subject_names:
   - "{{ lookup('env', 'LINODEDNS_DOMAIN') }}"
-  - "{{ lookup('env', 'LINODEDNS_SUBDOMAIN') }}.{{ lookup('env', 'LINODEDNS_DOMAIN') }}"
+  - "*.{{ lookup('env', 'LINODEDNS_DOMAIN') }}"
 acme_sh_dns_provider: 'dns_linode_v4'
 acme_sh_env:
   LINODE_V4_API_KEY: "{{ lookup('env', 'LINODEDNS_TOKEN') }}"
