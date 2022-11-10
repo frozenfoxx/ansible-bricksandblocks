@@ -15,6 +15,7 @@
 - name: Set the cron to run the update script
   ansible.builtin.cron:
     name: "Update Linode DNS - {{ item }}.{{ linodedns_domain }}"
+    hour: "*/12"
     minute: 0
     job: "TOKEN=\"{{ linodedns_token }}\" DOMAIN=\"{{ linodedns_domain }}\" SUBDOMAIN=\"{{ item }}\" /root/linodedns_update.sh"
   loop: "{{ linodedns_subdomains }}"
