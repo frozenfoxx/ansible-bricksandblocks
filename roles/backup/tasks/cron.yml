@@ -1,0 +1,9 @@
+- name: Set the cron to run the update script
+  ansible.builtin.cron:
+    name: "Backup to Linode - {{ item | split(':') | first }}"
+    hour: "2"
+    minute: 0
+    job: "TOKEN=\"{{ backup_remote_token }}\" /root/scripts/{{ item | split(':') | last }}_backup.sh"
+  loop: "{{ backup_targets }}"
+  tags:
+    - backup

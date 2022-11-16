@@ -5,6 +5,18 @@
     mode: 0700
     group: root
     owner: root
+  tags:
+    - backup
+
+- name: Ensure root's scripts directory exists
+  ansible.builtin.file:
+    path: "/root/scripts"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+  tags:
+    - backup
 
 - name: Ensure local target exists
   ansible.builtin.file:
@@ -13,3 +25,5 @@
     mode: 0755
     group: root
     owner: root
+  tags:
+    - backup

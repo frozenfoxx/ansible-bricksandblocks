@@ -1,0 +1,9 @@
+---
+- name: Ensure dependencies
+  ansible.builtin.apt:
+    pkg:
+      - rsync
+  environment:
+    DEBIAN_FRONTEND: noninteractive
+  tags:
+    - backup
