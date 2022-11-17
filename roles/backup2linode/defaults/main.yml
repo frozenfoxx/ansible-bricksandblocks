@@ -1,0 +1,6 @@
+---
+backup2linode_privatesshkey: ""
+backup2linode_root: "/backups"
+backup2linode_sources: ""
+backup2linode_target: ""
+backup2linode_token: ""

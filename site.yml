@@ -1,7 +1,8 @@
 ---
 - hosts: backup
   roles:
-    - backup
+    - ansible_rclone
+    - backup2linode
 
 - hosts: barotrauma
   roles:
@@ -22,8 +23,8 @@
   roles:
     - python
     - linodedns
-    - letsencrypt
     - nginx
+    - acme_sh
 
 - hosts: zandronum
   roles:
