@@ -2,7 +2,7 @@
 - hosts: backup
   roles:
     - ansible_rclone
-    - backup2linode
+    - rclone_backup
 
 - hosts: barotrauma
   roles:

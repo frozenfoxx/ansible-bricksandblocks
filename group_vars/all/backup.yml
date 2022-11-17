@@ -1,5 +1,4 @@
 ---
-backup2linode_privatesshkey: "{{ lookup('env', BACKUP2LINODE_PRIVATESSHKEY') }}"
-backup2linode_sources: "{{ lookup('env', 'BACKUP2LINODE_SOURCES') | split }}"
-backup2linode_target: "{{ lookup('env', 'BACKUP2LINODE_TARGET') }}"
-backup2linode_token: "{{ lookup('env', 'BACKUP2LINODE_TOKEN') }}"
+rclone_backup_privatesshkey: "{{ lookup('env', RCLONE_BACKUP_PRIVATESSHKEY') }}"
+rclone_backup_sources: "{{ lookup('env', 'RCLONE_BACKUP_SOURCES') | split }}"
+rclone_backup_target: "{{ lookup('env', 'RCLONE_BACKUP_TARGET') }}"

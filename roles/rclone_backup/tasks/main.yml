@@ -1,12 +1,8 @@
-- name: Add packages
-  ansible.builtin.import_tasks: packages.yml
-  tags:
-    - backup
-
+---
 - name: Add directories
   ansible.builtin.import_tasks: directories.yml
   tags:
-    - backup
+    - rclone_backup
 
 - name: Install private key
   ansible.builtin.copy:
@@ -14,6 +10,11 @@
     mode: 0600
     group: root
     owner: root
-    content: "{{ backup_privatesshkey }}"
+    content: "{{ rclone_backup_privatesshkey }}"
   tags:
-    - backup
+    - rclone_backup
+
+- name: Add backup scripts
+  ansible.builtin.import_tasks: scripts.yml
+  tags:
+    - rclone_backup

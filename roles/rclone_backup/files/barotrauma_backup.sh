@@ -3,11 +3,9 @@
 # Backs up a Barotrauma server to Linode
 
 # Variables
-DATA_DIR=${DATA_DIR:-'/data'}
-SOURCE_HOST=${SOURCE_HOST:-'barotrauma'}
+SOURCE=${SOURCE:-'barotrauma'}
 SOURCE_USER=${SOURCE_USER:-'root'}
 TARGET=${TARGET:-''}
-TARGET_ROOT=${TARGET:-'/backups'}
 
 # Functions
 
@@ -21,6 +19,13 @@ check_requirements()
   fi
 }
 
+## Clone the backup to Linode
+
+## Create the backup archive
+create_backup()
+{
+}
+
 ## Display usage information
 usage()
 {
@@ -29,8 +34,7 @@ usage()
   echo "    rclone               necessary for cloning"
   echo "    ssh                  necessary for remote shell"
   echo "  Environment Variables:"
-  echo "    DATA_DIR             data directory for creating the archives (default: '/data')"
-  echo "    SOURCE_HOST          host housing the Barotrauma deployment (default: 'barotrauma')"
+  echo "    SOURCE               host housing the Barotrauma deployment (default: 'barotrauma')"
   echo "    SOURCE_USER          user to connect to the server with (default: 'root')"
   echo "    TARGET               rclone remote target (default: '')"
   echo "  Options:"
@@ -49,3 +53,5 @@ while [[ "$#" > 1 ]]; do
 done
 
 check_requirements
+create_backup
+clone_backup
