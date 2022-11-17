@@ -20,10 +20,17 @@ check_requirements()
 }
 
 ## Clone the backup to Linode
+clone_backup()
+{
+  echo "Cloning from ${SOURCE} to ${TARGET}..."
+  rclone copy ${SOURCE}:/home/btserver/serverfiles/ ${TARGET}:/backups/btserver/
+}
 
 ## Create the backup archive
 create_backup()
 {
+  echo "Creating backup on ${SOURCE}..."
+  ssh -o "StrictHostKeyChecking=no" ${SOURCE_USER}@${SOURCE} sudo -u btserver ./btserver backup
 }
 
 ## Display usage information
