@@ -1,1 +1,3 @@
+---
 install_manpages: "false"
+rclone_configs: "{{ lookup('RCLONE_CONFIGS') }}"
