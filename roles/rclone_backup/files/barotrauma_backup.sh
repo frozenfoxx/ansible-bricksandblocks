@@ -36,7 +36,7 @@ create_backup()
 ## Display usage information
 usage()
 {
-  echo "Usage: [Environment Variables] backup2linode_barotrauma.sh [options]"
+  echo "Usage: [Environment Variables] barotrauma_backup.sh [options]"
   echo "  Requirements:"
   echo "    rclone               necessary for cloning"
   echo "    ssh                  necessary for remote shell"

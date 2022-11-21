@@ -7,4 +7,4 @@
     group: root
     mode: 0755
   tags:
-    - backup
+    - rclone_backup
