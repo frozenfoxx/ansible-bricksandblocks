@@ -29,10 +29,19 @@
   tags:
     - zandronum
 
+- name: Check for linker config
+  ansible.builtin.raw: test -e /etc/ld.so.conf.d/zandronum.conf
+  changed_when: false
+  failed_when: false
+  register: check_zandronum_linker
+  tags:
+    - zandronum
+
 - name: Update the linker to look for the included libraries
   ansible.builtin.shell: |
     echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
     ldconfig
+  when: check_zandronum_linker.rc != 0
   tags:
     - zandronum
 

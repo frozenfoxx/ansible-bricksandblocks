@@ -26,4 +26,3 @@
       - wget
   environment:
     DEBIAN_FRONTEND: noninteractive
-

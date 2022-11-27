@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Backs up a Barotrauma server to Linode
+# Backs up a Barotrauma server
 
 # Variables
 SOURCE=${SOURCE:-'barotrauma'}
@@ -19,7 +19,7 @@ check_requirements()
   fi
 }
 
-## Clone the backup to Linode
+## Clone the backup to a target
 clone_backup()
 {
   echo "Cloning from ${SOURCE} to ${TARGET}..."

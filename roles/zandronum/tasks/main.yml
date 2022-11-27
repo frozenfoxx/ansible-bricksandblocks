@@ -3,6 +3,8 @@
   ansible.builtin.file:
     path: /wads
     state: directory
+  tags:
+    - zandronum
 
 - name: Handle installation for Debian
   ansible.builtin.import_tasks: debian.yml

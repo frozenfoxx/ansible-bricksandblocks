@@ -6,4 +6,3 @@
 - name: Install gamedig
   ansible.builtin.command: npm install gamedig -g
   when: result_npm_check.stdout.find('npm') != -1
-
