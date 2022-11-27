@@ -1,4 +1,4 @@
 ---
-rclone_backup_privatesshkey: "{{ lookup('env', RCLONE_BACKUP_PRIVATESSHKEY') }}"
+rclone_backup_privatesshkey: "{{ lookup('env', 'RCLONE_BACKUP_PRIVATESSHKEY') }}"
 rclone_backup_sources: "{{ lookup('env', 'RCLONE_BACKUP_SOURCES') | split }}"
 rclone_backup_target: "{{ lookup('env', 'RCLONE_BACKUP_TARGET') }}"
