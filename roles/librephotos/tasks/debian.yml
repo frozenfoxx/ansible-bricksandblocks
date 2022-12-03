@@ -3,6 +3,8 @@
   ansible.builtin.apt:
     pkg:
       - git
+  tags:
+    - librephotos
 
 - name: Fetch librephotos repository
   ansible.builtin.git:
@@ -10,8 +12,12 @@
     dest: /root/librephotos-linux
     clone: yes
     update: yes
+  tags:
+    - librephotos
 
 - name: Install librephotos
   ansible.builtin.shell:
     cmd: /root/librephotos-linux/install-librephotos.sh
   become: yes
+  tags:
+    - librephotos

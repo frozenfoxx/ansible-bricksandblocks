@@ -3,9 +3,12 @@
   ansible.builtin.command:
     cmd: which npm
   register: result_npm_check
+  tags:
+    - barotrauma
 
 - name: Install gamedig
   ansible.builtin.command:
     cmd: npm install gamedig -g
   when: result_npm_check.stdout.find('npm') != -1
-
+  tags:
+    - barotrauma

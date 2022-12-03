@@ -3,21 +3,37 @@
   ansible.builtin.get_url:
     url: http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
     dest: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - barotrauma
 
 - name: Install libssl 1.0 (32-bit)
   ansible.builtin.apt:
     deb: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_i386.deb
+  tags:
+    - barotrauma
 
 - name: Retrieve libssl 1.0 (64-bit)
   ansible.builtin.get_url:
     url: http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
     dest: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - barotrauma
 
 - name: Install libssl 1.0 (64-bit)
   ansible.builtin.apt:
     deb: /root/libssl1.0.0_1.0.2n-1ubuntu5.10_amd64.deb
+  tags:
+    - barotrauma
 
 - name: Ensure DedicatedServer.exe is Linux-compatible
   ansible.builtin.command:
     cmd: dos2unix DedicatedServer.exe
     chdir: /home/btserver/serverfiles
+  tags:
+    - barotrauma
