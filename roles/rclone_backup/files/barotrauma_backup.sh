@@ -23,7 +23,7 @@ check_requirements()
 clone_backup()
 {
   echo "Cloning from ${SOURCE} to ${TARGET}..."
-  rclone copy ${SOURCE}:/home/btserver/serverfiles/ ${TARGET}:/backups/btserver/
+  rclone copy ${SOURCE}:/home/btserver/serverfiles/ ${TARGET}:/Games/Barotrauma/btserver/
 }
 
 ## Create the backup archive

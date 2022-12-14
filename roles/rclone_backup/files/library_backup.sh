@@ -22,11 +22,11 @@ check_requirements()
 clone_backup()
 {
   echo "Cloning from ${SOURCE} to ${TARGET}..."
-  rclone copy ${SOURCE}:/library/Documents/ ${TARGET}:/Documents/
-  rclone copy ${SOURCE}:/library/Games/ ${TARGET}:/Games/
-  rclone copy ${SOURCE}:/library/Music/ ${TARGET}:/Music/
-  rclone copy ${SOURCE}:/library/Pictures/ ${TARGET}:/Pictures/
-  rclone copy ${SOURCE}:/library/Videos/ ${TARGET}:/Videos/
+  rclone sync ${SOURCE}:/library/Documents/ ${TARGET}:/Documents/
+  rclone sync ${SOURCE}:/library/Games/ ${TARGET}:/Games/
+  rclone sync ${SOURCE}:/library/Music/ ${TARGET}:/Music/
+  rclone sync ${SOURCE}:/library/Pictures/ ${TARGET}:/Pictures/
+  rclone sync ${SOURCE}:/library/Videos/ ${TARGET}:/Videos/
 }
 
 ## Display usage information
