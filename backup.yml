@@ -1,5 +1,5 @@
 ---
 - hosts: all
   roles:
-    - ansible_rclone
+    - stefangweichinger.ansible_rclone
     - rclone_backup
