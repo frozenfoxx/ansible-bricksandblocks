@@ -1,11 +1,12 @@
-name: Lint
+---
+name: Syntax
 on:
   push:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  lint:
+  syntax:
     runs-on: ubuntu-latest
 
     steps:
