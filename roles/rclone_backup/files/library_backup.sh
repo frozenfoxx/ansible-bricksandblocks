@@ -4,7 +4,9 @@
 
 # Variables
 SOURCE=${SOURCE:-'library'}
+SOURCE_PATH=${SOURCE_PATH:-'/library'}
 TARGET=${TARGET:-''}
+TARGET_PATH=${TARGET_PATH:-'/library'}
 
 # Functions
 
@@ -22,11 +24,11 @@ check_requirements()
 clone_backup()
 {
   echo "Cloning from ${SOURCE} to ${TARGET}..."
-  rclone sync ${SOURCE}:/library/Documents/ ${TARGET}:/Documents/
-  rclone sync ${SOURCE}:/library/Games/ ${TARGET}:/Games/
-  rclone sync ${SOURCE}:/library/Music/ ${TARGET}:/Music/
-  rclone sync ${SOURCE}:/library/Pictures/ ${TARGET}:/Pictures/
-  rclone sync ${SOURCE}:/library/Videos/ ${TARGET}:/Videos/
+  rclone sync ${SOURCE}:${SOURCE_PATH}/Documents/ ${TARGET}:${TARGET_PATH}/Documents/
+  rclone sync ${SOURCE}:${SOURCE_PATH}/Games/ ${TARGET}:${TARGET_PATH}/Games/
+  rclone sync ${SOURCE}:${SOURCE_PATH}/Music/ ${TARGET}:${TARGET_PATH}/Music/
+  rclone sync ${SOURCE}:${SOURCE_PATH}/Pictures/ ${TARGET}:${TARGET_PATH}/Pictures/
+  rclone sync ${SOURCE}:${SOURCE_PATH}/Videos/ ${TARGET}:${TARGET_PATH}/Videos/
 }
 
 ## Display usage information
@@ -38,7 +40,9 @@ usage()
   echo "    ssh                  necessary for remote shell"
   echo "  Environment Variables:"
   echo "    SOURCE               rclone source target housing the Library (default: 'library')"
+  echo "    SOURCE_PATH          file path to use from the source (default: '/library')"
   echo "    TARGET               rclone remote target (default: '')"
+  echo "    TARGET_PATH          file path to use from the target (default: '/library')"
   echo "  Options:"
   echo "    -h | --help          display this usage"
 }
