@@ -3,6 +3,8 @@
   ansible.builtin.apt_repository:
     repo: deb http://archive.canonical.com/ubuntu jammy multiverse
     state: present
+  tags:
+    - papermc
 
 - name: Ensure build dependencies
   ansible.builtin.apt:
@@ -26,3 +28,5 @@
       - wget
   environment:
     DEBIAN_FRONTEND: noninteractive
+  tags:
+    - papermc

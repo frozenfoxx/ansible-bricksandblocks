@@ -1,0 +1,7 @@
+---
+- name: Install linode_cli
+  ansible.builtin.pip:
+    name: linode-cli
+    virtualenv: /root/.venv/linode_cli
+  tags:
+    - linode_cli

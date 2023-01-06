@@ -10,6 +10,7 @@
   ansible.builtin.template:
     src: "{{ nginx_domain }}.j2"
     dest: "/etc/nginx/sites-available/{{ nginx_domain }}"
+    mode: 0644 
   tags:
     - nginx
 

@@ -1,3 +1,4 @@
+---
 - name: Add paper-world-defaults.yml
   ansible.builtin.template:
     src: paper-world-defaults.yml.j2
@@ -5,3 +6,5 @@
     owner: pmcserver
     group: pmcserver
     mode: 0664
+  tags:
+    - papermc

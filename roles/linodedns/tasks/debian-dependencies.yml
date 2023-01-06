@@ -1,5 +1,5 @@
 ---
-- name: ensure dependencies
+- name: Ensure dependencies
   ansible.builtin.apt:
     pkg:
       - curl

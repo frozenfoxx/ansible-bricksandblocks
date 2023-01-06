@@ -2,7 +2,11 @@
 - name: Check if npm is available
   ansible.builtin.shell: which npm
   register: result_npm_check
+  tags:
+    - papermc
 
 - name: Install gamedig
   ansible.builtin.command: npm install gamedig -g
   when: result_npm_check.stdout.find('npm') != -1
+  tags:
+    - papermc

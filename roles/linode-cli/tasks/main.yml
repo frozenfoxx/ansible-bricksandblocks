@@ -1,9 +1,0 @@
----
-- name: Check for Python
-  ansible.builtin.import_tasks: python.yml
-
-- name: Install boto
-  ansible.builtin.import_tasks: boto.yml
-
-- name: Install linode-cli
-  ansible.builtin.import_tasks: linode-cli.yml
