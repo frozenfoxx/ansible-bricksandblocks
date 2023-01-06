@@ -2,6 +2,8 @@
 - name: Check if npm is available
   ansible.builtin.command:
     cmd: which npm
+  changed_when: false
+  failed_when: false
   register: result_npm_check
   tags:
     - barotrauma

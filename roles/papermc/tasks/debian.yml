@@ -16,7 +16,7 @@
 
 - name: Create pmcserver user
   ansible.builtin.user:
-    name:  pmcserver
+    name: pmcserver
     shell: /bin/bash
     append: yes
     groups:
