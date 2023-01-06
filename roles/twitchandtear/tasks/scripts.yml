@@ -1,3 +1,4 @@
+---
 - name: Add serversettings.xml
   ansible.builtin.template:
     src: serversettings.xml.j2
@@ -5,6 +6,8 @@
     owner: btserver
     group: btserver
     mode: 0775
+  tags:
+    - twitchandtear
 
 - name: Add clientpermissions.xml
   ansible.builtin.template:
@@ -13,4 +16,5 @@
     owner: btserver
     group: btserver
     mode: 0775
-
+  tags:
+    - twitchandtear

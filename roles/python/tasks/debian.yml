@@ -1,3 +1,4 @@
+---
 - name: Install Python 3 and PIP
   ansible.builtin.apt:
     pkg:
@@ -5,3 +6,5 @@
       - python3-pip
   environment:
     DEBIAN_FRONTEND: noninteractive
+  tags:
+    - python
