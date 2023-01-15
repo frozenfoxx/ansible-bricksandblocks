@@ -5,8 +5,10 @@
 # Variables
 SOURCE=${SOURCE:-'library'}
 SOURCE_PATH=${SOURCE_PATH:-'/library'}
+SOURCE_USER=${SOURCE_USER:-'root'}
 TARGET=${TARGET:-''}
 TARGET_PATH=${TARGET_PATH:-'/library'}
+TARGET_USER=${TARGET_USER:-'backup'}
 
 # Functions
 
@@ -24,11 +26,11 @@ check_requirements()
 sync_backup()
 {
   echo "Syncing from ${SOURCE} to ${TARGET}..."
-  rsync -avP --delete ${SOURCE}:${SOURCE_PATH}/Documents/ ${TARGET}:${TARGET_PATH}/Documents/
-  rsync -avP --delete ${SOURCE}:${SOURCE_PATH}/Games/ ${TARGET}:${TARGET_PATH}/Games/
-  rsync -avP --delete ${SOURCE}:${SOURCE_PATH}/Music/ ${TARGET}:${TARGET_PATH}/Music/
-  rsync -avP --delete ${SOURCE}:${SOURCE_PATH}/Pictures/ ${TARGET}:${TARGET_PATH}/Pictures/
-  rsync -avP --delete ${SOURCE}:${SOURCE_PATH}/Videos/ ${TARGET}:${TARGET_PATH}/Videos/
+  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Documents/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Documents/
+  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Games/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Games/
+  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Music/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Music/
+  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Pictures/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Pictures/
+  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Videos/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Videos/
 }
 
 ## Display usage information
@@ -41,8 +43,10 @@ usage()
   echo "  Environment Variables:"
   echo "    SOURCE               rsync source target housing the Library (default: 'library')"
   echo "    SOURCE_PATH          file path to use from the source (default: '/library')"
+  echo "    SOURCE_USER          user to connect to the source with (default: 'root')"
   echo "    TARGET               rsync remote target (default: '')"
   echo "    TARGET_PATH          file path to use from the target (default: '/library')"
+  echo "    TARGET_USER          user to connect to the target with (default: 'backup')"
   echo "  Options:"
   echo "    -h | --help          display this usage"
 }
