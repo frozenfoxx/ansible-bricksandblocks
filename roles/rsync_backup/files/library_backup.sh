@@ -54,7 +54,7 @@ usage()
 # Logic
 
 ## Argument parsing
-while [[ "$#" > 1 ]]; do
+while [[ "$#" > 0 ]]; do
   case $1 in
     -h | --help ) usage
                   exit 0
