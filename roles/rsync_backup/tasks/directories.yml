@@ -1,0 +1,20 @@
+---
+- name: Ensure root's SSH directory exists
+  ansible.builtin.file:
+    path: "/root/.ssh"
+    state: directory
+    mode: 0700
+    group: root
+    owner: root
+  tags:
+    - rsync_backup
+
+- name: Ensure root's scripts directory exists
+  ansible.builtin.file:
+    path: "/root/scripts"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+  tags:
+    - rsync_backup

@@ -1,0 +1,4 @@
+---
+rsync_backup_privatesshkey: "{{ lookup('env', 'RSYNC_BACKUP_PRIVATESSHKEY') }}"
+rsync_backup_sources: "{{ lookup('env', 'RSYNC_BACKUP_SOURCES') | split }}"
+rsync_backup_target: "{{ lookup('env', 'RSYNC_BACKUP_TARGET') }}"
