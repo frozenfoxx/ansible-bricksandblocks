@@ -11,16 +11,6 @@
   tags:
     - rsync_backup
 
-- name: Install private key
-  ansible.builtin.copy:
-    dest: "/root/.ssh/id_rsa"
-    mode: 0600
-    group: root
-    owner: root
-    content: "{{ rsync_backup_privatesshkey }}"
-  tags:
-    - rsync_backup
-
 - name: Add backup scripts
   ansible.builtin.import_tasks: scripts.yml
   tags:

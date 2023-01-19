@@ -1,0 +1,23 @@
+---
+- name: Create user accounts
+  ansible.builtin.user:
+    name: "{{ item.username }}"
+    group: "{{ item.group }}"
+    groups: "{{ item.groups }}"
+    home: "{{ item.home }}"
+    shell: "{{ item.shell }}"
+    uid: "{{ item.uid }}"
+  loop: "{{ users }}"
+  tags:
+    - users
+
+- name : Create SSH directories
+  ansible.builtin.file:
+    path: "{{ item.home }}/.ssh"
+    state: directory
+    mode: 0700
+    group: "{{ item.group }}"
+    owner: "{{ item.username }}"
+  loop: "{{ users }}"
+  tags:
+    - users
