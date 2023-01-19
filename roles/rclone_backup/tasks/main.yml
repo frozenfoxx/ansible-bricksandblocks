@@ -4,16 +4,6 @@
   tags:
     - rclone_backup
 
-- name: Install private key
-  ansible.builtin.copy:
-    dest: "/root/.ssh/id_rsa"
-    mode: 0600
-    group: root
-    owner: root
-    content: "{{ rclone_backup_privatesshkey }}"
-  tags:
-    - rclone_backup
-
 - name: Add backup scripts
   ansible.builtin.import_tasks: scripts.yml
   tags:

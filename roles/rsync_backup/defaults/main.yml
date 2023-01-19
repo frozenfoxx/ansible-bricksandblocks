@@ -1,4 +1,3 @@
 ---
-rsync_backup_privatesshkey: ""
 rsync_backup_sources: ""
 rsync_backup_target: ""

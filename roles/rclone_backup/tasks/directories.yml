@@ -1,14 +1,4 @@
 ---
-- name: Ensure root's SSH directory exists
-  ansible.builtin.file:
-    path: "/root/.ssh"
-    state: directory
-    mode: 0700
-    group: root
-    owner: root
-  tags:
-    - rclone_backup
-
 - name: Ensure root's scripts directory exists
   ansible.builtin.file:
     path: "/root/scripts"
