@@ -1,13 +1,18 @@
 ---
 - hosts: backup
   roles:
-    - rsync_backup
+    - rclone_backup
 
 - hosts: barotrauma
   roles:
     - linodedns
     - nodejs
     - barotrauma
+
+- hosts: host-1
+  roles:
+    - rsync_backup
+    - users
 
 - hosts: jellyfin
   roles:
