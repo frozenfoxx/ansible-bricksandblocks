@@ -21,3 +21,25 @@
   loop: "{{ users }}"
   tags:
     - users
+
+- name: Load private keys
+  ansible.builtin.copy:
+    dest: "{{ item.home }}/.ssh/id_rsa"
+    content: "{{ item.private_ssh_key }}"
+    mode: 0600
+    group: "{{ item.group }}"
+    owner: "{{ item.username }}"
+  loop: "{{ users }}"
+  tags:
+    - users
+
+- name: Load public keys
+  ansible.builtin.copy:
+    dest: "{{ item.home }}/.ssh/id_rsa.pub"
+    content: "{{ item.public_ssh_key }}"
+    mode: 0644
+    group: "{{ item.group }}"
+    owner: "{{ item.username }}"
+  loop: "{{ users }}"
+  tags:
+    - users
