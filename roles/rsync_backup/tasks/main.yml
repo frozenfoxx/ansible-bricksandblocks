@@ -15,3 +15,8 @@
   ansible.builtin.import_tasks: scripts.yml
   tags:
     - rsync_backup
+
+- name: Add cron jobs
+  ansible.builtin.import_tasks: cron.yml
+  tags:
+    - rsync_backup

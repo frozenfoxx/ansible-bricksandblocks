@@ -3,10 +3,9 @@
 # Backs up a Library server
 
 # Variables
-SOURCE=${SOURCE:-'library'}
+LOG_PATH=${LOG_PATH:-'/var/log'}
 SOURCE_PATH=${SOURCE_PATH:-'/library'}
-SOURCE_USER=${SOURCE_USER:-'root'}
-TARGET=${TARGET:-''}
+TARGET_HOST=${TARGET_HOST:-''}
 TARGET_PATH=${TARGET_PATH:-'/library'}
 TARGET_USER=${TARGET_USER:-'backup'}
 
@@ -25,12 +24,12 @@ check_requirements()
 ## Sync the backup to a target
 sync_backup()
 {
-  echo "Syncing from ${SOURCE} to ${TARGET}..."
-  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Documents/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Documents/
-  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Games/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Games/
-  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Music/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Music/
-  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Pictures/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Pictures/
-  rsync -avP --delete ${SOURCE_USER}@${SOURCE}:${SOURCE_PATH}/Videos/ ${TARGET_USER}@${TARGET}:${TARGET_PATH}/Videos/
+  echo "Syncing to ${TARGET_HOST}..."
+  rsync -avP --delete ${SOURCE_PATH}/Documents/ ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/Documents/ > ${LOG_PATH}/library_documents_backup.log
+  rsync -avP --delete ${SOURCE_PATH}/Games/ ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/Games/ > ${LOG_PATH}/library_games_backup.log
+  rsync -avP --delete ${SOURCE_PATH}/Music/ ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/Music/ > ${LOG_PATH}/library_music_backup.log
+  rsync -avP --delete ${SOURCE_PATH}/Pictures/ ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/Pictures/ > ${LOG_PATH}/library_pictures_backup.log
+  rsync -avP --delete ${SOURCE_PATH}/Videos/ ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/Videos/ > ${LOG_PATH}/library_videos_backup.log
 }
 
 ## Display usage information
@@ -41,10 +40,8 @@ usage()
   echo "    rsync                necessary for cloning"
   echo "    ssh                  necessary for remote shell"
   echo "  Environment Variables:"
-  echo "    SOURCE               rsync source target housing the Library (default: 'library')"
   echo "    SOURCE_PATH          file path to use from the source (default: '/library')"
-  echo "    SOURCE_USER          user to connect to the source with (default: 'root')"
-  echo "    TARGET               rsync remote target (default: '')"
+  echo "    TARGET_HOST          rsync remote target host (default: '')"
   echo "    TARGET_PATH          file path to use from the target (default: '/library')"
   echo "    TARGET_USER          user to connect to the target with (default: 'backup')"
   echo "  Options:"

@@ -1,10 +1,10 @@
 ---
 - name: Set the cron to run the backup scripts
   ansible.builtin.cron:
-    name: "Backup - {{ item | split(':') | first }}"
+    name: "Backup - {{ item.type }} - {{ item.target_host }}"
     hour: "2"
     minute: 0
-    job: "SOURCE={{ item | split(':') | first }} TARGET={{ rsync_backup_target }} /root/scripts/{{ item | split(':') | last }}_backup.sh"
-  loop: "{{ rsync_backup_sources }}"
+    job: "LOG_PATH={{ item.log_path }} TARGET_HOST={{ item.target_host }} TARGET_PATH={{ item.target_path }} /root/scripts/{{ item.type }}_backup.sh"
+  loop: "{{ rsync_backup_jobs }}"
   tags:
     - rsync_backup

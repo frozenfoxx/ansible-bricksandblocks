@@ -1,3 +1,2 @@
 ---
-rsync_backup_sources: ""
-rsync_backup_target: ""
+rsync_backup_jobs: []
