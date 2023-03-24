@@ -1,4 +1,9 @@
 ---
+- name: Add 32bit architecture installation for Debian
+  ansible.builtin.import_tasks: debian-32bit.yml
+  tags:
+    - barotrauma
+
 - name: Add packages for Debian
   ansible.builtin.import_tasks: debian-packages.yml
   tags:

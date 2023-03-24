@@ -1,0 +1,26 @@
+---
+- name: Check if i386 is enabled
+  ansible.builtin.shell: |
+    set -e -o pipefail
+    dpkg --print-foreign-architectures | grep i386
+  args:
+    executable: /usr/bin/bash
+  register: result_i386_check
+  changed_when: result_i386_check.rc == 1
+  failed_when: result_i386_check.rc > 1
+  tags:
+    - barotrauma
+
+- name: Enable i386 architecture
+  ansible.builtin.command:
+    cmd: dpkg --add-architecture i386
+  when: result_i386_check.rc == 1
+  tags:
+    - barotrauma
+
+- name: Ensure apt cache is up to date
+  ansible.builtin.apt:
+    update_cache: yes
+  when: result_i386_check.rc == 1
+  tags:
+    - barotrauma
