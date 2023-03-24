@@ -3,6 +3,8 @@
   ansible.builtin.shell: |
     set -e -o pipefail
     dpkg --print-foreign-architectures | grep i386
+  args:
+    executable: /usr/bin/bash
   register: result_i386_check
   changed_when: result_i386_check.rc == 1
   failed_when: result_i386_check.rc > 1
