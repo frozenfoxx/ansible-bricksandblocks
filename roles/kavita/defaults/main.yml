@@ -1,3 +1,4 @@
 ---
-kavita_restoretarget: ""
-kavita_workingdirectory: "/opt/Kavita"
+restoretarget: ""
+version: "v0.7.1.4"
+workingdirectory: "/opt/Kavita"
