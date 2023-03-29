@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - monolithprojects.github_actions_runner

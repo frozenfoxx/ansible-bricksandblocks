@@ -1,4 +1,5 @@
 # Ansible Galaxy
+- src: monolithprojects.github_actions_runner
 - src: stefangweichinger.ansible_rclone
 
 # GitHub

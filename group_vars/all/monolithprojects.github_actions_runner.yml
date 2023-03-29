@@ -1,0 +1,13 @@
+---
+# Runner user - user under which is the local runner service running
+runner_user: "{{ lookup('env', 'USER') }}"
+
+# Personal Access Token for your GitHub account
+access_token: "{{ lookup('env', 'PERSONAL_ACCESS_TOKEN') }}"
+
+# Extra arguments to pass to `config.sh`.
+# Several arguments muste be set as one string (i.e. "--ephemeral --my_special_fork")
+runner_extra_config_args: "{{ lookup('env', 'RUNNER_EXTRA_CONFIG_ARGS') }}"
+
+# Name to assign to this runner in GitHub (System hostname as default)
+runner_name: "{{ ansible_hostname }}"
