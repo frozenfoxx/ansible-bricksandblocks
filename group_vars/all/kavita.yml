@@ -1,0 +1,4 @@
+---
+restoretarget: "{{ lookup('env', 'KAVITA_RESOTRETARGET') }}"
+version: "{{ lookup('env', 'KAVITA_VERSION') }}"
+workingdirectory: "{{ lookup('env', 'KAVITA_WORKINGDIRECTORY') }}"
