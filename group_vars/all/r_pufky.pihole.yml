@@ -1,0 +1,3 @@
+---
+pihole_admin_email: "{{ lookup('env', 'PIHOLE_ADMIN_EMAIL') }}"
+pihole_webpassword: "{{ lookup('env', 'PIHOLE_WEBPASSWORD') }}"
