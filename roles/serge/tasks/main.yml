@@ -1,0 +1,7 @@
+---
+- name: Pull Serge container
+  community.docker.docker_image:
+    name: "{{ container_name }}:{{ container_version }}"
+    source: pull
+  tags:
+    - serge

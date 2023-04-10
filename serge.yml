@@ -1,0 +1,6 @@
+---
+- hosts: all
+  roles:
+    - docker
+    - community.docker
+    - serge

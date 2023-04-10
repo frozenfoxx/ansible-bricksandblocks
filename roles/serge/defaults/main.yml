@@ -1,0 +1,3 @@
+---
+container_name: "ghcr.io/nsarrazin/serge"
+container_version: "latest"

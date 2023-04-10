@@ -3,6 +3,9 @@
 - src: r_pufky.pihole
 - src: stefangweichinger.ansible_rclone
 
+collections:
+- name: community.docker
+
 # GitHub
 - src: https://github.com/frozenfoxx/acme_sh
   version: main
