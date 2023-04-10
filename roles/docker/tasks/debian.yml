@@ -1,0 +1,39 @@
+---
+- name: Ensure build dependencies
+  ansible.builtin.apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
+      - software-properties-common
+      - wget
+  tags:
+    - docker
+
+- name: Add Docker GPG apt Key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+  tags:
+    - docker
+
+- name: Add Docker Repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+  tags:
+    - docker
+
+- name: Update apt and install docker-ce
+  ansible.builtin.apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+  tags:
+    - docker
+
+- name: Install Docker Module for Python
+  ansible.builtin.pip:
+    name: docker
+  tags:
+    - docker
