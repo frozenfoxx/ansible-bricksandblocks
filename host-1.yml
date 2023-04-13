@@ -1,5 +1,5 @@
 ---
 - hosts: all
   roles:
-    - rsync_backup
+    # - rsync_backup
     # - users
