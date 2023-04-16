@@ -1,5 +1,6 @@
 # Ansible Galaxy
 - src: monolithprojects.github_actions_runner
+- src: oefenweb.nfs_client
 - src: r_pufky.pihole
 - src: stefangweichinger.ansible_rclone
 
