@@ -1,0 +1,11 @@
+---
+- name: Create NFS client mounts
+  ansible.posix.mount:
+    src: {{ item.src }}
+    path: {{ item.path }}
+    opts: {{ item.opts }}
+    boot: {{ item.boot }}
+    state: {{ item.state }}
+    fstype: {{ item.fstype }}
+  tags:
+    - nfs_client
