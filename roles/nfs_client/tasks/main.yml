@@ -7,5 +7,6 @@
     boot: "{{ item.boot }}"
     state: "{{ item.state }}"
     fstype: "{{ item.fstype }}"
+  loop: "{{ nfs_client_mounts }}"
   tags:
     - nfs_client
