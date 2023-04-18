@@ -25,6 +25,7 @@
   ansible.builtin.apt:
     pkg:
       - plexmediaserver
+    update_cache: true
   tags:
     - plex
 
