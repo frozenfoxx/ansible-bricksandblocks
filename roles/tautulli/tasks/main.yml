@@ -29,9 +29,10 @@
     - tautulli
 
 - name: Install the service script
-  copy:
+  ansible.builtin.copy:
     src: /opt/Tautulli/init-scripts/init.systemd
     dest: /lib/systemd/system/tautulli.service
+    remote_src: true
     owner: root
     group: root
     mode: 0644
