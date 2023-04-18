@@ -1,0 +1,6 @@
+---
+- name: Reload systemctl
+  ansible.builtin.systemd:
+    daemon_reload: yes
+  tags:
+    - plex

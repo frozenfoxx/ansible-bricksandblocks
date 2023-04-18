@@ -1,0 +1,37 @@
+---
+- name: Ensure build dependencies
+  ansible.builtin.apt:
+    pkg:
+      - apt-transport-https
+      - curl
+  tags:
+    - plex
+
+- name: Add the Apt signing key
+  ansible.builtin.apt_key:
+    url: https://downloads.plex.tv/plex-keys/PlexSign.key
+    state: present
+  tags:
+    - plex
+
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: "deb https://downloads.plex.tv/repo/deb public main"
+    state: present
+  tags:
+    - plex
+
+- name: Add the Plex Media Server package
+  ansible.builtin.apt:
+    pkg:
+      - plexmediaserver
+  tags:
+    - plex
+
+- name: Start Plex Media Server
+  ansible.builtin.service:
+    name: plexmediaserver.service
+    state: started
+    enabled: yes
+  tags:
+    - plex
