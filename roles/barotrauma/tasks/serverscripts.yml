@@ -6,6 +6,8 @@
     owner: btserver
     group: btserver
     mode: 0775
+  tags:
+    - barotrauma
 
 - name: Add clientpermissions.xml
   ansible.builtin.template:
@@ -14,3 +16,5 @@
     owner: btserver
     group: btserver
     mode: 0775
+tags:
+    - barotrauma

@@ -11,8 +11,7 @@
 
 - hosts: host-1
   roles:
-    - rsync_backup
-    # - users
+    - mounts
 
 - hosts: jellyfin
   roles:

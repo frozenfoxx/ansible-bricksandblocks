@@ -3,6 +3,8 @@
   ansible.builtin.apt_repository:
     repo: deb http://archive.canonical.com/ubuntu jammy multiverse
     state: present
+  tags:
+    - barotrauma
 
 - name: Accept Steam license (question)
   ansible.builtin.debconf:
@@ -10,6 +12,8 @@
     question: steam/question
     value: 'I AGREE'
     vtype: select
+  tags:
+    - barotrauma
 
 - name: Accept Steam license (license)
   ansible.builtin.debconf:
@@ -17,6 +21,8 @@
     question: steam/license
     value: ''
     vtype: note
+  tags:
+      - barotrauma
 
 - name: Ensure build dependencies
   ansible.builtin.apt:
@@ -45,3 +51,5 @@
       - wget
   environment:
     DEBIAN_FRONTEND: noninteractive
+  tags:
+      - barotrauma
