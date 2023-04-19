@@ -1,3 +1,5 @@
 ---
+bind_mount_paths: []
 mount_paths: []
 posix_mounts: []
+posix_mount_paths: []
