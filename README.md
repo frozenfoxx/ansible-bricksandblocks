@@ -4,6 +4,17 @@
 
 Ansible playbooks for BricksAndBlocks.
 
+# Requirements
+
+## Ansible Configuration
+
+- `ANSIBLE_CONFIG` set to `[repo root]/ansible.cfg`
+
+## Python
+
+- `ansible`
+- `netaddr`
+
 # Contribution
 
 Pull requests welcome.
