@@ -1,6 +1,6 @@
 ---
 - hosts: all
   roles:
+    - python
     - docker
-    - community.docker
     - serge
