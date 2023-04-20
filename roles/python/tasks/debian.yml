@@ -11,6 +11,6 @@
 
 - name: Install system Python packages
   ansible.builtin.apt:
-    pkg: {{ python_system_packages }}
+    pkg: "{{ python_system_packages }}"
   tags:
     - python
