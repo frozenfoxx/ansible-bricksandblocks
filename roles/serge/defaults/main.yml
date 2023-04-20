@@ -1,3 +1,4 @@
 ---
 serge_container_name: "ghcr.io/nsarrazin/serge"
 serge_container_version: "latest"
+serge_host_port: "8008"
