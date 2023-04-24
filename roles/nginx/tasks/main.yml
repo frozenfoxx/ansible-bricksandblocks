@@ -4,3 +4,39 @@
   when: ansible_facts['os_family']|lower == 'debian'
   tags:
     - nginx
+
+- name: Install htpasswd file
+  ansible.builtin.import_tasks: htpasswd.yml
+  tags:
+    - nginx
+
+- name: Add domain template
+  ansible.builtin.template:
+    src: "{{ nginx_domain }}.j2"
+    dest: "/etc/nginx/sites-available/{{ nginx_domain }}"
+    mode: 0644 
+  tags:
+    - nginx
+
+- name: Enable the site
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/{{ nginx_domain }}"
+    dest: "/etc/nginx/sites-enabled/{{ nginx_domain }}"
+    state: link
+  tags:
+    - nginx
+
+- name: Disable default site
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+  tags:
+    - nginx
+
+- name: Restart service nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+  when: nginx_restart
+  tags:
+    - nginx
