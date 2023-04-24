@@ -55,6 +55,9 @@ server {
 
     server_name chat.bricksandblocks.net;
 
+    auth_basic           "Members Only Area";
+    auth_basic_user_file /etc/nginx/.htpasswd; 
+
     location / {
         proxy_set_header  Host $host:$server_port;
         proxy_set_header  X-Real-IP $remote_addr;
@@ -68,9 +71,6 @@ server {
     ssl_certificate     /etc/nginx/certs/{{ nginx_domain }}.cer;
     ssl_certificate_key /etc/nginx/private/{{ nginx_domain }}.key;
     ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-
-    auth_basic           "Members Only Area";
-    auth_basic_user_file /etc/apache2/.htpasswd; 
 }
 
 server {

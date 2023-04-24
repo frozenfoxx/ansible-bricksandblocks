@@ -14,7 +14,6 @@ Ansible playbooks for BricksAndBlocks.
 
 - `ansible`
 - `netaddr`
-- `passlib`
 
 # Contribution
 
