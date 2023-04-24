@@ -1,7 +1,7 @@
 ---
 - name: Retrieve and extract the Kavita release
   ansible.builtin.unarchive:
-    src: https://github.com/Kareadita/Kavita/releases/download/v0.7.1.4/kavita-linux-x64.tar.gz
+    src: https://github.com/Kareadita/Kavita/releases/download/{{ kavita_version }}/kavita-linux-x64.tar.gz
     dest: {{ workingdirectory }}
     extra_opts:
       - "--no-same-owner"
