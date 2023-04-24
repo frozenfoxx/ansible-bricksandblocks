@@ -1,0 +1,17 @@
+---
+- name: Create kavita system group
+  group:
+    name: kavita
+    system: yes
+  tags:
+    - kavita
+
+- name: Create kavita user
+  user:
+    name: kavita
+    group: kavita
+    system: yes
+    shell: /sbin/nologin
+    create_home: false
+  tags:
+    - kavita

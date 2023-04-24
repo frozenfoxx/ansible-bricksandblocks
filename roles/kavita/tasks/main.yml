@@ -1,9 +1,42 @@
 ---
 - name: Retrieve and extract the Kavita release
   ansible.builtin.unarchive:
-    src: https://github.com/Kareadita/Kavita/releases/download/{{ kavita_version }}/kavita-linux-x64.tar.gz
-    dest: {{ workingdirectory }}
+    src: "https://github.com/Kareadita/Kavita/releases/download/{{ kavita_version }}/kavita-linux-x64.tar.gz"
+    dest: "{{ kavita_workingdirectory }}"
     extra_opts:
       - "--no-same-owner"
+  tags:
+    - kavita
+
+- name: Create user and group
+  ansible.builtin.import_tasks: user.yml
+  tags:
+    - kavita
+
+- name: Ensure directory permissions
+  ansible.builtin.file:
+    path: "{{ kavita_workingdirectory }}"
+    state: directory
+    recurse: true
+    owner: kavita
+    group: kavita
+  tags:
+    - kavita
+
+- name: Install the service script
+  ansible.builtin.template:
+    src: kavita.service.j2
+    dest: /lib/systemd/system/kavita.service
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - kavita
+
+- name: Start the service
+  ansible.builtin.systemd:
+    name: kavita.service
+    state: restarted
+    daemon_reload: true
   tags:
     - kavita
