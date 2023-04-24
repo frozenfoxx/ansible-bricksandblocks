@@ -1,0 +1,10 @@
+---
+- name: Retrieve mods
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    dest: /home/df/
+    mode: 0644
+  become: true
+  become_user: df
+  tags:
+    - dwarffortress
