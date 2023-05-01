@@ -1,0 +1,12 @@
+---
+fileshelter_behindreverseproxy: "{{ lookup('env', 'FILESHELTER_BEHINDREVERSEPROXY') }}"
+fileshelter_listenport: "{{ lookup('env', 'FILESHELTER_LISTENPORT') }}"
+fileshelter_listenaddr: "{{ lookup('env', 'FILESHELTER_LISTENADDR') }}"
+fileshelter_maxsharesize: "{{ lookup('env', 'FILESHELTER_MAXSHARESIZE') }}"
+fileshelter_maxvaliditydays: "{{ lookup('env', 'FILESHELTER_MAXVALIDITYDAYS') }}"
+fileshelter_tosorg: "{{ lookup('env', 'FILESHELTER_TOSORG') }}"
+fileshelter_tossupportemail: "{{ lookup('env', 'FILESHELTER_TOSSUPPORTEMAIL') }}"
+fileshelter_tosurl: "{{ lookup('env', 'FILESHELTER_TOSURL') }}"
+fileshelter_trustedproxies: "{{ lookup('env', 'FILESHELTER_TRUSTEDPROXIES') }}"
+fileshelter_uploadpasswords: "{{ lookup('env', 'FILESHELTER_UPLOADPASSWORDS') }}"
+fileshelter_workingdir: "{{ lookup('env', 'FILESHELTER_WORKINGDIR') }}"

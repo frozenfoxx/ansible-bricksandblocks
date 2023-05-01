@@ -1,0 +1,30 @@
+---
+- name: Ensure build dependencies
+  ansible.builtin.apt:
+    pkg:
+      - gnupg
+      - software-properties-common
+      - wget
+  tags:
+    - fileshelter
+
+- name: Add the Apt signing key
+  ansible.builtin.apt_key:
+    url: https://debian.poupon.dev/apt/debian/epoupon.gpg.key
+    state: present
+  tags:
+    - fileshelter
+
+- name: Add specified repository into sources list
+  ansible.builtin.apt_repository:
+    repo: deb https://debian.poupon.dev/apt/debian bullseye main
+    state: present
+  tags:
+    - fileshelter
+
+- name: Add the fileshelter package
+  ansible.builtin.apt:
+    pkg:
+      - fileshelter
+  tags:
+    - fileshelter
