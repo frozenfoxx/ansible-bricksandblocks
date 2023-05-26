@@ -1,9 +1,13 @@
+upstream chat {
+    server 192.168.2.38:8008 fail_timeout=0;
+}
+
 upstream jellyfin {
     server 192.168.2.27:8096 fail_timeout=0;
 }
 
-upstream chat {
-    server 192.168.2.38:8008 fail_timeout=0;
+upstream nas {
+    server 192.168.2.18:5001 fail_timeout=0;
 }
 
 upstream unifi {
@@ -21,26 +25,6 @@ server {
         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header  X-Forwarded-Proto $scheme;
         proxy_pass        https://unifi;
-        proxy_redirect    http:// https://;
-        add_header Pragma "no-cache";
-    }
-
-    ssl_certificate     /etc/nginx/certs/{{ nginx_domain }}.cer;
-    ssl_certificate_key /etc/nginx/private/{{ nginx_domain }}.key;
-    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-}
-
-server {
-    listen 443 ssl;
-
-    server_name jellyfin.bricksandblocks.net;
-
-    location / {
-        proxy_set_header  Host $host:$server_port;
-        proxy_set_header  X-Real-IP $remote_addr;
-        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header  X-Forwarded-Proto $scheme;
-        proxy_pass        http://jellyfin;
         proxy_redirect    http:// https://;
         add_header Pragma "no-cache";
     }
@@ -74,6 +58,46 @@ server {
 }
 
 server {
+    listen 443 ssl;
+
+    server_name jellyfin.bricksandblocks.net;
+
+    location / {
+        proxy_set_header  Host $host:$server_port;
+        proxy_set_header  X-Real-IP $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Proto $scheme;
+        proxy_pass        http://jellyfin;
+        proxy_redirect    http:// https://;
+        add_header Pragma "no-cache";
+    }
+
+    ssl_certificate     /etc/nginx/certs/{{ nginx_domain }}.cer;
+    ssl_certificate_key /etc/nginx/private/{{ nginx_domain }}.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+}
+
+server {
+    listen 443 ssl;
+
+    server_name nas.bricksandblocks.net;
+
+    location / {
+        proxy_set_header  Host $host:$server_port;
+        proxy_set_header  X-Real-IP $remote_addr;
+        proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Proto $scheme;
+        proxy_pass        http://nas;
+        proxy_redirect    http:// https://;
+        add_header Pragma "no-cache";
+    }
+
+    ssl_certificate     /etc/nginx/certs/{{ nginx_domain }}.cer;
+    ssl_certificate_key /etc/nginx/private/{{ nginx_domain }}.key;
+    ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+}
+
+server {
     if ($host = bricksandblocks.net) {
         return 301 https://$host$request_uri;
     }
@@ -81,6 +105,17 @@ server {
     listen 80;
 
     server_name bricksandblocks.net;
+    return 404;
+}
+
+server {
+    if ($host = chat.bricksandblocks.net) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80;
+
+    server_name chat.bricksandblocks.net;
     return 404;
 }
 
@@ -96,12 +131,12 @@ server {
 }
 
 server {
-    if ($host = chat.bricksandblocks.net) {
+    if ($host = nas.bricksandblocks.net) {
         return 301 https://$host$request_uri;
     }
 
     listen 80;
 
-    server_name chat.bricksandblocks.net;
+    server_name nas.bricksandblocks.net;
     return 404;
 }
