@@ -2,6 +2,7 @@ roles:
   - name: acme_sh
     src: https://github.com/frozenfoxx/acme_sh
     version: main
+  - name: laurivan.mealie
   - name: monolithprojects.github_actions_runner
   - name: r_pufky.pihole
   - name: stefangweichinger.ansible_rclone
