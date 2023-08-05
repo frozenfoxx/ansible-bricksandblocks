@@ -1,5 +1,5 @@
 ---
 - hosts: all
   roles:
-    - docker
+    - nickjj.docker
     - laurivan.mealie

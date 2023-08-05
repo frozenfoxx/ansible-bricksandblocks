@@ -1,5 +1,0 @@
----
-- name: Reload systemctl
-  ansible.builtin.command: systemctl daemon-reload
-  tags:
-    - photostructure
