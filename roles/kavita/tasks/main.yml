@@ -3,6 +3,7 @@
   ansible.builtin.unarchive:
     src: "https://github.com/Kareadita/Kavita/releases/download/{{ kavita_version }}/kavita-linux-x64.tar.gz"
     dest: "{{ kavita_workingdirectory }}"
+    remote_src: yes
     extra_opts:
       - "--no-same-owner"
   tags:
