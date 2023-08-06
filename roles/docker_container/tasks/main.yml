@@ -1,5 +1,5 @@
 ---
-- name: "Deploy Docker containers to {{ inventory_hostname }}"
+- name: "Deploy Docker container to {{ inventory_hostname }}"
   community.docker.docker_container:
     name: "{{ item.name }}"
     image: "{{ item.image }}"
