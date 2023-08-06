@@ -1,4 +1,14 @@
 ---
+- name: Ensure directory permissions
+  ansible.builtin.file:
+    path: "{{ kavita_workingdirectory }}"
+    state: directory
+    recurse: true
+    owner: kavita
+    group: kavita
+  tags:
+    - kavita
+
 - name: Retrieve and extract the Kavita release
   ansible.builtin.unarchive:
     src: "https://github.com/Kareadita/Kavita/releases/download/{{ kavita_version }}/kavita-linux-x64.tar.gz"
@@ -11,16 +21,6 @@
 
 - name: Create user and group
   ansible.builtin.import_tasks: user.yml
-  tags:
-    - kavita
-
-- name: Ensure directory permissions
-  ansible.builtin.file:
-    path: "{{ kavita_workingdirectory }}"
-    state: directory
-    recurse: true
-    owner: kavita
-    group: kavita
   tags:
     - kavita
 
