@@ -27,6 +27,16 @@
   tags:
     - kavita
 
+- name: Set Kavita permissions
+  ansible.builtin.file:
+    path: "{{ kavita_workingdirectory }}/Kavita"
+    state: file
+    owner: kavita
+    group: kavita
+    mode: 0755
+  tags:
+    - kavita
+
 - name: Install the service script
   ansible.builtin.template:
     src: kavita.service.j2
