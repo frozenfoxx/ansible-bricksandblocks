@@ -1,0 +1,20 @@
+---
+- name: "Deploy Docker containers to {{ inventory_hostname }}"
+  community.docker.docker_container:
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    state: started
+    detach: true
+    recreate: "{{ item.recreate }}"
+    restart_policy: "{{ item.restart_policy }}"
+    links: "{{ item.links | default(omit) }}"
+    networks: "{{ item.network | default(omit, True) }}"
+    networks_cli_compatible: no # avoid ansible 2.12. Deprecation warning
+    published_ports: "{{ item.ports | default(omit, True) }}"
+    volumes:
+      - "{{ item.bind_path }}"
+    loop: "{{ item.volumes }}"
+  loop: "{{ docker_container_deployments }}"
+  register: "docker_container_{{ item.name }}"
+  tags:
+    - docker

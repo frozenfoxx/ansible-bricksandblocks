@@ -3,4 +3,4 @@
   roles:
     - python
     - nickjj.docker
-    - portainer
+    - ansible-role-portainer

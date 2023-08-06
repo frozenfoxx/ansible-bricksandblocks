@@ -2,6 +2,9 @@ roles:
   - name: acme_sh
     src: https://github.com/frozenfoxx/acme_sh
     version: main
+  - name: ansible-role-portainer
+    src: https://github.com/shelleg/ansible-role-portainer
+    version: master
   - name: laurivan.mealie
   - name: monolithprojects.github_actions_runner
   - name: nickjj.docker
