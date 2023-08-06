@@ -32,6 +32,7 @@
     owner: kavita
     group: kavita
     mode: 0755
+    recurse: true
   tags:
     - kavita
 
