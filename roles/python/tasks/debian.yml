@@ -6,11 +6,13 @@
       - python3-pip
   environment:
     DEBIAN_FRONTEND: noninteractive
+  become: true
   tags:
     - python
 
 - name: Install system Python packages
   ansible.builtin.apt:
     pkg: "{{ python_system_packages }}"
+  become: true
   tags:
     - python
