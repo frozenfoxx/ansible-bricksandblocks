@@ -1,0 +1,6 @@
+---
+ssh_copy_id_hostname: "{{ lookup('env', 'SSH_COPY_ID_HOSTNAME') }}"
+ssh_copy_id_username: "{{ lookup('env', 'SSH_COPY_ID_USERNAME') }}"
+ssh_copy_id_password: "{{ lookup('env', 'SSH_COPY_ID_PASSWORD') }}"
+ssh_public_key: "{{ lookup('env', 'SSH_COPY_ID_PUBLIC_KEY') }}"
+ssh_copy_id_ssh_port: "{{ lookup('env', 'SSH_COPY_ID_SSH_PORT') }}"

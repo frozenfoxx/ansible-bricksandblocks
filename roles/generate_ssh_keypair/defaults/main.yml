@@ -1,0 +1,4 @@
+---
+generate_ssh_keypair_passphrase: ""
+generate_ssh_keypair_path: "/root/.ssh"
+generate_ssh_keypair_type: "ed25519"

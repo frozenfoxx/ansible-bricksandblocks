@@ -1,4 +1,13 @@
 ---
 - hosts: all
   roles:
+    - generate_ssh_keypair
+    - role: rywillia.ssh-copy-id
+      vars:
+        hostname: {{ ssh_copy_id_hostname }}
+        username: {{ ssh_copy_id_username }}
+        password: {{ ssh_copy_id_password }}
+        ssh_public_key: {{ ssh_copy_id_public_key }}
+        ssh_port: {{ ssh_copy_id_ssh_port }}
     - kavita
+    - rsync_backup
