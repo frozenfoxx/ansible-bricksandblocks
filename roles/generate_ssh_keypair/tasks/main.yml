@@ -11,8 +11,8 @@
 
 - name: Generate SSH key pair
   ansible.builtin.openssh_keypair:
-    path: {{ generate_ssh_keypair_path }}/id_{{ generate_ssh_keypair_type }}
-    type: {{ generate_ssh_keypair_type }}
-    passphrase: {{ generate_ssh_keypair_passphrase | default('') }}
+    path: "{{ generate_ssh_keypair_path }}/id_{{ generate_ssh_keypair_type }}"
+    type: "{{ generate_ssh_keypair_type }}"
+    passphrase: "{{ generate_ssh_keypair_passphrase | default('') }}"
   tags:
     - generate_ssh_keypair
