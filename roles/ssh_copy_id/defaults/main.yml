@@ -1,0 +1,6 @@
+---
+ssh_copy_id_hostname: ""
+ssh_copy_id_password: ""
+ssh_copy_id_private_key: "~/.ssh/id_ed25519"
+ssh_copy_id_ssh_port: "22"
+ssh_copy_id_username: "root"

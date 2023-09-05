@@ -1,4 +1,6 @@
 ---
+generate_ssh_keypair_group: "root"
 generate_ssh_keypair_passphrase: ""
 generate_ssh_keypair_path: "/root/.ssh"
 generate_ssh_keypair_type: "ed25519"
+generate_ssh_keypair_user: "root"

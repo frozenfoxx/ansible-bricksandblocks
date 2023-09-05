@@ -2,7 +2,6 @@ roles:
   - name: acme_sh
     src: https://github.com/frozenfoxx/acme_sh
     version: main
-  - name: rywillia.ssh-copy-id
   - name: ansible-role-portainer
     src: https://github.com/shelleg/ansible-role-portainer
     version: master

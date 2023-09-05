@@ -4,8 +4,8 @@
     path: "{{ generate_ssh_keypair_path }}"
     state: directory
     mode: 0700
-    group: root
-    owner: root
+    group: "{{ generate_ssh_keypair_group }}"
+    owner: "{{ generate_ssh_keypair_user }}"
   tags:
     - generate_ssh_keypair
 
