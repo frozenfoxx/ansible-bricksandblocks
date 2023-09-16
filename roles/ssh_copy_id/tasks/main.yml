@@ -1,12 +1,4 @@
 ---
-- name: Add the sshpass package
-  ansible.builtin.apt:
-    pkg:
-      - sshpass
-    update_cache: true
-  tags:
-    - ssh_copy_id
-
 - name: Copy the public key to the target host
   ansible.builtin.command:
     cmd: "sshpass -e ssh-copy-id -i {{ ssh_copy_id_private_key }} -o StrictHostKeyChecking=no -p {{ ssh_copy_id_ssh_port }} {{ ssh_copy_id_username }}@{{ ssh_copy_id_hostname }}"

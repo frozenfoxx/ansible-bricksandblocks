@@ -2,5 +2,6 @@
 - hosts: all
   roles:
     - generate_ssh_keypair
+    - sshpass
     - kavita
     - rsync_backup
