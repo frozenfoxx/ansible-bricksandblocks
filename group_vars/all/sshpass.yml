@@ -1,0 +1,3 @@
+---
+sshpass_password: "{{ lookup('env', 'SSHPASS_PASSWORD') }}"
+sshpass_username: "{{ lookup('env', 'SSHPASS_USERNAME') }}"
