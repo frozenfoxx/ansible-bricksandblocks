@@ -11,6 +11,7 @@
   ansible.builtin.getent:
     database: passwd
     key: "{{ sshpass_username }}"
+    split: ":"
   register: sshpass_username_info
   tags:
     - sshpass
