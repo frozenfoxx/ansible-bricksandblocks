@@ -7,19 +7,20 @@
   tags:
     - sshpass
 
-- name: Get user's home directory
-  ansible.builtin.getent:
-    database: passwd
-    key: "{{ sshpass_username }}"
-    split: ":"
+- name: Get sshpass user
+  ansible.builtin.user:
+    name: "{{ sshpass_username }}"
+    state: present
   register: sshpass_username_info
+  failed_when: sshpass_username_info.changed
+  check_mode: true
   tags:
     - sshpass
 
 - name: Create the .sshpass file
   ansible.builtin.copy:
     content: "{{ sshpass_password }}"
-    dest: "{{ sshpass_username_info.entries[0].homedir }}/.sshpass"
+    dest: "{{ sshpass_username_info.home }}/.sshpass"
     owner: "{{ sshpass_username }}"
     group: "{{ sshpass_username }}"
     mode: "0600"
