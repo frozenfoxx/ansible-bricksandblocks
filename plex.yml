@@ -1,6 +1,8 @@
 ---
 - hosts: all
   roles:
+    - generate_ssh_keypair
+    - sshpass
     - python
     - plex
     - tautulli

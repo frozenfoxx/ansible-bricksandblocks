@@ -6,7 +6,6 @@ roles:
     src: https://github.com/shelleg/ansible-role-portainer
     version: master
   - name: laurivan.mealie
-  - name: monolithprojects.github_actions_runner
   - name: nickjj.docker
   - name: r_pufky.pihole
   - name: stefangweichinger.ansible_rclone
