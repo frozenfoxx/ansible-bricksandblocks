@@ -6,8 +6,9 @@
 BACKUP_DATE=$(/bin/date +%Y-%m-%d)
 LOG_PATH=${LOG_PATH:-'/var/log'}
 SOURCE_PATH=${SOURCE_PATH:-'/var/lib/plexmediaserver'}
+SSHPASS_PATH=${SSHPASS_PATH:-"${HOME}/.sshpass"}
 TARGET_HOST=${TARGET_HOST:-''}
-TARGET_PATH=${TARGET_PATH:-'/Apps'}
+TARGET_PATH=${TARGET_PATH:-':NetBackup/plex_backups'}
 TARGET_USER=${TARGET_USER:-'backup'}
 
 # Functions
@@ -18,6 +19,12 @@ check_requirements()
   # Check for rsync
   if ! command -v rsync &> /dev/null; then
     echo "rsync not found!"
+    exit 1
+  fi
+
+  # Check for sshpass
+  if ! command -v sshpass &> /dev/null; then
+    echo "sshpass not found!"
     exit 1
   fi
 }
@@ -45,7 +52,7 @@ create_backup()
 sync_backup()
 {
   echo "Syncing to ${TARGET_HOST}..."
-  rsync -avP /tmp/PlexBackup-Metadata-${BACKUP_DATE}.tar.gz ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/ > ${LOG_PATH}/plex_backup.log
+  rsync -av "sshpass -f ${SSHPASS_PATH} ssh" /tmp/PlexBackup-Metadata-${BACKUP_DATE}.tar.gz ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/ > ${LOG_PATH}/plex_backup.log
 }
 
 ## Display usage information
@@ -55,6 +62,7 @@ usage()
   echo "  Requirements:"
   echo "    rsync                necessary for cloning"
   echo "    ssh                  necessary for remote shell"
+  echo "    sshpass              necessary for backup to hosts without proper SSH key support"
   echo "  Environment Variables:"
   echo "    SOURCE_PATH          file path to use from the source (default: '/var/lib/plexmediaserver')"
   echo "    TARGET_HOST          rsync remote target host (default: '')"
