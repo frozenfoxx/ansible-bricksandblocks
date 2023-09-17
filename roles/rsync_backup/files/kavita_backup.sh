@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-# Backs up a Plex server
+# Backs up a Kavita server
 
 # Variables
 BACKUP_DATE=$(/bin/date +%Y-%m-%d)
 LOG_PATH=${LOG_PATH:-'/var/log'}
 SOURCE_PATH=${SOURCE_PATH:-'/opt/Kavita/config/backups'}
+SSHPASS_PATH=${SSHPASS_PATH:-"${HOME}/.sshpass"}
 TARGET_HOST=${TARGET_HOST:-''}
 TARGET_PATH=${TARGET_PATH:-':NetBackup/kavita_backups'}
 TARGET_USER=${TARGET_USER:-'backup'}
@@ -20,6 +21,12 @@ check_requirements()
     echo "rsync not found!"
     exit 1
   fi
+
+  # Check for sshpass
+  if ! command -v sshpass &> /dev/null; then
+    echo "sshpass not found!"
+    exit 1
+  fi
 }
 
 ## Clean up old backups
@@ -32,7 +39,7 @@ cleanup_backup()
 sync_backup()
 {
   echo "Syncing to ${TARGET_HOST}..."
-  rsync -avP ${SOURCE_PATH}/* ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/ > ${LOG_PATH}/kavita_backup.log
+  rsync -av -e "sshpass -f ${SSHPASS_PATH} ssh" ${SOURCE_PATH}/* ${TARGET_USER}@${TARGET_HOST}:${TARGET_PATH}/ > ${LOG_PATH}/kavita_backup.log
 }
 
 ## Display usage information
@@ -42,6 +49,7 @@ usage()
   echo "  Requirements:"
   echo "    rsync                necessary for cloning"
   echo "    ssh                  necessary for remote shell"
+  echo "    sshpass              necessary for backup to hosts without proper SSH key support"
   echo "  Environment Variables:"
   echo "    SOURCE_PATH          file path to use from the source (default: '/opt/Kavita/config/backups')"
   echo "    TARGET_HOST          rsync remote target host (default: '')"
