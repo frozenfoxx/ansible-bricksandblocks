@@ -2,5 +2,5 @@
 - hosts: all
   roles:
     - python
-    - nickjj.docker
-    - laurivan.mealie
+    - { role: nickjj.docker, become: true }
+    - { role: ansible-role-mealie, ansible_python_interpreter: "{{ '/usr/bin/env python3-docker' }}", become: true }
