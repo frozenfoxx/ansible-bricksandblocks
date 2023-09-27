@@ -5,7 +5,7 @@ roles:
   - name: ansible-role-portainer
     src: https://github.com/shelleg/ansible-role-portainer
     version: master
-  - name: ansible-role-mealie
+  - name: mealie
     src: https://github.com/frozenfoxx/ansible-role-mealie
     version: main
   - name: nickjj.docker
