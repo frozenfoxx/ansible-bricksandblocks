@@ -1,6 +1,9 @@
 ---
 - hosts: all
   roles:
+    - generate_ssh_keypair
+    - sshpass
     - { role: python, become: true }
     - { role: nickjj.docker, become: true }
     - { role: mealie, ansible_python_interpreter: "{{ '/usr/bin/env python3-docker' }}", become: true }
+    - rsync_backup
