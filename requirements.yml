@@ -8,7 +8,7 @@ roles:
   - name: mealie
     src: https://github.com/frozenfoxx/ansible-role-mealie
     version: main
-  - name: nickjj.docker
+  - name: geerlingguy.docker
   - name: r_pufky.pihole
   - name: stefangweichinger.ansible_rclone
 
