@@ -1,0 +1,24 @@
+---
+- name: "Set up directories for Heimdall"
+  ansible.builtin.file:
+    state: directory
+    path: "{{ item }}"
+    owner: "root"
+    group: "root"
+    mode: 0700
+  with_items:
+    - "{{ heimdall_paths }}"
+  become: true
+  tags:
+    - heimdall
+
+- name: "Write configuration files for Heimdall"
+  ansible.builtin.template:
+    src: "docker-compose.yml.j2"
+    dest: "{{ heimdall_data_path }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: 0640
+  become: true
+  tags:
+    - heimdall

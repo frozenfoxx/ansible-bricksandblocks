@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+    - generate_ssh_keypair
+    - sshpass
+    - python
+    - geerlingguy.docker
+    - heimdall
+    - rsync_backup

@@ -1,0 +1,10 @@
+---
+- name: "Configure Heimdall"
+  ansible.builtin.import_tasks: config.yml
+  tags:
+    - heimdall
+
+- name: "Install Heimdall"
+  ansible.builtin.import_tasks: install.yml
+  tags:
+    - heimdall

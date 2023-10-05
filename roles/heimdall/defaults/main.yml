@@ -1,0 +1,7 @@
+---
+heimdall_data_path: "/data/heimdall"
+heimdall_paths:
+  - "/data/heimdall"
+  - "/data/heimdall/config"
+heimdall_restart: "unless-stopped"
+heimdall_timezone: "US/Pacific"
