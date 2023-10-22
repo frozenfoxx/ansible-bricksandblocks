@@ -1,0 +1,40 @@
+---
+- name: Retrieve rke2 install script
+  ansible.builtin.get_url:
+    url: https://get.rke2.io
+    dest: /root/install.sh
+    mode: 0755
+  become: true
+  tags:
+    - rke2
+
+- name: Register if the rke2 install script is available
+  ansible.builtin.stat:
+    path: /root/install.sh
+  register: rke2_install_script
+  tags:
+    - rke2
+
+- name: Install rke2
+  ansible.builtin.shell:
+    cmd: ./install.sh
+    chdir: /root
+  environment:
+    INSTALL_RKE2_TYPE="{{ rke2_install_type }}"
+    INSTALL_RKE2_CHANNEL="{{ rke2_install_channel }}"
+  become: true
+  when: rke2_install_script.stat.exists
+  tags:
+    - rke2
+
+- name: Configure rke2 server
+  ansible.builtin.import_tasks: server.yml
+  when: rke2_install_type == 'server'
+  tags:
+    - rke2
+
+- name: Configure rke2 agent
+  ansible.builtin.import_tasks: agent.yml
+  when: rke2_install_type == 'agent'
+  tags:
+    - rke2

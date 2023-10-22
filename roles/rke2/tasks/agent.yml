@@ -1,0 +1,8 @@
+---
+- name: Enable rke2-agent service
+  ansible.builtin.service:
+    name: rke2-agent
+    state: "{{ 'started' if rke2_install_type == 'agent' else 'stopped' }}"
+  when: rke2_install_type == 'agent'
+  tags:
+    - rke2

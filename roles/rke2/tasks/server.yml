@@ -1,0 +1,8 @@
+---
+- name: Enable rke2-server service
+  ansible.builtin.service:
+    name: rke2-server
+    state: "{{ 'started' if rke2_install_type == 'server' else 'stopped' }}"
+  when: rke2_install_type == 'server'
+  tags:
+  - rke2

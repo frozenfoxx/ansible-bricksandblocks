@@ -3,3 +3,7 @@
   roles:
     - avahi
     - python
+    - rke2
+  vars:
+    rke2_install_type: "server"
+    rke2_install_channel: "stable"
