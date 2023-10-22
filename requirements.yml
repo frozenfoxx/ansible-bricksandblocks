@@ -14,5 +14,6 @@ roles:
 
 collections:
   - name: ansible.posix
+  - name: community.crypto
   - name: community.docker
   - name: community.general
