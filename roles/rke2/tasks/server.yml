@@ -1,8 +1,16 @@
 ---
+- name: Set up server config
+  ansible.builtin.template:
+    src: templates/server-config.yaml.j2
+    dest: /etc/rancher/rke2/config.yaml
+  become: true
+  tags:
+    - rke2
+
 - name: Enable rke2-server service
   ansible.builtin.service:
     name: rke2-server
     state: "{{ 'started' if rke2_install_type == 'server' else 'stopped' }}"
-  when: rke2_install_type == 'server'
+  become: true
   tags:
   - rke2

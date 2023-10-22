@@ -27,6 +27,11 @@
   tags:
     - rke2
 
+- name: Configure network
+  ansible.builtin.import_tasks: network.yml
+  tags:
+    - rke2
+
 - name: Configure rke2 server
   ansible.builtin.import_tasks: server.yml
   when: rke2_install_type == 'server'

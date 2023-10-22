@@ -1,0 +1,12 @@
+---
+- name: Create rke2-canal.conf
+  ansible.builtin.copy:
+    content: |
+      [keyfile]
+      unmanaged-devices=interface-name:cali*;interface-name:flannel*
+    dest: /etc/NetworkManager/conf.d/rke2-canal.conf
+  notify:
+    - Reload NetworkManager
+    - Disable nm-cloud-setup services
+  tags:
+    - rke2

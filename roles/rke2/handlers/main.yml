@@ -1,0 +1,20 @@
+---
+- name: Reload NetworkManager
+  ansible.builtin.service:
+    name: NetworkManager
+    state: reloaded
+  become: true
+  tags:
+    - rke2
+
+- name: Disable nm-cloud-setup services (if present)
+  ansible.builtin.service:
+    name: "{{ item }}"
+    enabled: no
+    state: stopped
+  become: true
+  loop:
+    - nm-cloud-setup.service
+    - nm-cloud-setup.timer
+  tags:
+    - rke2

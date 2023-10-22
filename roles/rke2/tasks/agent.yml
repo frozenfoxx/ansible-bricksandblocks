@@ -1,8 +1,40 @@
 ---
+- name: Fetch rke2 server token
+  ansible.builtin.fetch:
+    src: /var/lib/rancher/rke2/server/node-token
+    dest: ./rke2_install_token
+  delegate_to: rke2_install_server_address
+  register: rke2_install_token_fetch
+  tags:
+    - rke2
+
+- name: Set rke2 install token as a fact
+  set_fact:
+    rke2_install_token: "{{ lookup('file', './rke2_install_token') }}"
+  when: rke2_install_token_fetch.rc == 0
+  tags:
+    - rke2
+
+- name: Remove the local token file
+  ansible.builtin.file:
+    path: ./rke2_install_token
+    state: absent
+  when: rke2_install_token_fetch.rc == 0
+  tags:
+    - rke2
+
+- name: Set up agent config
+  ansible.builtin.template:
+    src: templates/agent-config.yaml.j2
+    dest: /etc/rancher/rke2/config.yaml
+  become: true
+  tags:
+    - rke2
+
 - name: Enable rke2-agent service
   ansible.builtin.service:
     name: rke2-agent
     state: "{{ 'started' if rke2_install_type == 'agent' else 'stopped' }}"
-  when: rke2_install_type == 'agent'
+  become: true
   tags:
     - rke2
