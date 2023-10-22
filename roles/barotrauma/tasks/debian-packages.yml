@@ -22,7 +22,7 @@
     value: ''
     vtype: note
   tags:
-      - barotrauma
+    - barotrauma
 
 - name: Ensure build dependencies
   ansible.builtin.apt:
@@ -52,4 +52,4 @@
   environment:
     DEBIAN_FRONTEND: noninteractive
   tags:
-      - barotrauma
+    - barotrauma

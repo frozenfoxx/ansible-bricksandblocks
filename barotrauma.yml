@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Deploy barotrauma server
+  hosts: all
   roles:
     - avahi
     - linodedns

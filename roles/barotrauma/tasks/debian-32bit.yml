@@ -15,6 +15,7 @@
   ansible.builtin.command:
     cmd: dpkg --add-architecture i386
   when: result_i386_check.rc == 1
+  changed_when: false
   tags:
     - barotrauma
 
@@ -22,5 +23,6 @@
   ansible.builtin.apt:
     update_cache: yes
   when: result_i386_check.rc == 1
+  changed_when: false
   tags:
     - barotrauma

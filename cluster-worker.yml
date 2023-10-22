@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Deploy Kubernetes cluster worker
+  hosts: all
   roles:
     - avahi
     - python

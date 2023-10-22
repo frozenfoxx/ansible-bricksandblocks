@@ -1,7 +1,0 @@
----
-- name: Add the dwarf-fortress package
-  ansible.builtin.apt:
-    pkg:
-      - dwarf-fortress
-  tags:
-    - dwarffortress

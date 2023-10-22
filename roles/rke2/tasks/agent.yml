@@ -9,7 +9,7 @@
     - rke2
 
 - name: Set rke2 token as a fact
-  set_fact:
+  ansible.builtin.set_fact:
     rke2_token: "{{ lookup('file', './rke2_token') }}"
   when: rke2_token_fetch.rc == 0
   tags:

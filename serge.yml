@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Deploy serge server
+  hosts: all
   roles:
     - avahi
     - python

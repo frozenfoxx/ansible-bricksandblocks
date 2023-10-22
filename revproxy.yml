@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Deploy reverse proxy server
+  hosts: all
   roles:
     - avahi
     - python
