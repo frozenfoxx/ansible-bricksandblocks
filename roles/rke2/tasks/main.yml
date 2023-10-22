@@ -20,8 +20,8 @@
     cmd: ./install.sh
     chdir: /root
   environment:
-    INSTALL_RKE2_TYPE="{{ rke2_type }}"
-    INSTALL_RKE2_CHANNEL="{{ rke2_channel }}"
+    INSTALL_RKE2_TYPE: "{{ rke2_type }}"
+    INSTALL_RKE2_CHANNEL: "{{ rke2_channel }}"
   become: true
   when: rke2_install_script.stat.exists
   tags:
