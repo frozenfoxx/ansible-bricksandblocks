@@ -3,4 +3,4 @@
   ansible.builtin.systemd:
     daemon_reload: yes
   tags:
-    - tautulli
+    - kavita
