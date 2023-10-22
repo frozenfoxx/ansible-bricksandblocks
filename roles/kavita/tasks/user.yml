@@ -1,13 +1,13 @@
 ---
 - name: Create kavita system group
-  group:
+  ansible.builtin.group:
     name: kavita
     system: yes
   tags:
     - kavita
 
 - name: Create kavita user
-  user:
+  ansible.builtin.user:
     name: kavita
     group: kavita
     system: yes

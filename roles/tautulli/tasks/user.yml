@@ -1,13 +1,13 @@
 ---
 - name: Create tautulli system group
-  group:
+  ansible.builtin.group:
     name: tautulli
     system: yes
   tags:
     - tautulli
 
 - name: Create tautulli user
-  user:
+  ansible.builtin.user:
     name: tautulli
     group: tautulli
     system: yes
