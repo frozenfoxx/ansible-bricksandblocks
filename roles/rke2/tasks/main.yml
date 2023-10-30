@@ -27,6 +27,18 @@
   tags:
     - rke2
 
+- name: Create configuration directory
+  ansible.builtin.file:
+    path: "{{ item.name }}"
+    owner: root
+    group: root
+    mode: 0755
+  loop:
+    - "/etc/rancher"
+    - "/etc/rancher/rke2"
+  tags:
+    - rke2
+
 - name: Configure network
   ansible.builtin.import_tasks: network.yml
   tags:
