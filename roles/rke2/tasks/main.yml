@@ -29,7 +29,7 @@
 
 - name: Create configuration directory
   ansible.builtin.file:
-    path: "{{ item.name }}"
+    path: "{{ item }}"
     owner: root
     group: root
     mode: 0755
