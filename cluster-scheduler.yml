@@ -6,5 +6,5 @@
     - python
     - rke2
   vars:
-    rke2_install_type: "server"
-    rke2_install_channel: "stable"
+    rke2_type: "server"
+    rke2_channel: "stable"

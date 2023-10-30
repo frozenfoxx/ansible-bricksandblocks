@@ -6,5 +6,5 @@
     - python
     - rke2
   vars:
-    rke2_install_type: "agent"
-    rke2_install_channel: "stable"
+    rke2_type: "agent"
+    rke2_channel: "stable"

@@ -47,12 +47,12 @@
 
 - name: Configure rke2 server
   ansible.builtin.import_tasks: server.yml
-  when: rke2_type == 'server'
+  when: rke2_type == "server"
   tags:
     - rke2
 
 - name: Configure rke2 agent
   ansible.builtin.import_tasks: agent.yml
-  when: rke2_type == 'agent'
+  when: rke2_type == "agent"
   tags:
     - rke2
