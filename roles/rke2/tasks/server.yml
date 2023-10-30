@@ -3,6 +3,9 @@
   ansible.builtin.template:
     src: templates/server-config.yaml.j2
     dest: /etc/rancher/rke2/config.yaml
+    owner: "root"
+    group: "root"
+    mode: 0600
   become: true
   tags:
     - rke2
