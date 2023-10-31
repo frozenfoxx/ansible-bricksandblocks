@@ -3,6 +3,7 @@
   ansible.builtin.fetch:
     src: /var/lib/rancher/rke2/server/token
     dest: ./rke2_token
+    flat: true
   delegate_to: "{{ rke2_server_address }}"
   register: rke2_token_fetch
   tags:
@@ -11,7 +12,7 @@
 - name: Set rke2 token as a fact
   ansible.builtin.set_fact:
     rke2_token: "{{ lookup('file', './rke2_token') }}"
-  when: rke2_token_fetch.rc == 0
+  when: rke2_token_fetch
   tags:
     - rke2
 
@@ -19,7 +20,7 @@
   ansible.builtin.file:
     path: ./rke2_token
     state: absent
-  when: rke2_token_fetch.rc == 0
+  when: rke2_token_fetch
   tags:
     - rke2
 
