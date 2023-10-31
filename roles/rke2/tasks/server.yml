@@ -16,4 +16,16 @@
     state: "started"
   become: true
   tags:
-  - rke2
+    - rke2
+
+- name: Configure root's shell for kubectl
+  ansible.builtin.blockinfile:
+    path: /root/.profile
+    block: |
+      # set PATH so it includes rke2 bin if it exists
+      if [ -d "/var/lib/rancher/rke2/bin" ] ; then
+          PATH="/var/lib/rancher/rke2/bin:$PATH"
+      fi
+      export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+  tags:
+    - rke2
