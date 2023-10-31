@@ -3,7 +3,7 @@
   ansible.builtin.fetch:
     src: /var/lib/rancher/rke2/server/token
     dest: ./rke2_token
-  delegate_to: rke2_server_address
+  delegate_to: "{{ rke2_server_address }}"
   register: rke2_token_fetch
   tags:
     - rke2
