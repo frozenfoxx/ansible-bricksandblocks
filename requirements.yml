@@ -2,11 +2,11 @@ roles:
   - name: acme_sh
     src: https://github.com/frozenfoxx/acme_sh
     version: main
-  - name: ansible-role-portainer
-    src: https://github.com/shelleg/ansible-role-portainer
-    version: master
   - name: mealie
     src: https://github.com/frozenfoxx/ansible-role-mealie
+    version: main
+  - name: rke2
+    src: https://github.com/frozenfoxx/ansible-role-rke2.git
     version: main
   - name: geerlingguy.docker
   - name: r_pufky.pihole
