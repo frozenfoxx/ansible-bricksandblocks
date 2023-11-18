@@ -1,5 +1,0 @@
----
-rke2_channel: "stable"
-rke2_server_address: "127.0.0.1"
-rke2_type: "server"
-rke2_token: ""

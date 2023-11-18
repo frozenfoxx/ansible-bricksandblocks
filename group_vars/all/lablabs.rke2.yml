@@ -1,0 +1,3 @@
+---
+rke2_servers_group_name: rke2_schedulers
+rke2_agents_group_name: rke2_workers

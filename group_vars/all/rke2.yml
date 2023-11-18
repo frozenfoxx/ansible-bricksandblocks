@@ -1,2 +1,0 @@
----
-rke2_server_address: "{{ lookup('env', 'RKE2_SERVER_ADDRESS') }}"
