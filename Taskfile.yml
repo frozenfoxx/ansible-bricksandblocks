@@ -1,0 +1,13 @@
+---
+version: "3"
+
+vars:
+
+includes:
+  ansible: .taskfiles/ansible.tasks.yml
+  internal: true
+
+  git: .taskfiles/git.tasks.yml
+  internal: true
+
+tasks:
