@@ -1,3 +1,9 @@
+collections:
+  - name: ansible.posix
+  - name: community.crypto
+  - name: community.docker
+  - name: community.general
+
 roles:
   - name: acme_sh
     src: https://github.com/frozenfoxx/acme_sh
@@ -9,9 +15,3 @@ roles:
   - name: lablabs.rke2
   - name: r_pufky.pihole
   - name: stefangweichinger.ansible_rclone
-
-collections:
-  - name: ansible.posix
-  - name: community.crypto
-  - name: community.docker
-  - name: community.general

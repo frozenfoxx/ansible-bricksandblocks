@@ -12,3 +12,12 @@ includes:
   internal: true
 
 tasks:
+  hosts:
+    desc: "List all inventory hosts"
+    cmds:
+      - task: ansible:inventory
+
+  lint:
+    desc: "Check syntax"
+    cmds:
+      - task: ansible:lint
