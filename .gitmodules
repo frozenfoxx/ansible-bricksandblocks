@@ -1,0 +1,3 @@
+[submodule ".taskfiles"]
+	path = .taskfiles
+	url = git@github.com:frozenfoxx/taskfiles.git

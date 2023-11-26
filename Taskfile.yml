@@ -2,6 +2,7 @@
 version: "3"
 
 vars:
+  ANSIBLE_ARGS: ""
 
 includes:
   ansible: .taskfiles/ansible.tasks.yml
