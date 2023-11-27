@@ -1,8 +1,12 @@
 ---
 version: "3"
 
+dotenv: [".env"]
+
 vars:
   ANSIBLE_ARGS: ""
+  ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
+  RCLONE_ARGS: ""
 
 includes:
   ansible: .taskfiles/ansible.tasks.yml
