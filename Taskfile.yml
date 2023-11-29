@@ -9,11 +9,13 @@ vars:
   RCLONE_ARGS: ""
 
 includes:
-  ansible: .taskfiles/ansible.tasks.yml
-  internal: true
+  ansible:
+    taskfile: .taskfiles/ansible.tasks.yml
+    internal: true
 
-  git: .taskfiles/git.tasks.yml
-  internal: true
+  git:
+    taskfile: .taskfiles/git.tasks.yml
+    internal: true
 
 tasks:
   hosts:
