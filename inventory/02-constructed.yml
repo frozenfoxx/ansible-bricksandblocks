@@ -1,3 +1,5 @@
 ---
 plugin: ansible.builtin.constructed
 strict: False
+groups:
+    mealie: proxmox_name | default("") == "mealie"
