@@ -1,6 +1,6 @@
 ---
 plugin: community.general.proxmox
-url: "{{ lookup('ansible.builtin.env', 'pm_api_url') | default('https://proxmox:8006/api2/json') }}"
+url: "{{ lookup('ansible.builtin.env', 'pm_url') | default('https://proxmox:8006') }}"
 user: "{{ lookup('ansible.builtin.env','pm_user') | default('ansible@pve') }}"
 password: "{{ lookup('ansible.builtin.env', 'pm_pass') | default('big-secret-pass') }}"
 validate_certs: false
