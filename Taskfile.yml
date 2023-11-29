@@ -18,6 +18,11 @@ includes:
     internal: true
 
 tasks:
+  default:
+    cmds:
+      - task -l
+    silent: true
+
   hosts:
     desc: "List all inventory hosts"
     cmds:
