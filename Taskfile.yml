@@ -6,15 +6,19 @@ dotenv: [".env"]
 vars:
   ANSIBLE_ARGS: ""
   ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
+  INVENTORY_PATH: "inventory"
   RCLONE_ARGS: ""
 
 includes:
   ansible:
     taskfile: .taskfiles/ansible.tasks.yml
-    internal: true
 
   git:
     taskfile: .taskfiles/git.tasks.yml
+    internal: true
+
+  rclone:
+    taskfile: .taskfiles/rclone.tasks.yml
     internal: true
 
 tasks:
@@ -23,12 +27,13 @@ tasks:
       - task -l
     silent: true
 
-  hosts:
-    desc: "List all inventory hosts"
+  setup:
+    desc: "Configure repository for use"
     cmds:
-      - task: ansible:inventory
-
-  lint:
-    desc: "Check syntax"
-    cmds:
-      - task: ansible:lint
+      - task: git:pull
+      - task: git:reset:dir -- ./inventory
+      - task: rclone:copy
+        vars:
+          RCLONE_SOURCE: "inventory:{{INVENTORY_PATH}}/"
+          RCLONE_DEST: "."
+      - task: ansible:galaxy
