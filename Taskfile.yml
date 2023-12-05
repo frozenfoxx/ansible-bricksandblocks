@@ -37,3 +37,8 @@ tasks:
           RCLONE_SOURCE: "inventory:{{INVENTORY_PATH}}/"
           RCLONE_DEST: "."
       - task: ansible:galaxy
+
+  update:
+    desc: "Update taskfiles"
+    cmds:
+      - task: git:submodule:update
