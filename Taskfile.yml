@@ -34,7 +34,7 @@ tasks:
       - task: git:reset:dir -- ./inventory
       - task: rclone:copy
         vars:
-          RCLONE_SOURCE: "inventory:{{INVENTORY_PATH}}/"
+          RCLONE_SOURCE: "inventory:{{.INVENTORY_PATH}}/"
           RCLONE_DEST: "."
       - task: ansible:galaxy
 
