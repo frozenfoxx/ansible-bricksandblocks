@@ -1,6 +1,6 @@
 ---
 - name: Deploy Zandronum server
-  hosts: all
+  hosts: zandronum
   roles:
     - avahi
     - linodedns

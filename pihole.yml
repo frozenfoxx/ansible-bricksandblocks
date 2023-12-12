@@ -1,6 +1,6 @@
 ---
 - name: Deploy PiHole server
-  hosts: all
+  hosts: pihole
   roles:
     - avahi
     - r_pufky.pihole

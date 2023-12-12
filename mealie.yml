@@ -1,6 +1,6 @@
 ---
 - name: Deploy Mealie server
-  hosts: all
+  hosts: mealie
   roles:
     - avahi
     - generate_ssh_keypair

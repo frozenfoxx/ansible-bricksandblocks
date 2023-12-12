@@ -1,6 +1,6 @@
 ---
 - name: Deploy hypervisor host
-  hosts: all
+  hosts: host-1
   roles:
     - avahi
     - mounts

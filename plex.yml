@@ -1,6 +1,6 @@
 ---
 - name: Deploy Plex server
-  hosts: all
+  hosts: plex
   roles:
     - avahi
     - generate_ssh_keypair

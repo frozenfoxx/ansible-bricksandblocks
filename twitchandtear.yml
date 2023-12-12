@@ -1,6 +1,6 @@
 ---
 - name: Deploy twitchandtear server
-  hosts: all
+  hosts: twitchandtear
   roles:
     - avahi
     - nodejs

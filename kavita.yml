@@ -1,6 +1,6 @@
 ---
 - name: Deploy Kavita server
-  hosts: all
+  hosts: kavita
   roles:
     - avahi
     - generate_ssh_keypair

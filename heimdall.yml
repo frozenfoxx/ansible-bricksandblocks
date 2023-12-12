@@ -1,6 +1,6 @@
 ---
 - name: Deploy Heimdall server
-  hosts: all
+  hosts: heimdall
   roles:
     - avahi
     - generate_ssh_keypair
