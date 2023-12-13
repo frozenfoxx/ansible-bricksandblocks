@@ -6,14 +6,11 @@ Ansible playbooks for BricksAndBlocks.
 
 # Requirements
 
-## Ansible Configuration
-
-- `ANSIBLE_CONFIG` set to `[repo root]/ansible.cfg`
-
-## Python
-
-- `ansible`
-- `netaddr`
+* [Ansible](https://ansible.com)
+* [Ansible Galaxy](https://galaxy.ansible.com)
+* [git](http://git-scm.com)
+* [rclone](https://rclone.org)
+* [Task](https://taskfile.dev)
 
 # Configuration
 
