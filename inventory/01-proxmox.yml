@@ -13,6 +13,6 @@ keyed_groups:
   - key: proxmox_tags_parsed
     separator: ""
     prefix: ""
-groups:
-  rke2_schedulers: "'rke2_scheduler' in (proxmox_tags_parsed|list)"
-  rke2_workers: "'rke2_worker' in (proxmox_tags_parsed|list)"
+#groups:
+#  rke2_schedulers: "'rke2_scheduler' in (proxmox_tags_parsed|list)"
+#  rke2_workers: "'rke2_worker' in (proxmox_tags_parsed|list)"
