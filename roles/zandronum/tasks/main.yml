@@ -1,4 +1,20 @@
 ---
+- name: Check if the wads directory exists
+  ansible.builtin.stat:
+    path: /wads
+  register: check_wads_dir
+  tags:
+    - zandronum
+
+- name: Create wads directory if it does not exist
+  file:
+    path: /wads
+    owner: root
+    group: root
+    mode: 0775
+    state: directory
+  when: not check_wads_dir.stat.exists
+
 - name: Ensure wads directory exists
   ansible.builtin.file:
     path: /wads

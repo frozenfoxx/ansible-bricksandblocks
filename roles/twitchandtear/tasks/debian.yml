@@ -29,10 +29,20 @@
   tags:
     - twitchandtear
 
+- name: Check for linker config
+  ansible.builtin.raw: test -e /etc/ld.so.conf.d/zandronum.conf
+  changed_when: false
+  failed_when: false
+  register: check_zandronum_linker
+  tags:
+    - twitchandtear
+
 - name: Update the linker to look for the included libraries
   ansible.builtin.shell: |
     echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
     ldconfig
+  when: check_zandronum_linker.rc != 0
+  changed_when: check_zandronum_linker.rc == 0
   tags:
     - twitchandtear
 
@@ -44,7 +54,12 @@
     - twitchandtear
 
 - name: Ensure config directory exists
-  ansible.builtin.file: path=/home/zandronum/.config/zandronum state=directory
+  ansible.builtin.file:
+    path: /home/zandronum/.config/zandronum
+    state: directory
+    owner: zandronum
+    group: zandronum
+    mode: 0755
   tags:
     - twitchandtear
 

@@ -42,6 +42,7 @@
     echo '/usr/games/zandronum' > /etc/ld.so.conf.d/zandronum.conf
     ldconfig
   when: check_zandronum_linker.rc != 0
+  changed_when: check_zandronum_linker.rc == 0
   tags:
     - zandronum
 
