@@ -1,8 +1,8 @@
 ---
 - name: Deploy RKE2 cluster
   hosts:
-    - rke2_schedulers
-    - rke2_workers
+    - rke2_scheduler
+    - rke2_worker
   become: yes
   roles:
     - avahi
