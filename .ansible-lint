@@ -3,7 +3,9 @@ exclude_paths:
   - .ansible-lint
   - .github
   - .taskfiles
+  - collections/ansible_collections
   - requirements.yml
+  - roles_galaxy
 skip_list:
   - meta-no-info
 parseable: true
