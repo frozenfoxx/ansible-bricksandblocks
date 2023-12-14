@@ -3,5 +3,5 @@
   hosts: twitchandtear
   roles:
     - avahi
-    - nodejs
+    - geerlingguy.nodejs
     - twitchandtear
