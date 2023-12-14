@@ -8,3 +8,11 @@ want_facts: true
 want_proxmox_nodes_ansible_host: false
 compose:
   ansible_host: proxmox_ipconfig0.ip | default(proxmox_net0.ip) | ipaddr('address')
+keyed_groups:
+    # proxmox_tags_parsed is an example of a fact only returned when 'want_facts=true'
+  - key: proxmox_tags_parsed
+    separator: ""
+    prefix: ""
+groups:
+  rke2_schedulers: "'rke2_scheduler' in (proxmox_tags_parsed|list)"
+  rke2_workers: "'rke2_worker' in (proxmox_tags_parsed|list)"
