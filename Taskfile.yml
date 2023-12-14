@@ -6,7 +6,7 @@ dotenv: [".env"]
 vars:
   ANSIBLE_ARGS: ""
   ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
-  INVENTORY_PATH: "inventory"
+  INVENTORY_PATH: '{{default "inventory" .INVENTORY_PATH}}'
   RCLONE_ARGS: ""
 
 includes:
