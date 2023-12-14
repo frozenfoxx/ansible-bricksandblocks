@@ -1,2 +1,5 @@
 .DS_Store
 .env
+.taskfiles
+collections/ansible_collections
+roles_galaxy
