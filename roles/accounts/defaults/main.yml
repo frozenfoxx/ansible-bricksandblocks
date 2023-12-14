@@ -1,5 +1,5 @@
 ---
-users:
+accounts_users:
   - username: ""
     gid: 1000
     group: ""

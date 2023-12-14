@@ -7,9 +7,9 @@
     home: "{{ item.home }}"
     shell: "{{ item.shell }}"
     uid: "{{ item.uid }}"
-  loop: "{{ users }}"
+  loop: "{{ accounts_users }}"
   tags:
-    - users
+    - accounts
 
 - name : Create SSH directories
   ansible.builtin.file:
@@ -18,9 +18,9 @@
     mode: 0700
     group: "{{ item.group }}"
     owner: "{{ item.username }}"
-  loop: "{{ users }}"
+  loop: "{{ accounts_users }}"
   tags:
-    - users
+    - accounts
 
 - name: Load private keys
   ansible.builtin.copy:
@@ -29,9 +29,9 @@
     mode: 0600
     group: "{{ item.group }}"
     owner: "{{ item.username }}"
-  loop: "{{ users }}"
+  loop: "{{ accounts_users }}"
   tags:
-    - users
+    - accounts
 
 - name: Load public keys
   ansible.builtin.copy:
@@ -40,6 +40,6 @@
     mode: 0644
     group: "{{ item.group }}"
     owner: "{{ item.username }}"
-  loop: "{{ users }}"
+  loop: "{{ accounts_users }}"
   tags:
-    - users
+    - accounts

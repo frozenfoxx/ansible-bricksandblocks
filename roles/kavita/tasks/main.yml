@@ -23,6 +23,7 @@
     remote_src: yes
     extra_opts:
       - "--no-same-owner"
+  become: true
   become_user: kavita
   tags:
     - kavita

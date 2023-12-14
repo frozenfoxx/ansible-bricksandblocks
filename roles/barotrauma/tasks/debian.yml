@@ -25,8 +25,9 @@
     - barotrauma
 
 - name: Create Ansible temp directory
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: mkdir -p /home/btserver/.ansible/tmp
+  changed_when: false
   become: true
   become_user: btserver
   tags:
@@ -53,9 +54,10 @@
   ansible.builtin.shell:
     cmd: ./linuxgsm.sh btserver
     chdir: /home/btserver
+  when: linuxgsm_script.stat.exists
+  changed_when: btserver_script.stat.isdir is defined
   become: true
   become_user: btserver
-  when: linuxgsm_script.stat.exists
   tags:
     - barotrauma
 
