@@ -3,11 +3,12 @@ version: "3"
 
 dotenv: [".env"]
 
-vars:
-  ANSIBLE_ARGS: ""
+env:
   ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
+  
+vars:
+  ANSIBLE_ARGS: "-u {{.ANSIBLE_USER}}"
   INVENTORY_PATH: '{{default "inventory" .INVENTORY_PATH}}'
-  RCLONE_ARGS: ""
 
 includes:
   ansible:
@@ -30,10 +31,11 @@ tasks:
   setup:
     desc: "Configure repository for use"
     cmds:
+      - task: rclone:install
       - task: git:pull
       - task: git:reset:dir
         vars:
-          CLI_ARGS: "./inventory"
+          CLI_ARGS: "{{.USER_WORKING_DIR}}/inventory"
       - task: rclone:copy
         vars:
           RCLONE_SOURCE: "inventory:{{.INVENTORY_PATH}}/"

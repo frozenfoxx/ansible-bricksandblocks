@@ -1,5 +1,6 @@
 .DS_Store
 .env
 .taskfiles
+.vscode
 collections/ansible_collections
 roles_galaxy
