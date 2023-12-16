@@ -3,6 +3,7 @@ exclude_paths:
   - .ansible-lint
   - .github
   - .taskfiles
+  - Taskfile.yml
   - collections/ansible_collections
   - requirements.yml
   - roles_galaxy

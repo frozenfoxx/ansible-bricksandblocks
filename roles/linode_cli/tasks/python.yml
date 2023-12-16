@@ -25,6 +25,7 @@
 - name: Install PIP 3
   ansible.builtin.raw: apt -y update && apt install -y python3-pip
   when: check_pip3.rc != 0
+  changed_when: false
   tags:
     - linode_cli
 

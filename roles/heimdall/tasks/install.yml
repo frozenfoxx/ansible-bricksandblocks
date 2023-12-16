@@ -2,5 +2,6 @@
 - name: "Ensure Heimdall is running"
   ansible.builtin.command:
     cmd: "docker compose -f {{ heimdall_data_path }}/docker-compose.yml up -d"
+  changed_when: false
   tags:
     - heimdall

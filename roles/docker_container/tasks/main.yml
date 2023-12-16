@@ -15,6 +15,6 @@
       - "{{ item.bind_path }}"
     loop: "{{ item.volumes }}"
   loop: "{{ docker_container_deployments }}"
-  register: "docker_container_{{ item.name }}"
+  # FIXME: register: "docker_container_{{ item.name }}"
   tags:
     - docker

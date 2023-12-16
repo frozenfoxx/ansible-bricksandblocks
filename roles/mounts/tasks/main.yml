@@ -6,7 +6,7 @@
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
-  loop: "{{ posix_mount_paths }}"
+  loop: "{{ mounts_posix_mount_paths }}"
   tags:
     - mounts
 
@@ -18,7 +18,7 @@
     boot: "{{ item.boot }}"
     state: "{{ item.state }}"
     fstype: "{{ item.fstype }}"
-  loop: "{{ posix_mounts }}"
+  loop: "{{ mounts_posix_mounts }}"
   tags:
     - mounts
 
@@ -29,7 +29,7 @@
     owner: "{{ item.owner }}"
     group: "{{ item.group }}"
     mode: "{{ item.mode }}"
-  loop: "{{ bind_mount_paths }}"
+  loop: "{{ mounts_bind_mount_paths }}"
   tags:
     - mounts
 
@@ -41,6 +41,6 @@
     boot: "{{ item.boot }}"
     state: "{{ item.state }}"
     fstype: "{{ item.fstype }}"
-  loop: "{{ bind_mounts }}"
+  loop: "{{ mounts_bind_mounts }}"
   tags:
     - mounts

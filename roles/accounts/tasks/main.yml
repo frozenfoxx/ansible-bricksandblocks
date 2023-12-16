@@ -11,7 +11,7 @@
   tags:
     - accounts
 
-- name : Create SSH directories
+- name: Create SSH directories
   ansible.builtin.file:
     path: "{{ item.home }}/.ssh"
     state: directory

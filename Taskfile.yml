@@ -5,7 +5,7 @@ dotenv: [".env"]
 
 env:
   ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
-  
+
 vars:
   ANSIBLE_ARGS: "-u {{.ANSIBLE_USER}}"
   INVENTORY_PATH: '{{default "inventory" .INVENTORY_PATH}}'

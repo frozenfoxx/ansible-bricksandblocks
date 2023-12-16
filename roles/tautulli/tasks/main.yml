@@ -13,7 +13,7 @@
 
 - name: Clone the repository
   ansible.builtin.git:
-    repo: 'https://github.com/Tautulli/Tautulli.git'
+    repo: 'https://github.com/Tautulli/Tautulli.git'  # noqa: latest
     dest: /opt/Tautulli
   tags:
     - tautulli

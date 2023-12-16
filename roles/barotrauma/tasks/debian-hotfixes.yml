@@ -35,6 +35,6 @@
   ansible.builtin.command:
     cmd: dos2unix DedicatedServer.exe
     chdir: /home/btserver/serverfiles
-    changed_when: false
+  changed_when: false
   tags:
     - barotrauma

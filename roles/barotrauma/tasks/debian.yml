@@ -51,7 +51,7 @@
     - barotrauma
 
 - name: Install Barotrauma module
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: ./linuxgsm.sh btserver
     chdir: /home/btserver
   when: linuxgsm_script.stat.exists
@@ -69,9 +69,10 @@
     - barotrauma
 
 - name: Install Barotrauma
-  ansible.builtin.shell:
+  ansible.builtin.command:
     cmd: ./btserver auto-install
     chdir: /home/btserver
+  changed_when: false
   become: true
   become_user: btserver
   tags:

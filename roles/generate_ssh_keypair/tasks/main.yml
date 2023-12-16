@@ -1,5 +1,5 @@
 ---
-- name: Ensure {{ generate_ssh_keypair_path }} directory exists
+- name: Ensure ssh keypair directory exists
   ansible.builtin.file:
     path: "{{ generate_ssh_keypair_path }}"
     state: directory
