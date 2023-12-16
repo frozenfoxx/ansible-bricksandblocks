@@ -1,3 +1,4 @@
 ---
+rke2_cluster_group_name: rke2_cluster
 rke2_servers_group_name: rke2_scheduler
 rke2_agents_group_name: rke2_worker
