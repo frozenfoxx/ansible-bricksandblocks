@@ -2,4 +2,4 @@
 plugin: ansible.builtin.constructed
 strict: False
 groups:
-  rke2_cluster: "'rke2_scheduler' or 'rke2_worker' in (proxmox_tags_parsed|list)"
+  rke2_cluster: "(group_names | intersect(['rke2_scheduler','rke2_worker']))"
