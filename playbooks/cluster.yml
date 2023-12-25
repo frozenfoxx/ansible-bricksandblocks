@@ -8,3 +8,10 @@
     - avahi
     - python
     - lablabs.rke2
+
+- name: Deploy cluster tools
+  hosts:
+    - rke2_scheduler
+  become: yes
+  roles:
+    - andrewrothstein.k9s
