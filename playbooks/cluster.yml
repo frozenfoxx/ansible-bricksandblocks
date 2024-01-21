@@ -9,6 +9,16 @@
     - python
     - lablabs.rke2
 
+- name: Update path for kubectl
+  hosts:
+    - rke2_scheduler
+  tasks:
+    - ansible.builtin.lineinfile:
+      regexp: '^(PATH=.*)$'
+      backrefs: yes
+      line: '\1:/user/edb/efm'
+      path: '~/.bashrc'
+
 - name: Deploy cluster tools
   hosts:
     - rke2_scheduler
