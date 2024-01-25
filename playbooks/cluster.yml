@@ -13,12 +13,11 @@
   hosts:
     - rke2_scheduler
   tasks:
-    - name: Add path to profile
+    - name: Insert /var/lib/rancher/rke2/bin into PATH in .profile
       ansible.builtin.lineinfile:
-        regexp: '^(PATH=.*)$'
-        backrefs: yes
-        line: '\1:/var/lib/rancher/rke2/bin'
-        path: '~/.profile'
+        path: "~/.profile"
+        line: 'export PATH="${PATH}:/var/lib/rancher/rke2/bin"'
+        insertafter: EOF
 
 - name: Deploy cluster tools
   hosts:
