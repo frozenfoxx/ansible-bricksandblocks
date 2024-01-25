@@ -16,7 +16,7 @@
     - name: Insert message about rke2 in .profile
       ansible.builtin.lineinfile:
         path: "~/.profile"
-        line: 'Ansible - rke2 handling'
+        line: '# Ansible - rke2 handling'
         insertafter: EOF
       become: true
 
