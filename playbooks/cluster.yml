@@ -17,8 +17,8 @@
       ansible.builtin.lineinfile:
         regexp: '^(PATH=.*)$'
         backrefs: yes
-        line: '\1:/user/edb/efm'
-        path: '~/.bashrc'
+        line: '\1:/var/lib/rancher/rke2/bin'
+        path: '~/.profile'
 
 - name: Deploy cluster tools
   hosts:
