@@ -32,10 +32,10 @@ tasks:
     desc: "Configure repository for use"
     cmds:
       - task: rclone:install
-      - task: git:pull
       - task: git:reset:dir
         vars:
           CLI_ARGS: "{{.USER_WORKING_DIR}}/inventory"
+      - task: git:pull
       - task: rclone:copy
         vars:
           RCLONE_SOURCE: "inventory:{{.INVENTORY_PATH}}/"
