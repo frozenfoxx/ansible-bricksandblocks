@@ -13,11 +13,26 @@
   hosts:
     - rke2_scheduler
   tasks:
+    - name: Insert message about rke2 in .profile
+      ansible.builtin.lineinfile:
+        path: "~/.profile"
+        line: 'Ansible - rke2 handling'
+        insertafter: EOF
+      become: true
+
     - name: Insert /var/lib/rancher/rke2/bin into PATH in .profile
       ansible.builtin.lineinfile:
         path: "~/.profile"
         line: 'export PATH="${PATH}:/var/lib/rancher/rke2/bin"'
         insertafter: EOF
+      become: true
+
+    - name: Insert KUBECONFIG in .profile
+      ansible.builtin.lineinfile:
+        path: "~/.profile"
+        line: 'export KUBECONFIG=/etc/rancher/rke2/rke2.yaml'
+        insertafter: EOF
+      become: true
 
 - name: Deploy cluster tools
   hosts:
