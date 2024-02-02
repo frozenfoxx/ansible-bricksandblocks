@@ -19,7 +19,7 @@ Ansible playbooks for BricksAndBlocks.
 * Add submodule for taskfiles and run setup task
 
 ```
-git submodule add https://github.com/frozenfoxx/taskfiles.git .taskfiles
+git submodule update --init --remote --recursive
 task setup
 ```
 
