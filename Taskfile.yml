@@ -7,12 +7,13 @@ env:
   ANSIBLE_CONFIG: "{{.USER_WORKING_DIR}}/ansible.cfg"
 
 vars:
-  ANSIBLE_ARGS: "-u {{.ANSIBLE_USER}}"
   INVENTORY_PATH: '{{default "inventory" .INVENTORY_PATH}}'
 
 includes:
   ansible:
     taskfile: .taskfiles/ansible.tasks.yml
+    vars:
+      ANSIBLE_ARGS: "-u {{.ANSIBLE_USER}}"
 
   git:
     taskfile: .taskfiles/git.tasks.yml
