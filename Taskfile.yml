@@ -12,8 +12,8 @@ vars:
 includes:
   ansible:
     taskfile: .taskfiles/ansible.tasks.yml
-    vars:
-      ANSIBLE_ARGS: "-u {{.ANSIBLE_USER}}"
+    env:
+      ANSIBLE_HOST_KEY_CHECKING: False
 
   git:
     taskfile: .taskfiles/git.tasks.yml
