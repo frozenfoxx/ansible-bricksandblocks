@@ -1,0 +1,22 @@
+---
+- name: Deploy Docker hosts
+  hosts:
+    - docker
+  become: true
+  roles:
+    - avahi
+    - python
+    - geerlingguy.docker
+
+- name: Install extra packages
+  hosts:
+    - rke2_scheduler
+    - rke2_worker
+  become: true
+  tasks:
+    - name: Install network share packages
+      ansible.builtin.package:
+        name:
+          - cifs-utils
+          - nfs-common
+        state: present
