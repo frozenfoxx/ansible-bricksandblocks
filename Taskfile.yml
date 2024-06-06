@@ -12,15 +12,18 @@ vars:
 includes:
   ansible:
     taskfile: .taskfiles/ansible.tasks.yml
+    optional: true
     env:
       ANSIBLE_HOST_KEY_CHECKING: False
 
   git:
     taskfile: .taskfiles/git.tasks.yml
+    optional: true
     internal: true
 
   rclone:
     taskfile: .taskfiles/rclone.tasks.yml
+    optional: true
     internal: true
 
 tasks:
@@ -46,4 +49,5 @@ tasks:
   update:
     desc: "Update taskfiles"
     cmds:
-      - task: git:submodule:update
+      - rm -rf .taskfiles
+      - git clone https://github.com/frozenfoxx/taskfiles.git .taskfiles

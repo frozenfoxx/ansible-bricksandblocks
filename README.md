@@ -16,10 +16,10 @@ Ansible playbooks for BricksAndBlocks.
 
 * Make a copy of `env.dist` called `.env`
 * Fill in appropriate values for `.env`
-* Add submodule for taskfiles and run setup task
+* Run update and setup tasks
 
 ```
-git submodule update --init --remote --recursive
+task update
 task setup
 ```
 
