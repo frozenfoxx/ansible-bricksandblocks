@@ -3,14 +3,17 @@
   hosts:
     - docker
   become: true
+  become_user: root
   roles:
     - avahi
     - python
+    - geerlingguy.docker
 
 - name: Install extra packages
   hosts:
     - docker
   become: true
+  become_user: root
   tasks:
     - name: Install network share packages
       ansible.builtin.package:
@@ -18,16 +21,3 @@
           - cifs-utils
           - nfs-common
         state: present
-
-- name: Install Docker
-  hosts:
-    - docker
-  become: true
-  tasks:
-    - name: Update package cache.
-      ansible.builtin.apt:
-        update_cache: true
-
-    - name: Install Docker packages
-      ansible.builtin.include_role:
-        name: geerlingguy.docker
