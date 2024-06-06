@@ -47,7 +47,9 @@ tasks:
       - task: ansible:galaxy
 
   update:
-    desc: "Update taskfiles"
+    desc: "Update repo"
     cmds:
       - rm -rf .taskfiles
       - git clone https://github.com/frozenfoxx/taskfiles.git .taskfiles
+      - git reset --hard
+      - git pull --rebase
