@@ -8,6 +8,8 @@
     - avahi
     - python
     - lablabs.rke2
+    - frozenfoxx.ctop
+    - frozenfoxx.task
 
 - name: Install extra packages
   hosts:

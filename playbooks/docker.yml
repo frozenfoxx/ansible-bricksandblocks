@@ -22,3 +22,5 @@
     - python
     - mounts
     - geerlingguy.docker
+    - frozenfoxx.ctop
+    - frozenfoxx.task
