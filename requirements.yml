@@ -16,6 +16,9 @@ roles:
   - name: frozenfoxx.ctop
     src: https://github.com/frozenfoxx/ansible-role-ctop
     version: main
+  - name: frozenfoxx.mounts
+    src: https://github.com/frozenfoxx/ansible-role-mounts
+    version: main
   - name: frozenfoxx.task
     src: https://github.com/frozenfoxx/ansible-role-task
     version: main

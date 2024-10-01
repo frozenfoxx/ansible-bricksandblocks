@@ -20,7 +20,7 @@
   roles:
     - avahi
     - python
-    - mounts
+    - frozenfoxx.mounts
     - geerlingguy.docker
     - frozenfoxx.ctop
     - frozenfoxx.task

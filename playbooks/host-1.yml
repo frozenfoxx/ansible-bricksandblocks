@@ -3,4 +3,4 @@
   hosts: host-1
   roles:
     - avahi
-    - mounts
+    - frozenfoxx.mounts
