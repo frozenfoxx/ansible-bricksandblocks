@@ -1,0 +1,8 @@
+---
+homeassistant:
+  hosts:
+    homeassistant:
+
+hypervisors:
+  hosts:
+    host-1:
