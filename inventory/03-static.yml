@@ -6,3 +6,8 @@ homeassistant:
 hypervisors:
   hosts:
     host-1:
+
+octopi:
+  hosts:
+    printer-1:
+    printer-2:
