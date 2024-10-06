@@ -1,4 +1,11 @@
 ---
+all:
+  hosts:
+    homeassistant:
+    host-1:
+    printer-1:
+    printer-2:
+
 homeassistant:
   hosts:
     homeassistant:
