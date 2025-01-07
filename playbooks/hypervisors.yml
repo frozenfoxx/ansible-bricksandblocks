@@ -1,6 +1,6 @@
 ---
 - name: Deploy hypervisor host
-  hosts: host-1
+  hosts: hypervisors
   roles:
     - avahi
     - frozenfoxx.mounts
