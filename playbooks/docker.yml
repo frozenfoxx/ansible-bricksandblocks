@@ -10,6 +10,7 @@
         name:
           - cifs-utils
           - nfs-common
+          - yq
         state: present
 
 - name: Install roles
