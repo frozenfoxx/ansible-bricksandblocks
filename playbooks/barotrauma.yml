@@ -1,8 +1,0 @@
----
-- name: Deploy barotrauma server
-  hosts: barotrauma
-  roles:
-    - avahi
-    - linodedns
-    - geerlingguy.nodejs
-    - barotrauma

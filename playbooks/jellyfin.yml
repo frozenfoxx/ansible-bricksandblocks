@@ -1,6 +1,0 @@
----
-- name: Deploy Jellyfin server
-  hosts: jellyfin
-  roles:
-    - avahi
-    - jellyfin

@@ -1,8 +1,0 @@
----
-- name: Deploy serge server
-  hosts: serge
-  roles:
-    - avahi
-    - python
-    - geerlingguy.docker
-    - serge

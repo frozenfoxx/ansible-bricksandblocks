@@ -1,7 +1,0 @@
----
-- name: Deploy rclone backup server
-  hosts: all
-  roles:
-    - avahi
-    - stefangweichinger.ansible_rclone
-    - rclone_backup

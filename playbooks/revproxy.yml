@@ -1,9 +1,0 @@
----
-- name: Deploy reverse proxy server
-  hosts: revproxy
-  roles:
-    - avahi
-    - python
-    - linodedns
-    - nginx
-    - acme_sh

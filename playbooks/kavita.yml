@@ -1,9 +1,0 @@
----
-- name: Deploy Kavita server
-  hosts: kavita
-  roles:
-    - avahi
-    - generate_ssh_keypair
-    - sshpass
-    - kavita
-    - rsync_backup
