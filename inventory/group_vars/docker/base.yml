@@ -1,0 +1,7 @@
+---
+base_packages:
+  - cifs-utils
+  - git
+  - nfs-common
+  - wget
+  - yq

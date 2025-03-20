@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ClientPermissions>
-{% for client in barotrauma_clientperm.split() %}
-    <Client
-      name="{{ client.split(":")[0] }}"
-      steamid="{{ client.split(":")[1] }}"
-      preset="{{ client.split(":")[2] }}" />
-{% endfor %}
-</ClientPermissions>

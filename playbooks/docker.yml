@@ -7,11 +7,9 @@
   tasks:
     - name: Install network share packages
       ansible.builtin.package:
-        name:
-          - cifs-utils
-          - nfs-common
-          - yq
+        name: {{ item }}
         state: present
+        with_items: base_packages
 
 - name: Install roles
   hosts:

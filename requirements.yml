@@ -6,9 +6,6 @@ collections:
   - name: community.general
 
 roles:
-  - name: acme_sh
-    src: https://github.com/frozenfoxx/acme_sh
-    version: main
   - name: andrewrothstein.k9s
   - name: frozenfoxx.accounts
     src: https://github.com/frozenfoxx/ansible-role-accounts
