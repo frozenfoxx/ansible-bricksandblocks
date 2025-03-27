@@ -4,7 +4,12 @@ all:
     homeassistant:
     host-1:
     host-2:
+    htpc-1:
     printer-2:
+
+desktops_windows:
+  hosts:
+    htpc-1:
 
 homeassistant:
   hosts:
