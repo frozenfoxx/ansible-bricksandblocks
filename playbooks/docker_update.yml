@@ -22,3 +22,9 @@
         cmd: "task deploy:host"
         chdir: "~/docker-bricksandblocks"
       changed_when: True
+
+    - name: Clean up the host's containers
+      ansible.builtin.command:
+        cmd: "task clean"
+        chdir: "~/docker-bricksandblocks"
+      changed_when: True
