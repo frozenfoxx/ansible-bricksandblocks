@@ -1,7 +1,17 @@
 ---
+- name: Install packages
+  hosts:
+    - twitchandtear
+  become: true
+  become_user: root
+  tasks:
+    - name: Install avahi-daemon
+      ansible.builtin.package:
+        name: avahi-daemon
+        state: present
+
 - name: Deploy twitchandtear server
   hosts: twitchandtear
   roles:
-    - avahi
     - geerlingguy.nodejs
     - twitchandtear

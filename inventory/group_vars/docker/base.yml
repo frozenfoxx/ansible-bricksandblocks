@@ -1,5 +1,6 @@
 ---
 base_packages:
+  - avahi-daemon
   - cifs-utils
   - git
   - nfs-common

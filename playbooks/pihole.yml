@@ -1,6 +1,16 @@
 ---
+- name: Install packages
+  hosts:
+    - pihole
+  become: true
+  become_user: root
+  tasks:
+    - name: Install avahi-daemon
+      ansible.builtin.package:
+        name: avahi-daemon
+        state: present
+
 - name: Deploy PiHole server
   hosts: pihole
   roles:
-    - avahi
     - r_pufky.pihole

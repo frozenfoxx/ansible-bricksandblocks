@@ -1,11 +1,11 @@
 ---
-- name: Install base packages
+- name: Install packages
   hosts:
     - docker
   become: true
   become_user: root
   tasks:
-    - name: Install network share packages
+    - name: Install base system packages
       ansible.builtin.package:
         name: {{ item }}
         state: present
@@ -17,7 +17,6 @@
   become: true
   become_user: root
   roles:
-    - avahi
     - python
     - frozenfoxx.mounts
     - geerlingguy.docker

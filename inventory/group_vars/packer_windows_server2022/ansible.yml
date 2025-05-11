@@ -1,7 +1,7 @@
 ---
 ansible_user: "{{ lookup('ansible.builtin.env', 'ANSIBLE_USERNAME', default='Administrator') }}"
 ansible_password: "{{ lookup('ansible.builtin.env', 'ANSIBLE_PASSWORD', default='Undefined') }}"
-ansible_connectin: winrm
+ansible_connection: winrm
 ansible_port: 5986
 ansible_winrm_transport: ntlm
 ansible_winrm_server_cert_validation: ignore
