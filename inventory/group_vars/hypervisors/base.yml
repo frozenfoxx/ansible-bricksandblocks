@@ -2,4 +2,5 @@
 base_packages:
   - avahi-daemon
   - guestfs-tools
+  - unzip
   - vim
