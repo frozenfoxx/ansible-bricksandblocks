@@ -4,5 +4,6 @@ base_packages:
   - cifs-utils
   - git
   - nfs-common
+  - unzip
   - wget
   - yq
