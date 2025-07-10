@@ -11,6 +11,12 @@
         chdir: "~/docker-bricksandblocks"
       changed_when: True
 
+    - name: Set up environment file
+      ansible.builtin.command:
+        cmd: "task setup:secrets"
+        chdir: "~/docker-bricksandblocks"
+      changed_when: True
+
     - name: Upgrade the host's containers
       ansible.builtin.command:
         cmd: "task upgrade:host"
