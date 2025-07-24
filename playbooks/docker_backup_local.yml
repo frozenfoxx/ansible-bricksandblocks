@@ -1,0 +1,24 @@
+---
+- name: Update containers on Docker hosts
+  hosts:
+    - docker
+  become: true
+  become_user: root
+  tasks:
+    - name: Update repo
+      ansible.builtin.command:
+        cmd: "task update"
+        chdir: "~/docker-bricksandblocks"
+      changed_when: True
+
+    - name: Set up environment file
+      ansible.builtin.command:
+        cmd: "task setup:secrets"
+        chdir: "~/docker-bricksandblocks"
+      changed_when: True
+
+    - name: Backup the host's local mounts
+      ansible.builtin.command:
+        cmd: "task backup:local"
+        chdir: "~/docker-bricksandblocks"
+      changed_when: True
