@@ -18,9 +18,17 @@ Ansible playbooks for BricksAndBlocks.
 * Fill in appropriate values for `.env`
 * Run update and setup tasks
 
-```
+```shell
 task update
 task setup
+```
+
+## Inventory in a Bucket
+
+* If your `inventory` is set up in a remote bucket, you can clone it over the existing installation with:
+
+```shell
+task setup:rclone
 ```
 
 # Usage

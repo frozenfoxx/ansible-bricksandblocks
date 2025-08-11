@@ -35,6 +35,11 @@ tasks:
   setup:
     desc: "Configure repository for use"
     cmds:
+      - task: ansible:galaxy
+
+  setup:rclone:
+    desc: "Use rclone to override the inventory"
+    cmds:
       - task: rclone:install
       - task: git:reset:dir
         vars:
@@ -43,7 +48,6 @@ tasks:
         vars:
           RCLONE_SOURCE: "inventory:{{.INVENTORY_PATH}}/"
           RCLONE_DEST: "{{.USER_WORKING_DIR}}/inventory/"
-      - task: ansible:galaxy
 
   update:
     desc: "Update repo"
