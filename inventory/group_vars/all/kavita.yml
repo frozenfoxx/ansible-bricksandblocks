@@ -1,4 +1,4 @@
 ---
-restoretarget: "{{ lookup('env', 'KAVITA_RESOTRETARGET') }}"
-version: "{{ lookup('env', 'KAVITA_VERSION') }}"
-workingdirectory: "{{ lookup('env', 'KAVITA_WORKINGDIRECTORY') }}"
+restoretarget: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.KAVITA_RESOTRETARGET', nested=true) }}"
+version: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.KAVITA_VERSION', nested=true) }}"
+workingdirectory: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.KAVITA_WORKINGDIRECTORY', nested=true) }}"

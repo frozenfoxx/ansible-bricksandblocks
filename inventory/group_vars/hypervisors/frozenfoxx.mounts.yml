@@ -1,0 +1,54 @@
+---
+mounts_bind_mount_paths:
+  - path: /srv/nfs4
+    owner: root
+    group: root
+    mode: '0755'
+
+mounts_bind_mounts: []
+#  - src: /mnt/Media/Music
+#    path: /srv/plex/Music
+#    opts: bind,ro,nofail,x-systemd.device-timeout=2
+#    boot: true
+#    state: present
+#    fstype: none
+#  - src: /mnt/Media/Videos
+#    path: /srv/plex/Videos
+#    opts: bind,ro,nofail,x-systemd.device-timeout=2
+#    boot: true
+#    state: present
+#    fstype: none
+
+mounts_posix_mount_paths:
+  - path: /mnt/Documents
+    owner: root
+    group: root
+    mode: '0755'
+  - path: /mnt/Games
+    owner: root
+    group: root
+    mode: '0755'
+  - path: /mnt/Media
+    owner: root
+    group: root
+    mode: '0755'
+
+mounts_posix_mounts:
+  - src: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/hypervisors.MOUNTS_POSIX_MOUNTS_1_SRC', nested=true) }}"
+    path: /mnt/Documents
+    opts: rw,sync,hard
+    boot: false
+    state: present
+    fstype: nfs
+  - src: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/hypervisors.MOUNTS_POSIX_MOUNTS_2_SRC', nested=true) }}"
+    path: /mnt/Games
+    opts: rw,sync,hard
+    boot: false
+    state: present
+    fstype: nfs
+  - src: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/hypervisors.MOUNTS_POSIX_MOUNTS_3_SRC', nested=true) }}"
+    path: /mnt/Media
+    opts: rw,sync,hard
+    boot: false
+    state: present
+    fstype: nfs

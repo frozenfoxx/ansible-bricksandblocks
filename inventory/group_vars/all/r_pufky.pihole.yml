@@ -1,3 +1,3 @@
 ---
-pihole_admin_email: "{{ lookup('env', 'PIHOLE_ADMIN_EMAIL') }}"
-pihole_webpassword: "{{ lookup('env', 'PIHOLE_WEBPASSWORD') }}"
+pihole_admin_email: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.PIHOLE_ADMIN_EMAIL', nested=true) }}"
+pihole_webpassword: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.PIHOLE_WEBPASSWORD', nested=true) }}"
