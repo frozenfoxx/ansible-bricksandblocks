@@ -1,0 +1,25 @@
+---
+mounts_posix_mount_paths:
+  - path: /data
+    owner: root
+    group: root
+    mode: '0755'
+  - path: /local
+    owner: root
+    group: root
+    mode: '0755'
+  - path: /mnt
+    owner: root
+    group: root
+    mode: '0755'
+
+mounts_posix_mounts:
+  - src: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/docker.MOUNTS_POSIX_MOUNTS_1_SRC', nested=true) }}"
+    path: /data
+    opts: rw,sync,hard
+    boot: true
+    state: mounted
+    fstype: nfs
+
+mounts_bind_mounts: []
+mounts_bind_mount_paths: []

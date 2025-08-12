@@ -1,3 +1,17 @@
 ---
 install_manpages: "false"
-rclone_configs: "{{ lookup('env', 'ANSIBLE_RCLONE_CONFIGS') }}"
+rclone_configs:
+  - name: host-1
+    properties:
+      type: sftp
+      host: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.RCLONE_CONFIGS_1_HOST', nested=true) }}"
+      user: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.RCLONE_CONFIGS_1_USER', nested=true) }}"
+      key_file: ~/.ssh/id_rsa
+      shell_type: unix
+  - name: host-2
+    properties:
+      type: sftp
+      host: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.RCLONE_CONFIGS_2_HOST', nested=true) }}"
+      user: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/all.RCLONE_CONFIGS_2_USER', nested=true) }}"
+      key_file: ~/.ssh/id_rsa
+      shell_type: unix

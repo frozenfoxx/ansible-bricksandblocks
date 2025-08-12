@@ -1,0 +1,2 @@
+---
+ansible_user: "{{ lookup('amazon.aws.aws_secret', 'ansible-bricksandblocks/inventory/group_vars/docker.ANSIBLE_USER', nested=true) }}"
