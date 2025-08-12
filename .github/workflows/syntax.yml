@@ -10,11 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Run ansible-lint
-        # replace `main` with any valid ref, or tags like `v6`
-        uses: ansible/ansible-lint-action@main
-        # optional:
-        # with:
-        #   path: "playbooks/"  # <-- only one value is allowed
+        uses: ansible/ansible-lint@main
+        with:
+          args: ""
