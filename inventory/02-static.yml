@@ -4,7 +4,6 @@ all:
     homeassistant:
     host-1:
     host-2:
-    host-3:
     htpc-1:
     printer-2:
 
@@ -20,7 +19,6 @@ hypervisors:
   hosts:
     host-1:
     host-2:
-    host-3:
 
 octopi:
   hosts:
