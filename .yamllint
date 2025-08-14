@@ -12,13 +12,18 @@ rules:
     level: error
   comments:
     min-spaces-from-content: 1
-    comments-indentation: false
-    document-start: disable
     level: error
+  comments-indentation: false
+  document-start: disable
+  # key-duplicates:
+  #   forbid-duplicated-merge-keys: true # not enabled by default
   line-length:
     max: 160
     level: warning
   truthy: disable
+  octal-values:
+    forbid-implicit-octal: true # yamllint defaults to false
+    forbid-explicit-octal: true # yamllint defaults to false
 
 ignore: |
   .tox/
