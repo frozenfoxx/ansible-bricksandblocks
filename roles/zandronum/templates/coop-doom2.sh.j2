@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-export DOOMWADDIR=/wads
-
-zandronum-server -iwad DOOM2.WAD -port 10666 +sv_maxlives 0 -host +alwaysapplydmflags 1 -skill 4 +cooperative 1 +map MAP01 +sv_maprotation 0 +sv_randommaprotation 0 +sv_motd "" +sv_hostemail "" +sv_hostname "BricksandBlocks.net Doom Server" +sv_website "zandronum.bricksandblocks.net" +sv_password {{ zandronum_server_pass }}" +sv_forcepassword {% if zandronum_server_pass %}1{% else %}0{% endif %} +sv_joinpassword "" +sv_forcejoinpassword 0 +sv_rconpassword "{{ zandronum_rcon_pass }}" +sv_broadcast 1 +sv_updatemaster 0 +sv_maxclients 12 +sv_maxplayers 12 -upnp +dmflags 1610612992 +dmflags2 6291456 +zadmflags 48 +compatflags 0 +compatflags2 0 +zacompatflags 0 +lmsallowedweapons 0 +lmsspectatorsettings 0 +sv_afk2spec 0 +sv_coop_damagefactor 1 +sv_defaultdmflags 0 +sv_allowprivatechat 1 +sv_country automatic

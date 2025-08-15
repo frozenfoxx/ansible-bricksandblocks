@@ -1,4 +1,0 @@
----
-nginx_domain: "bricksandblocks.net"
-nginx_restart: true
-nginx_htpasswd_users: []

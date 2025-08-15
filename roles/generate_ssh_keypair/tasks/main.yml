@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "{{ generate_ssh_keypair_path }}"
     state: directory
-    mode: 0700
+    mode: '0700'
     group: "{{ generate_ssh_keypair_group }}"
     owner: "{{ generate_ssh_keypair_user }}"
   tags:

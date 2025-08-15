@@ -9,7 +9,7 @@
   ansible.builtin.get_url:
     url: https://raw.githubusercontent.com/frozenfoxx/util/main/network/linodedns_update.sh
     dest: /root/linodedns_update.sh
-    mode: 0750
+    mode: '0750'
   tags:
     - linodedns
 

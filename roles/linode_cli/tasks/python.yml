@@ -33,7 +33,7 @@
   ansible.builtin.file:
     path: /root/.venv
     state: directory
-    mode: 0755
+    mode: '0755'
     owner: root
     group: root
   tags:
