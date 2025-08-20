@@ -5,7 +5,7 @@
     dest: /home/btserver/serverfiles/serversettings.xml
     owner: btserver
     group: btserver
-    mode: 0775
+    mode: '0775'
   tags:
     - twitchandtear
 
@@ -15,6 +15,6 @@
     dest: /home/btserver/serverfiles/Data/clientpermissions.xml
     owner: btserver
     group: btserver
-    mode: 0775
+    mode: '0775'
   tags:
     - twitchandtear

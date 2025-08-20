@@ -59,7 +59,7 @@
     state: directory
     owner: zandronum
     group: zandronum
-    mode: 0755
+    mode: '0755'
   tags:
     - twitchandtear
 
@@ -69,7 +69,7 @@
     dest: /home/zandronum/.config/zandronum/
     owner: zandronum
     group: zandronum
-    mode: 0644
+    mode: '0644'
   tags:
     - twitchandtear
 
