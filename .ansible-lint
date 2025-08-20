@@ -1,5 +1,6 @@
 ---
 exclude_paths:
+  - .ansible
   - .ansible-lint
   - .github
   - .taskfiles
