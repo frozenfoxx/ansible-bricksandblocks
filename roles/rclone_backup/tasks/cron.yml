@@ -3,7 +3,7 @@
   ansible.builtin.cron:
     name: "Backup - {{ item | split(':') | first }}"
     hour: "2"
-    minute: 0
+    minute: "0"
     job: "SOURCE={{ item | split(':') | first }} TARGET={{ rclone_backup_target }} /root/scripts/{{ item | split(':') | last }}_backup.sh"
   loop: "{{ rclone_backup_sources }}"
   tags:

@@ -3,7 +3,7 @@
   ansible.builtin.file:
     path: "/root/scripts"
     state: directory
-    mode: 0755
+    mode: '0755'
     group: root
     owner: root
   tags:
