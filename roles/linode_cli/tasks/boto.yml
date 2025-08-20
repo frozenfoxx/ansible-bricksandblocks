@@ -1,7 +1,0 @@
----
-- name: Install boto
-  ansible.builtin.pip:
-    name: boto
-    virtualenv: /root/.venv/linode_cli
-  tags:
-    - linode_cli
