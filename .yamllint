@@ -25,6 +25,7 @@ rules:
     forbid-explicit-octal: true # yamllint defaults to false
 
 ignore: |
+  .ansible/
   .tox/
   .cache/
   .taskfiles/
