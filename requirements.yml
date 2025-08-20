@@ -20,6 +20,9 @@ roles:
   - name: frozenfoxx.task
     src: https://github.com/frozenfoxx/ansible-role-task
     version: main
+  - name: frozenfoxx.twitchandtear
+    src: https://github.com/frozenfoxx/ansible-role-twitchandtear
+    version: main
   - name: geerlingguy.docker
   - name: geerlingguy.nodejs
   - name: lablabs.rke2
