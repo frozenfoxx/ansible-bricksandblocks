@@ -17,4 +17,4 @@ jobs:
         with:
           args: ""
           setup_python: "true"
-          requirements.yml: "requirements.yml"
+          requirements_file: "requirements.yml"
