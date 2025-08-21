@@ -11,11 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
-          fetch-depth: 0
 
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@v1.0.3
+        uses: ansible/ansible-lint@main
         with:
-          target: "./"
+          args: ""
+          setup_python: "true"
+          requirements.yml: "requirements.yml"
