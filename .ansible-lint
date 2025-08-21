@@ -9,7 +9,7 @@ exclude_paths:
   - requirements.yml
   - roles_galaxy
 skip_list:
-  - internal-error
+  # - internal-error
   - meta-no-info
 parseable: true
 verbosity: 2

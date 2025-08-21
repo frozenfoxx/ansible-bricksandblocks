@@ -4,11 +4,8 @@
     - twitchandtear
   become: true
   become_user: root
-  tasks:
-    - name: Install avahi-daemon
-      ansible.builtin.package:
-        name: avahi-daemon
-        state: present
+  roles:
+    - avahi
 
 - name: Deploy twitchandtear server
   hosts: twitchandtear
