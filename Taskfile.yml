@@ -35,6 +35,7 @@ tasks:
   setup:
     desc: "Configure repository for use"
     cmds:
+      - pip install -r requirements.txt
       - task: ansible:galaxy
 
   setup:rclone:

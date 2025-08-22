@@ -12,9 +12,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run ansible-lint
-        uses: ansible/ansible-lint@main
-        with:
-          args: ""
-          setup_python: "true"
-          #requirements_file: "requirements.yml"
+      - name: Install Task
+        uses: arduino/setup-task@v2
+
+      - name: Run setup
+        run: task setup
+      
+      - name: Run lint
+        run: task ansible:lint
