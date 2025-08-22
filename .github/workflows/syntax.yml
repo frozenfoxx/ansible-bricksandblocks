@@ -17,6 +17,6 @@ jobs:
 
       - name: Run setup
         run: task setup
-      
+
       - name: Run lint
         run: task ansible:lint
