@@ -20,6 +20,9 @@ roles:
   - name: frozenfoxx.mounts
     src: https://github.com/frozenfoxx/ansible-role-mounts
     version: main
+  - name: frozenfoxx.python
+    src: https://github.com/frozenfoxx/ansible-role-python
+    version: main
   - name: frozenfoxx.task
     src: https://github.com/frozenfoxx/ansible-role-task
     version: main
