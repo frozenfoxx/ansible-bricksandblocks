@@ -1,14 +1,11 @@
 ---
-- name: Install packages
+- name: Install roles
   hosts:
     - pihole
   become: true
   become_user: root
-  tasks:
-    - name: Install avahi-daemon
-      ansible.builtin.package:
-        name: avahi-daemon
-        state: present
+  roles:
+    - frozenfoxx.avahi
 
 - name: Deploy PiHole server
   hosts: pihole

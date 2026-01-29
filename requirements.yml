@@ -11,6 +11,9 @@ roles:
   - name: frozenfoxx.accounts
     src: https://github.com/frozenfoxx/ansible-role-accounts
     version: main
+  - name: frozenfoxx.avahi
+    src: https://github.com/frozenfoxx/ansible-role-avahi
+    version: main
   - name: frozenfoxx.ctop
     src: https://github.com/frozenfoxx/ansible-role-ctop
     version: main

@@ -16,6 +16,7 @@
   become: true
   become_user: root
   roles:
+    - frozenfoxx.avahi
     - python
     - frozenfoxx.mounts
     - geerlingguy.docker

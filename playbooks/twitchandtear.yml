@@ -1,11 +1,11 @@
 ---
-- name: Install packages
+- name: Install roles
   hosts:
     - twitchandtear
   become: true
   become_user: root
   roles:
-    - avahi
+    - frozenfoxx.avahi
 
 - name: Deploy twitchandtear server
   hosts: twitchandtear

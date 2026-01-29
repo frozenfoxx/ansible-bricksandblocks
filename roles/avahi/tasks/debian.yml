@@ -1,7 +1,0 @@
----
-- name: Install avahi-daemon
-  ansible.builtin.apt:
-    pkg:
-      - avahi-daemon
-  tags:
-    - avahi

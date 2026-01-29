@@ -5,7 +5,7 @@
     - rke2_worker
   become: true
   roles:
-    - avahi
+    - frozenfoxx.avahi
     - python
     - lablabs.rke2
     - frozenfoxx.ctop
