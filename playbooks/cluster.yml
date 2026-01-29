@@ -6,7 +6,7 @@
   become: true
   roles:
     - frozenfoxx.avahi
-    - python
+    - frozenfoxx.python
     - lablabs.rke2
     - frozenfoxx.ctop
     - frozenfoxx.task
